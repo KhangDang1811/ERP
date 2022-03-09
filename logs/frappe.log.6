@@ -1,0 +1,1098 @@
+2021-11-30 08:23:06,989 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"User","name":"new-user-2","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","enabled":1,"language":"en","send_welcome_email":1,"unsubscribed":0,"desk_theme":"Light","mute_sounds":0,"logout_all_sessions":1,"document_follow_notify":0,"document_follow_frequency":"Daily","thread_notify":1,"send_me_a_copy":0,"allowed_in_mentions":1,"simultaneous_sessions":1,"user_type":"System User","bypass_restrict_ip_check_if_2fa_enabled":0,"email":"hoitv@draco.biz","first_name":"Hội"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 249, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 312, in send_welcome_mail_to_user
+    self.send_login_mail(subject, "new_user",
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 339, in send_login_mail
+    frappe.sendmail(recipients=self.email, sender=sender, subject=subject,
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 562, in sendmail
+    builder.process(send_now=now)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 548, in process
+    queue_data = self.as_dict(include_recipients=False)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 568, in as_dict
+    email_account = self.get_outgoing_email_account()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 460, in get_outgoing_email_account
+    self._email_account = EmailAccount.find_outgoing(
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 232, in wrapper_raise_error_on_no_output
+    frappe.throw(error_message, error_type or Exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py", line 20, in savedocs
+    doc.save()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 282, in save
+    return self._save(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 304, in _save
+    self.insert()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 265, in insert
+    self.run_post_save_methods()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 998, in run_post_save_methods
+    self.run_method("on_update")
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 859, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1155, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1138, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 853, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 109, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 258, in send_password_notification
+    print(frappe.get_traceback())
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-11-30 08:23:48,829 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"User","name":"new-user-2","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","enabled":1,"language":"en","send_welcome_email":1,"unsubscribed":0,"desk_theme":"Light","mute_sounds":0,"logout_all_sessions":1,"document_follow_notify":0,"document_follow_frequency":"Daily","thread_notify":1,"send_me_a_copy":0,"allowed_in_mentions":1,"simultaneous_sessions":1,"user_type":"System User","bypass_restrict_ip_check_if_2fa_enabled":0,"email":"hoitv@draco.biz","first_name":"Hội","user_emails":[]}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 249, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 312, in send_welcome_mail_to_user
+    self.send_login_mail(subject, "new_user",
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 339, in send_login_mail
+    frappe.sendmail(recipients=self.email, sender=sender, subject=subject,
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 562, in sendmail
+    builder.process(send_now=now)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 548, in process
+    queue_data = self.as_dict(include_recipients=False)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 568, in as_dict
+    email_account = self.get_outgoing_email_account()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 460, in get_outgoing_email_account
+    self._email_account = EmailAccount.find_outgoing(
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 232, in wrapper_raise_error_on_no_output
+    frappe.throw(error_message, error_type or Exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py", line 20, in savedocs
+    doc.save()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 282, in save
+    return self._save(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 304, in _save
+    self.insert()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 265, in insert
+    self.run_post_save_methods()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 998, in run_post_save_methods
+    self.run_method("on_update")
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 859, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1155, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1138, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 853, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 109, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 258, in send_password_notification
+    print(frappe.get_traceback())
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-11-30 08:28:28,854 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"User","name":"new-user-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","enabled":1,"language":"en","send_welcome_email":1,"unsubscribed":0,"desk_theme":"Light","mute_sounds":0,"logout_all_sessions":1,"document_follow_notify":0,"document_follow_frequency":"Daily","thread_notify":1,"send_me_a_copy":0,"allowed_in_mentions":1,"simultaneous_sessions":1,"user_type":"System User","bypass_restrict_ip_check_if_2fa_enabled":0,"email":"hoitv@draco.biz","first_name":"hoi"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 249, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 312, in send_welcome_mail_to_user
+    self.send_login_mail(subject, "new_user",
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 339, in send_login_mail
+    frappe.sendmail(recipients=self.email, sender=sender, subject=subject,
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 562, in sendmail
+    builder.process(send_now=now)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 548, in process
+    queue_data = self.as_dict(include_recipients=False)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 568, in as_dict
+    email_account = self.get_outgoing_email_account()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 460, in get_outgoing_email_account
+    self._email_account = EmailAccount.find_outgoing(
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 232, in wrapper_raise_error_on_no_output
+    frappe.throw(error_message, error_type or Exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py", line 20, in savedocs
+    doc.save()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 282, in save
+    return self._save(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 304, in _save
+    self.insert()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 265, in insert
+    self.run_post_save_methods()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 998, in run_post_save_methods
+    self.run_method("on_update")
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 859, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1155, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1138, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 853, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 109, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 258, in send_password_notification
+    print(frappe.get_traceback())
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-11-30 08:28:49,067 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"User","name":"new-user-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","enabled":1,"language":"en","send_welcome_email":1,"unsubscribed":0,"desk_theme":"Light","mute_sounds":0,"logout_all_sessions":1,"document_follow_notify":0,"document_follow_frequency":"Daily","thread_notify":1,"send_me_a_copy":0,"allowed_in_mentions":1,"simultaneous_sessions":1,"user_type":"System User","bypass_restrict_ip_check_if_2fa_enabled":0,"email":"hoitv@draco.biz","first_name":"hoi","user_emails":[{"docstatus":0,"doctype":"User Email","name":"new-user-email-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","awaiting_password":0,"enable_outgoing":0,"parent":"new-user-1","parentfield":"user_emails","parenttype":"User","idx":1,"__unedited":false,"email_id":"hoitv@draco.biz","email_account":"hoitv@draco.biz"}]}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 249, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 312, in send_welcome_mail_to_user
+    self.send_login_mail(subject, "new_user",
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 339, in send_login_mail
+    frappe.sendmail(recipients=self.email, sender=sender, subject=subject,
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 562, in sendmail
+    builder.process(send_now=now)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 548, in process
+    queue_data = self.as_dict(include_recipients=False)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 568, in as_dict
+    email_account = self.get_outgoing_email_account()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 460, in get_outgoing_email_account
+    self._email_account = EmailAccount.find_outgoing(
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 232, in wrapper_raise_error_on_no_output
+    frappe.throw(error_message, error_type or Exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py", line 20, in savedocs
+    doc.save()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 282, in save
+    return self._save(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 304, in _save
+    self.insert()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 265, in insert
+    self.run_post_save_methods()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 998, in run_post_save_methods
+    self.run_method("on_update")
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 859, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1155, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1138, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 853, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 109, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 258, in send_password_notification
+    print(frappe.get_traceback())
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-11-30 08:29:19,488 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"User","name":"new-user-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","enabled":1,"language":"en","send_welcome_email":1,"unsubscribed":0,"desk_theme":"Light","mute_sounds":0,"logout_all_sessions":1,"document_follow_notify":0,"document_follow_frequency":"Daily","thread_notify":1,"send_me_a_copy":0,"allowed_in_mentions":1,"simultaneous_sessions":1,"user_type":"System User","bypass_restrict_ip_check_if_2fa_enabled":0,"email":"hoitv@draco.biz","first_name":"hoi","user_emails":[{"docstatus":0,"doctype":"User Email","name":"new-user-email-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","awaiting_password":0,"enable_outgoing":0,"parent":"new-user-1","parentfield":"user_emails","parenttype":"User","idx":1,"__unedited":false,"email_id":"hoitv@draco.biz","email_account":"hoitv@draco.biz"}]}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 249, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 312, in send_welcome_mail_to_user
+    self.send_login_mail(subject, "new_user",
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 339, in send_login_mail
+    frappe.sendmail(recipients=self.email, sender=sender, subject=subject,
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 562, in sendmail
+    builder.process(send_now=now)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 548, in process
+    queue_data = self.as_dict(include_recipients=False)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 568, in as_dict
+    email_account = self.get_outgoing_email_account()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 460, in get_outgoing_email_account
+    self._email_account = EmailAccount.find_outgoing(
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 232, in wrapper_raise_error_on_no_output
+    frappe.throw(error_message, error_type or Exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py", line 20, in savedocs
+    doc.save()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 282, in save
+    return self._save(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 304, in _save
+    self.insert()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 265, in insert
+    self.run_post_save_methods()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 998, in run_post_save_methods
+    self.run_method("on_update")
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 859, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1155, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1138, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 853, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 109, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 258, in send_password_notification
+    print(frappe.get_traceback())
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-11-30 08:30:04,574 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"User","name":"new-user-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","enabled":1,"language":"en","send_welcome_email":1,"unsubscribed":0,"desk_theme":"Light","mute_sounds":0,"logout_all_sessions":1,"document_follow_notify":0,"document_follow_frequency":"Daily","thread_notify":1,"send_me_a_copy":0,"allowed_in_mentions":1,"simultaneous_sessions":1,"user_type":"System User","bypass_restrict_ip_check_if_2fa_enabled":0,"email":"hoitv@draco.biz","first_name":"hoi","user_emails":[{"docstatus":0,"doctype":"User Email","name":"new-user-email-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","awaiting_password":0,"enable_outgoing":0,"parent":"new-user-1","parentfield":"user_emails","parenttype":"User","idx":1,"__unedited":false,"email_id":"hoitv@draco.biz","email_account":"hoitv@draco.biz"}]}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 249, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 312, in send_welcome_mail_to_user
+    self.send_login_mail(subject, "new_user",
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 339, in send_login_mail
+    frappe.sendmail(recipients=self.email, sender=sender, subject=subject,
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 562, in sendmail
+    builder.process(send_now=now)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 548, in process
+    queue_data = self.as_dict(include_recipients=False)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 568, in as_dict
+    email_account = self.get_outgoing_email_account()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 460, in get_outgoing_email_account
+    self._email_account = EmailAccount.find_outgoing(
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 232, in wrapper_raise_error_on_no_output
+    frappe.throw(error_message, error_type or Exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py", line 20, in savedocs
+    doc.save()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 282, in save
+    return self._save(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 304, in _save
+    self.insert()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 265, in insert
+    self.run_post_save_methods()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 998, in run_post_save_methods
+    self.run_method("on_update")
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 859, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1155, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1138, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 853, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 109, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 258, in send_password_notification
+    print(frappe.get_traceback())
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-11-30 08:30:10,570 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"User","name":"new-user-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","enabled":1,"language":"en","send_welcome_email":1,"unsubscribed":0,"desk_theme":"Light","mute_sounds":0,"logout_all_sessions":1,"document_follow_notify":0,"document_follow_frequency":"Daily","thread_notify":1,"send_me_a_copy":0,"allowed_in_mentions":1,"simultaneous_sessions":1,"user_type":"System User","bypass_restrict_ip_check_if_2fa_enabled":0,"email":"hoitv@draco.biz","first_name":"hoi","user_emails":[{"docstatus":0,"doctype":"User Email","name":"new-user-email-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","awaiting_password":0,"enable_outgoing":0,"parent":"new-user-1","parentfield":"user_emails","parenttype":"User","idx":1,"__unedited":false,"email_id":"hoitv@draco.biz","email_account":"hoitv@draco.biz"}]}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 249, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 312, in send_welcome_mail_to_user
+    self.send_login_mail(subject, "new_user",
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 339, in send_login_mail
+    frappe.sendmail(recipients=self.email, sender=sender, subject=subject,
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 562, in sendmail
+    builder.process(send_now=now)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 548, in process
+    queue_data = self.as_dict(include_recipients=False)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 568, in as_dict
+    email_account = self.get_outgoing_email_account()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 460, in get_outgoing_email_account
+    self._email_account = EmailAccount.find_outgoing(
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 232, in wrapper_raise_error_on_no_output
+    frappe.throw(error_message, error_type or Exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py", line 20, in savedocs
+    doc.save()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 282, in save
+    return self._save(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 304, in _save
+    self.insert()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 265, in insert
+    self.run_post_save_methods()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 998, in run_post_save_methods
+    self.run_method("on_update")
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 859, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1155, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1138, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 853, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 109, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 258, in send_password_notification
+    print(frappe.get_traceback())
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-11-30 08:36:08,683 INFO frappe Checking incoming POP3 email server no-replay@draco.com.vn:465 ssl=1...
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Email Domain","name":"new-email-domain-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","use_imap":0,"use_ssl":1,"attachment_limit":1,"use_tls":0,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":0,"email_server":"no-replay@draco.com.vn","incoming_port":"465","smtp_port":"993","smtp_server":"smtp.yandex.com","email_id":"no-replay@draco.com.vn","domain_name":"draco.com.vn"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2021-11-30 08:36:08,695 WARNING frappe Incoming email account "no-replay@draco.com.vn" not correct
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Email Domain","name":"new-email-domain-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","use_imap":0,"use_ssl":1,"attachment_limit":1,"use_tls":0,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":0,"email_server":"no-replay@draco.com.vn","incoming_port":"465","smtp_port":"993","smtp_server":"smtp.yandex.com","email_id":"no-replay@draco.com.vn","domain_name":"draco.com.vn"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_domain/email_domain.py", line 41, in validate
+    test = poplib.POP3_SSL(self.email_server, port=get_port(self))
+  File "/usr/lib/python3.8/poplib.py", line 450, in __init__
+    POP3.__init__(self, host, port, timeout)
+  File "/usr/lib/python3.8/poplib.py", line 104, in __init__
+    self.sock = self._create_socket(timeout)
+  File "/usr/lib/python3.8/poplib.py", line 453, in _create_socket
+    sock = POP3._create_socket(self, timeout)
+  File "/usr/lib/python3.8/poplib.py", line 110, in _create_socket
+    return socket.create_connection((self.host, self.port), timeout)
+  File "/usr/lib/python3.8/socket.py", line 787, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+2021-11-30 08:36:27,034 INFO frappe Checking incoming POP3 email server no-replay@draco.com.vn:993 ssl=1...
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Email Domain","name":"new-email-domain-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","use_imap":0,"use_ssl":1,"attachment_limit":1,"use_tls":0,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":0,"email_server":"no-replay@draco.com.vn","incoming_port":"993","smtp_port":"465","smtp_server":"smtp.yandex.com","email_id":"no-replay@draco.com.vn","domain_name":"draco.com.vn"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2021-11-30 08:36:27,034 WARNING frappe Incoming email account "no-replay@draco.com.vn" not correct
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Email Domain","name":"new-email-domain-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","use_imap":0,"use_ssl":1,"attachment_limit":1,"use_tls":0,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":0,"email_server":"no-replay@draco.com.vn","incoming_port":"993","smtp_port":"465","smtp_server":"smtp.yandex.com","email_id":"no-replay@draco.com.vn","domain_name":"draco.com.vn"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_domain/email_domain.py", line 41, in validate
+    test = poplib.POP3_SSL(self.email_server, port=get_port(self))
+  File "/usr/lib/python3.8/poplib.py", line 450, in __init__
+    POP3.__init__(self, host, port, timeout)
+  File "/usr/lib/python3.8/poplib.py", line 104, in __init__
+    self.sock = self._create_socket(timeout)
+  File "/usr/lib/python3.8/poplib.py", line 453, in _create_socket
+    sock = POP3._create_socket(self, timeout)
+  File "/usr/lib/python3.8/poplib.py", line 110, in _create_socket
+    return socket.create_connection((self.host, self.port), timeout)
+  File "/usr/lib/python3.8/socket.py", line 787, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+2021-11-30 08:36:33,809 INFO frappe Checking incoming IMAP email server no-replay@draco.com.vn:993 ssl=1...
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Email Domain","name":"new-email-domain-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","use_imap":1,"use_ssl":1,"attachment_limit":1,"use_tls":0,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":0,"email_server":"no-replay@draco.com.vn","incoming_port":"993","smtp_port":"465","smtp_server":"smtp.yandex.com","email_id":"no-replay@draco.com.vn","domain_name":"draco.com.vn"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2021-11-30 08:36:33,810 WARNING frappe Incoming email account "no-replay@draco.com.vn" not correct
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Email Domain","name":"new-email-domain-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","use_imap":1,"use_ssl":1,"attachment_limit":1,"use_tls":0,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":0,"email_server":"no-replay@draco.com.vn","incoming_port":"993","smtp_port":"465","smtp_server":"smtp.yandex.com","email_id":"no-replay@draco.com.vn","domain_name":"draco.com.vn"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_domain/email_domain.py", line 33, in validate
+    test = imaplib.IMAP4_SSL(self.email_server, port=get_port(self))
+  File "/usr/lib/python3.8/imaplib.py", line 1297, in __init__
+    IMAP4.__init__(self, host, port)
+  File "/usr/lib/python3.8/imaplib.py", line 198, in __init__
+    self.open(host, port)
+  File "/usr/lib/python3.8/imaplib.py", line 1310, in open
+    IMAP4.open(self, host, port)
+  File "/usr/lib/python3.8/imaplib.py", line 303, in open
+    self.sock = self._create_socket()
+  File "/usr/lib/python3.8/imaplib.py", line 1300, in _create_socket
+    sock = IMAP4._create_socket(self)
+  File "/usr/lib/python3.8/imaplib.py", line 293, in _create_socket
+    return socket.create_connection((host, self.port))
+  File "/usr/lib/python3.8/socket.py", line 787, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+2021-11-30 08:36:50,955 INFO frappe Checking incoming IMAP email server imap.yandex.com:993 ssl=1...
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Email Domain","name":"new-email-domain-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","use_imap":1,"use_ssl":1,"attachment_limit":1,"use_tls":0,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":0,"email_server":"imap.yandex.com","incoming_port":"993","smtp_port":"465","smtp_server":"smtp.yandex.com","email_id":"no-replay@draco.com.vn","domain_name":"draco.com.vn"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2021-11-30 08:36:52,925 INFO frappe Checking outgoing SMTPS email server smtp.yandex.com:465...
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Email Domain","name":"new-email-domain-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","use_imap":1,"use_ssl":1,"attachment_limit":1,"use_tls":0,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":0,"email_server":"imap.yandex.com","incoming_port":"993","smtp_port":"465","smtp_server":"smtp.yandex.com","email_id":"no-replay@draco.com.vn","domain_name":"draco.com.vn"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2021-11-30 08:38:28,094 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"User","name":"new-user-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","enabled":1,"language":"en","send_welcome_email":1,"unsubscribed":0,"desk_theme":"Light","mute_sounds":0,"logout_all_sessions":1,"document_follow_notify":0,"document_follow_frequency":"Daily","thread_notify":1,"send_me_a_copy":0,"allowed_in_mentions":1,"simultaneous_sessions":1,"user_type":"System User","bypass_restrict_ip_check_if_2fa_enabled":0,"email":"hoitv@draco.com.vn","first_name":"Hoi"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 249, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 312, in send_welcome_mail_to_user
+    self.send_login_mail(subject, "new_user",
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 339, in send_login_mail
+    frappe.sendmail(recipients=self.email, sender=sender, subject=subject,
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 562, in sendmail
+    builder.process(send_now=now)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 548, in process
+    queue_data = self.as_dict(include_recipients=False)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 568, in as_dict
+    email_account = self.get_outgoing_email_account()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 460, in get_outgoing_email_account
+    self._email_account = EmailAccount.find_outgoing(
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 232, in wrapper_raise_error_on_no_output
+    frappe.throw(error_message, error_type or Exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py", line 20, in savedocs
+    doc.save()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 282, in save
+    return self._save(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 304, in _save
+    self.insert()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 265, in insert
+    self.run_post_save_methods()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 998, in run_post_save_methods
+    self.run_method("on_update")
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 859, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1155, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1138, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 853, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 109, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 258, in send_password_notification
+    print(frappe.get_traceback())
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-11-30 08:39:27,030 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"User","name":"new-user-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","enabled":1,"language":"en","send_welcome_email":1,"unsubscribed":0,"desk_theme":"Light","mute_sounds":0,"logout_all_sessions":1,"document_follow_notify":0,"document_follow_frequency":"Daily","thread_notify":1,"send_me_a_copy":0,"allowed_in_mentions":1,"simultaneous_sessions":1,"user_type":"System User","bypass_restrict_ip_check_if_2fa_enabled":0,"email":"hoitv@draco.com.vn","first_name":"Hoi","user_emails":[{"docstatus":0,"doctype":"User Email","name":"new-user-email-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","awaiting_password":0,"enable_outgoing":0,"parent":"new-user-1","parentfield":"user_emails","parenttype":"User","idx":1,"__unedited":false,"email_account":"Hoitv","email_id":"hoitv@draco.com.vn"}]}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 249, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 312, in send_welcome_mail_to_user
+    self.send_login_mail(subject, "new_user",
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 339, in send_login_mail
+    frappe.sendmail(recipients=self.email, sender=sender, subject=subject,
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 562, in sendmail
+    builder.process(send_now=now)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 548, in process
+    queue_data = self.as_dict(include_recipients=False)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 568, in as_dict
+    email_account = self.get_outgoing_email_account()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 460, in get_outgoing_email_account
+    self._email_account = EmailAccount.find_outgoing(
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 232, in wrapper_raise_error_on_no_output
+    frappe.throw(error_message, error_type or Exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py", line 20, in savedocs
+    doc.save()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 282, in save
+    return self._save(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 304, in _save
+    self.insert()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 265, in insert
+    self.run_post_save_methods()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 998, in run_post_save_methods
+    self.run_method("on_update")
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 859, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1155, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1138, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 853, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 109, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 258, in send_password_notification
+    print(frappe.get_traceback())
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-11-30 08:39:46,669 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"User","name":"new-user-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","enabled":1,"language":"en","send_welcome_email":1,"unsubscribed":0,"desk_theme":"Light","mute_sounds":0,"logout_all_sessions":1,"document_follow_notify":0,"document_follow_frequency":"Daily","thread_notify":1,"send_me_a_copy":0,"allowed_in_mentions":1,"simultaneous_sessions":1,"user_type":"System User","bypass_restrict_ip_check_if_2fa_enabled":0,"email":"hoitv@draco.com.vn","first_name":"Hoi","user_emails":[{"docstatus":0,"doctype":"User Email","name":"new-user-email-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","awaiting_password":0,"enable_outgoing":0,"parent":"new-user-1","parentfield":"user_emails","parenttype":"User","idx":1,"__unedited":false,"email_account":"Hoitv","email_id":"hoitv@draco.com.vn"}],"email_signature":"hoitv@draco.com.vn\\n"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 249, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 312, in send_welcome_mail_to_user
+    self.send_login_mail(subject, "new_user",
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 339, in send_login_mail
+    frappe.sendmail(recipients=self.email, sender=sender, subject=subject,
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 562, in sendmail
+    builder.process(send_now=now)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 548, in process
+    queue_data = self.as_dict(include_recipients=False)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 568, in as_dict
+    email_account = self.get_outgoing_email_account()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 460, in get_outgoing_email_account
+    self._email_account = EmailAccount.find_outgoing(
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 232, in wrapper_raise_error_on_no_output
+    frappe.throw(error_message, error_type or Exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py", line 20, in savedocs
+    doc.save()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 282, in save
+    return self._save(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 304, in _save
+    self.insert()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 265, in insert
+    self.run_post_save_methods()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 998, in run_post_save_methods
+    self.run_method("on_update")
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 859, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1155, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1138, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 853, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 109, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 258, in send_password_notification
+    print(frappe.get_traceback())
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-11-30 08:39:57,535 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"User","name":"new-user-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","enabled":1,"language":"en","send_welcome_email":1,"unsubscribed":0,"desk_theme":"Light","mute_sounds":0,"logout_all_sessions":1,"document_follow_notify":0,"document_follow_frequency":"Daily","thread_notify":1,"send_me_a_copy":0,"allowed_in_mentions":1,"simultaneous_sessions":1,"user_type":"System User","bypass_restrict_ip_check_if_2fa_enabled":0,"email":"hoitv@draco.com.vn","first_name":"Hoi","user_emails":[{"docstatus":0,"doctype":"User Email","name":"new-user-email-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","awaiting_password":0,"enable_outgoing":0,"parent":"new-user-1","parentfield":"user_emails","parenttype":"User","idx":1,"__unedited":false,"email_account":"hoitv@draco.biz","email_id":"hoitv@draco.biz"}],"email_signature":"hoitv@draco.com.vn\\n"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 249, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 312, in send_welcome_mail_to_user
+    self.send_login_mail(subject, "new_user",
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 339, in send_login_mail
+    frappe.sendmail(recipients=self.email, sender=sender, subject=subject,
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 562, in sendmail
+    builder.process(send_now=now)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 548, in process
+    queue_data = self.as_dict(include_recipients=False)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 568, in as_dict
+    email_account = self.get_outgoing_email_account()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 460, in get_outgoing_email_account
+    self._email_account = EmailAccount.find_outgoing(
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 232, in wrapper_raise_error_on_no_output
+    frappe.throw(error_message, error_type or Exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py", line 20, in savedocs
+    doc.save()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 282, in save
+    return self._save(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 304, in _save
+    self.insert()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 265, in insert
+    self.run_post_save_methods()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 998, in run_post_save_methods
+    self.run_method("on_update")
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 859, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1155, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1138, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 853, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 109, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 258, in send_password_notification
+    print(frappe.get_traceback())
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-11-30 08:44:00,434 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"User","name":"new-user-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","enabled":1,"language":"en","send_welcome_email":1,"unsubscribed":0,"desk_theme":"Light","mute_sounds":0,"logout_all_sessions":1,"document_follow_notify":0,"document_follow_frequency":"Daily","thread_notify":1,"send_me_a_copy":0,"allowed_in_mentions":1,"simultaneous_sessions":1,"user_type":"System User","bypass_restrict_ip_check_if_2fa_enabled":0,"email":"hoitv@draco.com.vn","first_name":"Hoi","user_emails":[{"docstatus":0,"doctype":"User Email","name":"new-user-email-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","awaiting_password":0,"enable_outgoing":0,"parent":"new-user-1","parentfield":"user_emails","parenttype":"User","idx":1,"__unedited":false,"email_account":"hoitv@draco.biz","email_id":"hoitv@draco.biz"}],"email_signature":"hoitv@draco.com.vn\\n"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 249, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 312, in send_welcome_mail_to_user
+    self.send_login_mail(subject, "new_user",
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 339, in send_login_mail
+    frappe.sendmail(recipients=self.email, sender=sender, subject=subject,
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 562, in sendmail
+    builder.process(send_now=now)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 548, in process
+    queue_data = self.as_dict(include_recipients=False)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 568, in as_dict
+    email_account = self.get_outgoing_email_account()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 460, in get_outgoing_email_account
+    self._email_account = EmailAccount.find_outgoing(
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 232, in wrapper_raise_error_on_no_output
+    frappe.throw(error_message, error_type or Exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py", line 20, in savedocs
+    doc.save()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 282, in save
+    return self._save(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 304, in _save
+    self.insert()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 265, in insert
+    self.run_post_save_methods()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 998, in run_post_save_methods
+    self.run_method("on_update")
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 859, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1155, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1138, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 853, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 109, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 258, in send_password_notification
+    print(frappe.get_traceback())
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-11-30 08:44:13,445 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"User","name":"new-user-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","enabled":1,"language":"en","send_welcome_email":1,"unsubscribed":0,"desk_theme":"Light","mute_sounds":0,"logout_all_sessions":1,"document_follow_notify":0,"document_follow_frequency":"Daily","thread_notify":1,"send_me_a_copy":0,"allowed_in_mentions":1,"simultaneous_sessions":1,"user_type":"System User","bypass_restrict_ip_check_if_2fa_enabled":0,"email":"hoitv@draco.com.vn","first_name":"Hoi","user_emails":[{"docstatus":0,"doctype":"User Email","name":"new-user-email-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","awaiting_password":0,"enable_outgoing":0,"parent":"new-user-1","parentfield":"user_emails","parenttype":"User","idx":1,"__unedited":false,"email_account":"hoitv@draco.biz","email_id":"hoitv@draco.biz"}],"email_signature":"hoitv@draco.com.vn\\n"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 249, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 312, in send_welcome_mail_to_user
+    self.send_login_mail(subject, "new_user",
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 339, in send_login_mail
+    frappe.sendmail(recipients=self.email, sender=sender, subject=subject,
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 562, in sendmail
+    builder.process(send_now=now)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 548, in process
+    queue_data = self.as_dict(include_recipients=False)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 568, in as_dict
+    email_account = self.get_outgoing_email_account()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 460, in get_outgoing_email_account
+    self._email_account = EmailAccount.find_outgoing(
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 232, in wrapper_raise_error_on_no_output
+    frappe.throw(error_message, error_type or Exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py", line 20, in savedocs
+    doc.save()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 282, in save
+    return self._save(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 304, in _save
+    self.insert()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 265, in insert
+    self.run_post_save_methods()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 998, in run_post_save_methods
+    self.run_method("on_update")
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 859, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1155, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1138, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 853, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 109, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 258, in send_password_notification
+    print(frappe.get_traceback())
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-11-30 08:45:28,538 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"User","name":"new-user-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","enabled":1,"language":"en","send_welcome_email":1,"unsubscribed":0,"desk_theme":"Light","mute_sounds":0,"logout_all_sessions":1,"document_follow_notify":0,"document_follow_frequency":"Daily","thread_notify":1,"send_me_a_copy":0,"allowed_in_mentions":1,"simultaneous_sessions":1,"user_type":"System User","bypass_restrict_ip_check_if_2fa_enabled":0,"email":"hoitv@draco.com.vn","first_name":"Hoi","user_emails":[{"docstatus":0,"doctype":"User Email","name":"new-user-email-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","awaiting_password":0,"enable_outgoing":0,"parent":"new-user-1","parentfield":"user_emails","parenttype":"User","idx":1,"__unedited":false,"email_account":"hoitv@draco.biz","email_id":"hoitv@draco.biz"}],"email_signature":"hoitv@draco.com.vn\\n","username":"hoitv@draco.com.vn"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 249, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 312, in send_welcome_mail_to_user
+    self.send_login_mail(subject, "new_user",
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 339, in send_login_mail
+    frappe.sendmail(recipients=self.email, sender=sender, subject=subject,
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 562, in sendmail
+    builder.process(send_now=now)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 548, in process
+    queue_data = self.as_dict(include_recipients=False)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 568, in as_dict
+    email_account = self.get_outgoing_email_account()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 460, in get_outgoing_email_account
+    self._email_account = EmailAccount.find_outgoing(
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 232, in wrapper_raise_error_on_no_output
+    frappe.throw(error_message, error_type or Exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py", line 20, in savedocs
+    doc.save()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 282, in save
+    return self._save(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 304, in _save
+    self.insert()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 265, in insert
+    self.run_post_save_methods()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 998, in run_post_save_methods
+    self.run_method("on_update")
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 859, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1155, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 1138, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 853, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 109, in on_update
+    self.send_password_notification(self.__new_password)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py", line 258, in send_password_notification
+    print(frappe.get_traceback())
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written

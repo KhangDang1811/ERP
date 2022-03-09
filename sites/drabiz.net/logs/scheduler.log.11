@@ -1,0 +1,5 @@
+2021-12-02 15:48:08,572 INFO scheduler Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for drabiz.net
+2021-12-02 15:48:08,662 INFO scheduler Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for drabiz.net
+2021-12-02 15:48:08,955 INFO scheduler Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for drabiz.net
+2021-12-02 15:48:09,054 INFO scheduler Scheduled Job Start: frappe.email.queue.flush for drabiz.net
+2021-12-02 15:48:09,315 INFO scheduler Scheduled Job Complete: frappe.email.queue.flush for drabiz.net

@@ -1,0 +1,248 @@
+{
+ "etype": "TypeError",
+ "evalue": "TypeError(\"'<' not supported between instances of 'NoneType' and 'int'\")",
+ "exception": {
+  "args": [
+   40,
+   34,
+   39,
+   60,
+   39,
+   32,
+   110,
+   111,
+   116,
+   32,
+   115,
+   117,
+   112,
+   112,
+   111,
+   114,
+   116,
+   101,
+   100,
+   32,
+   98,
+   101,
+   116,
+   119,
+   101,
+   101,
+   110,
+   32,
+   105,
+   110,
+   115,
+   116,
+   97,
+   110,
+   99,
+   101,
+   115,
+   32,
+   111,
+   102,
+   32,
+   39,
+   78,
+   111,
+   110,
+   101,
+   84,
+   121,
+   112,
+   101,
+   39,
+   32,
+   97,
+   110,
+   100,
+   32,
+   39,
+   105,
+   110,
+   116,
+   39,
+   34,
+   44,
+   41
+  ],
+  "with_traceback": [
+   60,
+   98,
+   117,
+   105,
+   108,
+   116,
+   45,
+   105,
+   110,
+   32,
+   109,
+   101,
+   116,
+   104,
+   111,
+   100,
+   32,
+   119,
+   105,
+   116,
+   104,
+   95,
+   116,
+   114,
+   97,
+   99,
+   101,
+   98,
+   97,
+   99,
+   107,
+   32,
+   111,
+   102,
+   32,
+   84,
+   121,
+   112,
+   101,
+   69,
+   114,
+   114,
+   111,
+   114,
+   32,
+   111,
+   98,
+   106,
+   101,
+   99,
+   116,
+   62
+  ]
+ },
+ "frames": [
+  {
+   "call": "(request=<Request 'http://drabiz.net:8000/api/method/frap...energy_point_log.energy_point_log.review' [POST]>)",
+   "dump": {
+    "frappe. api": "<module 'frappe.api' from '/opt/bench/erpnext/apps/frappe/frappe/api.py'>",
+    "frappe.api. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "response": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/app.py",
+   "func": "application",
+   "lines": {
+    "64": "",
+    "65": "\t\telif request.path.startswith(\"/api/\"):",
+    "66": "\t\t\tresponse = frappe.api.handle()",
+    "67": "",
+    "68": "\t\telif request.path.startswith('/backups'):"
+   },
+   "lnum": 66
+  },
+  {
+   "call": "()",
+   "dump": {
+    "frappe. handler": "<module 'frappe.handler' from '/opt/bench/erpnext/apps/frappe/frappe/handler.py'>",
+    "frappe.handler. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/api.py",
+   "func": "handle",
+   "lines": {
+    "52": "\tif call==\"method\":",
+    "53": "\t\tfrappe.local.form_dict.cmd = doctype",
+    "54": "\t\treturn frappe.handler.handle()",
+    "55": "",
+    "56": "\telif call==\"resource\":"
+   },
+   "lnum": 54
+  },
+  {
+   "call": "()",
+   "dump": {
+    "cmd": "'frappe.social.doctype.energy_point_log.energy_point_log.review'",
+    "data": "None",
+    "global execute_cmd": "<function execute_cmd>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "handle",
+   "lines": {
+    "29": "",
+    "30": "\tif cmd != 'login':",
+    "31": "\t\tdata = execute_cmd(cmd)",
+    "32": "",
+    "33": "\t# data can be an empty string or list which are valid responses"
+   },
+   "lnum": 31
+  },
+  {
+   "call": "(cmd='frappe.social.doctype.energy_point_log.energy_point_log.review', from_async=False)",
+   "dump": {
+    "frappe. call": "<function call>",
+    "frappe. form_dict": "{'doc': '{\"doctype\":\"Product Bundle\",\"name\":\"CPM...octype.energy_point_log.energy_point_log.review'}",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "method": "<function review>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "execute_cmd",
+   "lines": {
+    "65": "\t\tis_valid_http_method(method)",
+    "66": "",
+    "67": "\treturn frappe.call(method, **frappe.form_dict)",
+    "68": "",
+    "69": "def is_valid_http_method(method):"
+   },
+   "lnum": 67
+  },
+  {
+   "call": "(fn=<function review>, *args=(), **kwargs={'cmd': 'frappe.social.doctype.energy_point_log.energy_point_log.review', 'doc': '{\"doctype\":\"Product Bundle\",\"name\":\"CPMH\"}', 'points': '2', 'reason': 'test', 'review_type': 'Appreciation', 'to_user': 'ancht1@draco.biz'})",
+   "dump": {
+    "args": "()",
+    "fn": "<function review>",
+    "newargs": "{'doc': '{\"doctype\":\"Product Bundle\",\"name\":\"CPMH\"}', 'points': '2', 'reason': 'test', 'review_type': 'Appreciation', 'to_user': 'ancht1@draco.biz'}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "call",
+   "lines": {
+    "1218": "\tnewargs = get_newargs(fn, kwargs)",
+    "1219": "",
+    "1220": "\treturn fn(*args, **newargs)",
+    "1221": "",
+    "1222": "def get_newargs(fn, kwargs):"
+   },
+   "lnum": 1220
+  },
+  {
+   "call": "(doc={'doctype': 'Product Bundle', 'name': 'CPMH'}, points=2, to_user='ancht1@draco.biz', reason='test', review_type='Appreciation')",
+   "dump": {
+    "current_review_points": "None",
+    "points": "2"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/social/doctype/energy_point_log/energy_point_log.py",
+   "func": "review",
+   "lines": {
+    "265": "\tdoc = doc.as_dict() if hasattr(doc, 'as_dict') else frappe._dict(json.loads(doc))",
+    "266": "\tpoints = abs(cint(points))",
+    "267": "\tif current_review_points < points:",
+    "268": "\t\tfrappe.msgprint(_('You do not have enough review points'))",
+    "269": "\t\treturn"
+   },
+   "lnum": 267
+  }
+ ],
+ "locals": {
+  "current_review_points": "None",
+  "doc": "{'doctype': 'Product Bundle', 'name': 'CPMH'}",
+  "points": "2",
+  "reason": "test",
+  "review_type": "Appreciation",
+  "to_user": "ancht1@draco.biz"
+ },
+ "pyver": "Python 3.8.10: /opt/bench/erpnext/env/bin/python (prefix: /opt/bench/erpnext/env)",
+ "timestamp": "2022-02-22 17:11:37.668477",
+ "traceback": "Traceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/app.py\", line 66, in application\n    response = frappe.api.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/api.py\", line 54, in handle\n    return frappe.handler.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 31, in handle\n    data = execute_cmd(cmd)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 67, in execute_cmd\n    return frappe.call(method, **frappe.form_dict)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 1220, in call\n    return fn(*args, **newargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/social/doctype/energy_point_log/energy_point_log.py\", line 267, in review\n    if current_review_points < points:\nTypeError: '<' not supported between instances of 'NoneType' and 'int'\n"
+}

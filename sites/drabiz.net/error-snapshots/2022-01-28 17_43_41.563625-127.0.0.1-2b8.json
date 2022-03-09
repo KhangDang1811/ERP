@@ -1,0 +1,321 @@
+{
+ "etype": "UnboundLocalError",
+ "evalue": "UnboundLocalError(\"local variable 'res' referenced before assignment\")",
+ "exception": {
+  "args": [
+   40,
+   34,
+   108,
+   111,
+   99,
+   97,
+   108,
+   32,
+   118,
+   97,
+   114,
+   105,
+   97,
+   98,
+   108,
+   101,
+   32,
+   39,
+   114,
+   101,
+   115,
+   39,
+   32,
+   114,
+   101,
+   102,
+   101,
+   114,
+   101,
+   110,
+   99,
+   101,
+   100,
+   32,
+   98,
+   101,
+   102,
+   111,
+   114,
+   101,
+   32,
+   97,
+   115,
+   115,
+   105,
+   103,
+   110,
+   109,
+   101,
+   110,
+   116,
+   34,
+   44,
+   41
+  ],
+  "with_traceback": [
+   60,
+   98,
+   117,
+   105,
+   108,
+   116,
+   45,
+   105,
+   110,
+   32,
+   109,
+   101,
+   116,
+   104,
+   111,
+   100,
+   32,
+   119,
+   105,
+   116,
+   104,
+   95,
+   116,
+   114,
+   97,
+   99,
+   101,
+   98,
+   97,
+   99,
+   107,
+   32,
+   111,
+   102,
+   32,
+   85,
+   110,
+   98,
+   111,
+   117,
+   110,
+   100,
+   76,
+   111,
+   99,
+   97,
+   108,
+   69,
+   114,
+   114,
+   111,
+   114,
+   32,
+   111,
+   98,
+   106,
+   101,
+   99,
+   116,
+   62
+  ]
+ },
+ "frames": [
+  {
+   "call": "(request=<Request 'http://drabiz.net:8000/api/method/frap...t_name=123&filters=%7B%7D&_=1643362707552' [GET]>)",
+   "dump": {
+    "frappe. api": "<module 'frappe.api' from '/opt/bench/erpnext/apps/frappe/frappe/api.py'>",
+    "frappe.api. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "response": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/app.py",
+   "func": "application",
+   "lines": {
+    "64": "",
+    "65": "\t\telif request.path.startswith(\"/api/\"):",
+    "66": "\t\t\tresponse = frappe.api.handle()",
+    "67": "",
+    "68": "\t\telif request.path.startswith('/backups'):"
+   },
+   "lnum": 66
+  },
+  {
+   "call": "()",
+   "dump": {
+    "frappe. handler": "<module 'frappe.handler' from '/opt/bench/erpnext/apps/frappe/frappe/handler.py'>",
+    "frappe.handler. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/api.py",
+   "func": "handle",
+   "lines": {
+    "52": "\tif call==\"method\":",
+    "53": "\t\tfrappe.local.form_dict.cmd = doctype",
+    "54": "\t\treturn frappe.handler.handle()",
+    "55": "",
+    "56": "\telif call==\"resource\":"
+   },
+   "lnum": 54
+  },
+  {
+   "call": "()",
+   "dump": {
+    "cmd": "'frappe.desk.query_report.run'",
+    "data": "None",
+    "global execute_cmd": "<function execute_cmd>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "handle",
+   "lines": {
+    "29": "",
+    "30": "\tif cmd != 'login':",
+    "31": "\t\tdata = execute_cmd(cmd)",
+    "32": "",
+    "33": "\t# data can be an empty string or list which are valid responses"
+   },
+   "lnum": 31
+  },
+  {
+   "call": "(cmd='frappe.desk.query_report.run', from_async=False)",
+   "dump": {
+    "frappe. call": "<function call>",
+    "frappe. form_dict": "{'report_name': '123', 'filters': '{}', 'cmd': 'frappe.desk.query_report.run'}",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "method": "<function read_only.<locals>.innfn.<locals>.wrapper_fn>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "execute_cmd",
+   "lines": {
+    "65": "\t\tis_valid_http_method(method)",
+    "66": "",
+    "67": "\treturn frappe.call(method, **frappe.form_dict)",
+    "68": "",
+    "69": "def is_valid_http_method(method):"
+   },
+   "lnum": 67
+  },
+  {
+   "call": "(fn=<function read_only.<locals>.innfn.<locals>.wrapper_fn>, *args=(), **kwargs={'cmd': 'frappe.desk.query_report.run', 'filters': '{}', 'report_name': '123'})",
+   "dump": {
+    "args": "()",
+    "fn": "<function read_only.<locals>.innfn.<locals>.wrapper_fn>",
+    "newargs": "{'cmd': 'frappe.desk.query_report.run', 'filters': '{}', 'report_name': '123'}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "call",
+   "lines": {
+    "1218": "\tnewargs = get_newargs(fn, kwargs)",
+    "1219": "",
+    "1220": "\treturn fn(*args, **newargs)",
+    "1221": "",
+    "1222": "def get_newargs(fn, kwargs):"
+   },
+   "lnum": 1220
+  },
+  {
+   "call": "(*args=(), **kwargs={'cmd': 'frappe.desk.query_report.run', 'filters': '{}', 'report_name': '123'})",
+   "dump": {
+    "args": "()",
+    "fn": "<function run>",
+    "global get_newargs": "<function get_newargs>",
+    "kwargs": "{'cmd': 'frappe.desk.query_report.run', 'filters': '{}', 'report_name': '123'}",
+    "retval": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "wrapper_fn",
+   "lines": {
+    "630": "",
+    "631": "\t\t\ttry:",
+    "632": "\t\t\t\tretval = fn(*args, **get_newargs(fn, kwargs))",
+    "633": "\t\t\tfinally:",
+    "634": "\t\t\t\tif local and hasattr(local, 'primary_db'):"
+   },
+   "lnum": 632
+  },
+  {
+   "call": "(report_name='123', filters='{}', user='lantt@draco.biz', ignore_prepared_report=False, custom_columns=None)",
+   "dump": {
+    "custom_columns": "None",
+    "filters": "'{}'",
+    "global generate_report_result": "<function read_only.<locals>.innfn.<locals>.wrapper_fn>",
+    "report": "<Report: 123>",
+    "result": "None",
+    "user": "'lantt@draco.biz'"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py",
+   "func": "run",
+   "lines": {
+    "239": "\t\tresult = get_prepared_report_result(report, filters, dn, user)",
+    "240": "\telse:",
+    "241": "\t\tresult = generate_report_result(report, filters, user, custom_columns)",
+    "242": "",
+    "243": "\tresult[\"add_total_row\"] = report.add_total_row and not result.get("
+   },
+   "lnum": 241
+  },
+  {
+   "call": "(*args=(<Report: 123>, '{}', 'lantt@draco.biz', None), **kwargs={})",
+   "dump": {
+    "args": "(<Report: 123>, '{}', 'lantt@draco.biz', None)",
+    "fn": "<function generate_report_result>",
+    "global get_newargs": "<function get_newargs>",
+    "kwargs": "{}",
+    "retval": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "wrapper_fn",
+   "lines": {
+    "630": "",
+    "631": "\t\t\ttry:",
+    "632": "\t\t\t\tretval = fn(*args, **get_newargs(fn, kwargs))",
+    "633": "\t\t\tfinally:",
+    "634": "\t\t\t\tif local and hasattr(local, 'primary_db'):"
+   },
+   "lnum": 632
+  },
+  {
+   "call": "(report=<Report: 123>, filters={}, user='lantt@draco.biz', custom_columns=None)",
+   "dump": {
+    "filters": "{}",
+    "global get_report_result": "<function get_report_result>",
+    "report": "<Report: 123>",
+    "res": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py",
+   "func": "generate_report_result",
+   "lines": {
+    "81": "\t\tfilters = json.loads(filters)",
+    "82": "",
+    "83": "\tres = get_report_result(report, filters) or []",
+    "84": "",
+    "85": "\tcolumns, result, message, chart, report_summary, skip_total_row = ljust_list(res, 6)"
+   },
+   "lnum": 83
+  },
+  {
+   "call": "(report=<Report: 123>, filters={})",
+   "dump": {
+    "res": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py",
+   "func": "get_report_result",
+   "lines": {
+    "71": "\t\tres = get_report_result(ref_report, filters)",
+    "72": "",
+    "73": "\treturn res",
+    "74": "",
+    "75": "@frappe.read_only()"
+   },
+   "lnum": 73
+  }
+ ],
+ "locals": {
+  "filters": "{}",
+  "report": "<Report: 123>"
+ },
+ "pyver": "Python 3.8.10: /opt/bench/erpnext/env/bin/python (prefix: /opt/bench/erpnext/env)",
+ "timestamp": "2022-01-28 17:43:41.563908",
+ "traceback": "Traceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/app.py\", line 66, in application\n    response = frappe.api.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/api.py\", line 54, in handle\n    return frappe.handler.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 31, in handle\n    data = execute_cmd(cmd)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 67, in execute_cmd\n    return frappe.call(method, **frappe.form_dict)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 1220, in call\n    return fn(*args, **newargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 632, in wrapper_fn\n    retval = fn(*args, **get_newargs(fn, kwargs))\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py\", line 241, in run\n    result = generate_report_result(report, filters, user, custom_columns)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 632, in wrapper_fn\n    retval = fn(*args, **get_newargs(fn, kwargs))\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py\", line 83, in generate_report_result\n    res = get_report_result(report, filters) or []\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py\", line 73, in get_report_result\n    return res\nUnboundLocalError: local variable 'res' referenced before assignment\n"
+}

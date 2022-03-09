@@ -1,0 +1,1292 @@
+2021-12-02 14:04:23,742 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doctype': 'Purchase Invoice', 'name': 'new-purchase-invoice-2', 'print_format': 'Hóa đơn mua hàng', 'letterhead': 'DRACO'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 17, in get_response
+    response = renderer_instance.render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 78, in get_html
+    html = self.render_template()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 212, in render_template
+    html = frappe.render_template(self.source, self.context, safe_render=safe_render)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/jinja.py", line 80, in render_template
+    return get_jenv().from_string(template).render(context)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/environment.py", line 1291, in render
+    self.environment.handle_exception()
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<template>", line 5, in top-level template code
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/printing/doctype/print_format/print_format.py", line 23, in get_html
+    return get_html(self.doc_type, docname, self.name, letterhead)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/weasyprint.py", line 22, in get_html
+    doc = frappe.get_doc(doctype, name)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 898, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 72, in get_doc
+    return controller(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py", line 51, in __init__
+    super(PurchaseInvoice, self).__init__(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/controllers/accounts_controller.py", line 65, in __init__
+    super(AccountsController, self).__init__(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 110, in __init__
+    self.load_from_db()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 153, in load_from_db
+    frappe.throw(_("{0} {1} not found").format(_(self.doctype), self.name), frappe.DoesNotExistError)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.DoesNotExistError: Hóa đơn mua hàng new-purchase-invoice-2 không tìm thấy
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 194, in run_pymodule_method
+    return method(self.context)
+  File "/opt/bench/erpnext/apps/frappe/frappe/www/error.py", line 11, in get_context
+    print(frappe.get_traceback().encode("utf-8"))
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 75, in application
+    response = get_response()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 23, in get_response
+    response = ErrorPage(exception=e).render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 72, in get_html
+    self.update_context()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 135, in update_context
+    data = self.run_pymodule_method('get_context')
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 201, in run_pymodule_method
+    frappe.errprint(frappe.utils.get_traceback())
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 333, in errprint
+    print(msg)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-12-02 14:04:28,879 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doctype': 'Purchase Invoice', 'name': 'new-purchase-invoice-2', 'print_format': 'Hóa đơn mua hàng', 'letterhead': 'DRACO'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 17, in get_response
+    response = renderer_instance.render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 78, in get_html
+    html = self.render_template()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 212, in render_template
+    html = frappe.render_template(self.source, self.context, safe_render=safe_render)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/jinja.py", line 80, in render_template
+    return get_jenv().from_string(template).render(context)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/environment.py", line 1291, in render
+    self.environment.handle_exception()
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<template>", line 5, in top-level template code
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/printing/doctype/print_format/print_format.py", line 23, in get_html
+    return get_html(self.doc_type, docname, self.name, letterhead)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/weasyprint.py", line 22, in get_html
+    doc = frappe.get_doc(doctype, name)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 898, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 72, in get_doc
+    return controller(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py", line 51, in __init__
+    super(PurchaseInvoice, self).__init__(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/controllers/accounts_controller.py", line 65, in __init__
+    super(AccountsController, self).__init__(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 110, in __init__
+    self.load_from_db()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 153, in load_from_db
+    frappe.throw(_("{0} {1} not found").format(_(self.doctype), self.name), frappe.DoesNotExistError)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.DoesNotExistError: Hóa đơn mua hàng new-purchase-invoice-2 không tìm thấy
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 194, in run_pymodule_method
+    return method(self.context)
+  File "/opt/bench/erpnext/apps/frappe/frappe/www/error.py", line 11, in get_context
+    print(frappe.get_traceback().encode("utf-8"))
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 75, in application
+    response = get_response()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 23, in get_response
+    response = ErrorPage(exception=e).render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 72, in get_html
+    self.update_context()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 135, in update_context
+    data = self.run_pymodule_method('get_context')
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 201, in run_pymodule_method
+    frappe.errprint(frappe.utils.get_traceback())
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 333, in errprint
+    print(msg)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-12-02 14:31:47,605 ERROR frappe New Exception collected with id: 2021-12-02 14:31:47.599240-127.0.0.1-bcf
+Site: drabiz.net
+Form Dict: {'docname': 'Luyến ', 'fields': '[]', 'cmd': 'frappe.client.validate_link'}
+2021-12-06 23:46:58,425 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doctype': 'Sales Invoice', 'name': 'new-sales-invoice-1', 'format': 'Standard', 'no_letterhead': '0', 'letterhead': 'DRACO', 'settings': '{}', '_lang': 'vi'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 17, in get_response
+    response = renderer_instance.render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 72, in get_html
+    self.update_context()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 135, in update_context
+    data = self.run_pymodule_method('get_context')
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 194, in run_pymodule_method
+    return method(self.context)
+  File "/opt/bench/erpnext/apps/frappe/frappe/www/printview.py", line 28, in get_context
+    doc = frappe.get_doc(frappe.form_dict.doctype, frappe.form_dict.name)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 898, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 72, in get_doc
+    return controller(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.py", line 53, in __init__
+    super(SalesInvoice, self).__init__(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/controllers/accounts_controller.py", line 65, in __init__
+    super(AccountsController, self).__init__(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 110, in __init__
+    self.load_from_db()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 153, in load_from_db
+    frappe.throw(_("{0} {1} not found").format(_(self.doctype), self.name), frappe.DoesNotExistError)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.DoesNotExistError: Hóa đơn bán hàng new-sales-invoice-1 không tìm thấy
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 194, in run_pymodule_method
+    return method(self.context)
+  File "/opt/bench/erpnext/apps/frappe/frappe/www/error.py", line 11, in get_context
+    print(frappe.get_traceback().encode("utf-8"))
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 75, in application
+    response = get_response()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 23, in get_response
+    response = ErrorPage(exception=e).render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 72, in get_html
+    self.update_context()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 135, in update_context
+    data = self.run_pymodule_method('get_context')
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 201, in run_pymodule_method
+    frappe.errprint(frappe.utils.get_traceback())
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 333, in errprint
+    print(msg)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-12-06 23:49:38,455 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doctype': 'Sales Invoice', 'name': 'new-sales-invoice-1', 'print_format': 'HÓA ĐƠN BÁN HÀNG', 'letterhead': 'DRACO'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 17, in get_response
+    response = renderer_instance.render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 78, in get_html
+    html = self.render_template()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 212, in render_template
+    html = frappe.render_template(self.source, self.context, safe_render=safe_render)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/jinja.py", line 80, in render_template
+    return get_jenv().from_string(template).render(context)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/environment.py", line 1291, in render
+    self.environment.handle_exception()
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<template>", line 5, in top-level template code
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/printing/doctype/print_format/print_format.py", line 23, in get_html
+    return get_html(self.doc_type, docname, self.name, letterhead)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/weasyprint.py", line 22, in get_html
+    doc = frappe.get_doc(doctype, name)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 898, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 72, in get_doc
+    return controller(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.py", line 53, in __init__
+    super(SalesInvoice, self).__init__(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/controllers/accounts_controller.py", line 65, in __init__
+    super(AccountsController, self).__init__(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 110, in __init__
+    self.load_from_db()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 153, in load_from_db
+    frappe.throw(_("{0} {1} not found").format(_(self.doctype), self.name), frappe.DoesNotExistError)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.DoesNotExistError: Hóa đơn bán hàng new-sales-invoice-1 không tìm thấy
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 194, in run_pymodule_method
+    return method(self.context)
+  File "/opt/bench/erpnext/apps/frappe/frappe/www/error.py", line 11, in get_context
+    print(frappe.get_traceback().encode("utf-8"))
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 75, in application
+    response = get_response()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 23, in get_response
+    response = ErrorPage(exception=e).render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 72, in get_html
+    self.update_context()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 135, in update_context
+    data = self.run_pymodule_method('get_context')
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 201, in run_pymodule_method
+    frappe.errprint(frappe.utils.get_traceback())
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 333, in errprint
+    print(msg)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-12-06 23:49:38,962 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doctype': 'Sales Invoice', 'name': 'new-sales-invoice-1', 'print_format': 'HÓA ĐƠN BÁN HÀNG', 'letterhead': 'DRACO'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 17, in get_response
+    response = renderer_instance.render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 78, in get_html
+    html = self.render_template()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 212, in render_template
+    html = frappe.render_template(self.source, self.context, safe_render=safe_render)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/jinja.py", line 80, in render_template
+    return get_jenv().from_string(template).render(context)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/environment.py", line 1291, in render
+    self.environment.handle_exception()
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<template>", line 5, in top-level template code
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/printing/doctype/print_format/print_format.py", line 23, in get_html
+    return get_html(self.doc_type, docname, self.name, letterhead)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/weasyprint.py", line 22, in get_html
+    doc = frappe.get_doc(doctype, name)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 898, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 72, in get_doc
+    return controller(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.py", line 53, in __init__
+    super(SalesInvoice, self).__init__(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/controllers/accounts_controller.py", line 65, in __init__
+    super(AccountsController, self).__init__(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 110, in __init__
+    self.load_from_db()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 153, in load_from_db
+    frappe.throw(_("{0} {1} not found").format(_(self.doctype), self.name), frappe.DoesNotExistError)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.DoesNotExistError: Hóa đơn bán hàng new-sales-invoice-1 không tìm thấy
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 194, in run_pymodule_method
+    return method(self.context)
+  File "/opt/bench/erpnext/apps/frappe/frappe/www/error.py", line 11, in get_context
+    print(frappe.get_traceback().encode("utf-8"))
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 75, in application
+    response = get_response()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 23, in get_response
+    response = ErrorPage(exception=e).render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 72, in get_html
+    self.update_context()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 135, in update_context
+    data = self.run_pymodule_method('get_context')
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 201, in run_pymodule_method
+    frappe.errprint(frappe.utils.get_traceback())
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 333, in errprint
+    print(msg)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-12-07 09:15:17,767 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doctype': 'Sales Invoice', 'name': 'new-sales-invoice-1', 'print_format': 'HÓA ĐƠN BÁN HÀNG', 'letterhead': 'DRACO'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 17, in get_response
+    response = renderer_instance.render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 78, in get_html
+    html = self.render_template()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 212, in render_template
+    html = frappe.render_template(self.source, self.context, safe_render=safe_render)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/jinja.py", line 80, in render_template
+    return get_jenv().from_string(template).render(context)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/environment.py", line 1291, in render
+    self.environment.handle_exception()
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<template>", line 5, in top-level template code
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/printing/doctype/print_format/print_format.py", line 23, in get_html
+    return get_html(self.doc_type, docname, self.name, letterhead)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/weasyprint.py", line 22, in get_html
+    doc = frappe.get_doc(doctype, name)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 898, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 72, in get_doc
+    return controller(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.py", line 53, in __init__
+    super(SalesInvoice, self).__init__(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/controllers/accounts_controller.py", line 65, in __init__
+    super(AccountsController, self).__init__(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 110, in __init__
+    self.load_from_db()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 153, in load_from_db
+    frappe.throw(_("{0} {1} not found").format(_(self.doctype), self.name), frappe.DoesNotExistError)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.DoesNotExistError: Hóa đơn bán hàng new-sales-invoice-1 không tìm thấy
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 194, in run_pymodule_method
+    return method(self.context)
+  File "/opt/bench/erpnext/apps/frappe/frappe/www/error.py", line 11, in get_context
+    print(frappe.get_traceback().encode("utf-8"))
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 75, in application
+    response = get_response()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 23, in get_response
+    response = ErrorPage(exception=e).render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 72, in get_html
+    self.update_context()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 135, in update_context
+    data = self.run_pymodule_method('get_context')
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 201, in run_pymodule_method
+    frappe.errprint(frappe.utils.get_traceback())
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 333, in errprint
+    print(msg)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-12-07 09:15:18,056 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doctype': 'Sales Invoice', 'name': 'new-sales-invoice-1', 'print_format': 'HÓA ĐƠN BÁN HÀNG', 'letterhead': 'DRACO'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 17, in get_response
+    response = renderer_instance.render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 78, in get_html
+    html = self.render_template()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 212, in render_template
+    html = frappe.render_template(self.source, self.context, safe_render=safe_render)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/jinja.py", line 80, in render_template
+    return get_jenv().from_string(template).render(context)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/environment.py", line 1291, in render
+    self.environment.handle_exception()
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/environment.py", line 925, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<template>", line 5, in top-level template code
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/jinja2/sandbox.py", line 393, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/printing/doctype/print_format/print_format.py", line 23, in get_html
+    return get_html(self.doc_type, docname, self.name, letterhead)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/weasyprint.py", line 22, in get_html
+    doc = frappe.get_doc(doctype, name)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 898, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 72, in get_doc
+    return controller(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.py", line 53, in __init__
+    super(SalesInvoice, self).__init__(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/controllers/accounts_controller.py", line 65, in __init__
+    super(AccountsController, self).__init__(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 110, in __init__
+    self.load_from_db()
+  File "/opt/bench/erpnext/apps/frappe/frappe/model/document.py", line 153, in load_from_db
+    frappe.throw(_("{0} {1} not found").format(_(self.doctype), self.name), frappe.DoesNotExistError)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 443, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 422, in msgprint
+    _raise_exception()
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 376, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.DoesNotExistError: Hóa đơn bán hàng new-sales-invoice-1 không tìm thấy
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 194, in run_pymodule_method
+    return method(self.context)
+  File "/opt/bench/erpnext/apps/frappe/frappe/www/error.py", line 11, in get_context
+    print(frappe.get_traceback().encode("utf-8"))
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 75, in application
+    response = get_response()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 23, in get_response
+    response = ErrorPage(exception=e).render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 72, in get_html
+    self.update_context()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 135, in update_context
+    data = self.run_pymodule_method('get_context')
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 201, in run_pymodule_method
+    frappe.errprint(frappe.utils.get_traceback())
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 333, in errprint
+    print(msg)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-12-10 01:07:06,205 ERROR frappe New Exception collected with id: 2021-12-10 01:07:06.150072-127.0.0.1-53d
+Site: drabiz.net
+Form Dict: {'email': 'kiien@gmail.com', 'cmd': 'frappe.email.doctype.newsletter.newsletter.subscribe'}
+2021-12-10 01:22:03,354 ERROR frappe New Exception collected with id: 2021-12-10 01:22:03.348687-127.0.0.1-885
+Site: drabiz.net
+Form Dict: {'email': 'kiien@gmail.com', 'cmd': 'frappe.email.doctype.newsletter.newsletter.subscribe'}
+2021-12-10 01:31:34,497 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'doctype': 'Newsletter'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 194, in run_pymodule_method
+    return method(self.context)
+  File "/opt/bench/erpnext/apps/frappe/frappe/www/list.py", line 22, in get_context
+    context.update(get(**frappe.local.form_dict))
+  File "/opt/bench/erpnext/apps/frappe/frappe/www/list.py", line 29, in get
+    show_more = len(raw_result) > limit
+TypeError: object of type 'NoneType' has no len()
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 17, in get_response
+    response = renderer_instance.render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/list_page.py", line 11, in render
+    return super().render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 72, in get_html
+    self.update_context()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 135, in update_context
+    data = self.run_pymodule_method('get_context')
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 201, in run_pymodule_method
+    frappe.errprint(frappe.utils.get_traceback())
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 333, in errprint
+    print(msg)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 194, in run_pymodule_method
+    return method(self.context)
+  File "/opt/bench/erpnext/apps/frappe/frappe/www/error.py", line 11, in get_context
+    print(frappe.get_traceback().encode("utf-8"))
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 75, in application
+    response = get_response()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 23, in get_response
+    response = ErrorPage(exception=e).render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 72, in get_html
+    self.update_context()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 135, in update_context
+    data = self.run_pymodule_method('get_context')
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 201, in run_pymodule_method
+    frappe.errprint(frappe.utils.get_traceback())
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 333, in errprint
+    print(msg)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-12-10 01:33:13,323 ERROR frappe New Exception collected with id: 2021-12-10 01:33:13.302793-127.0.0.1-0f3
+Site: drabiz.net
+Form Dict: {'comment_by': 'Kiên Mai', 'comment_email': 'kienmt@draco.biz', 'comment': 'kiên đã đến đây', 'reference_doctype': 'Blog Post', 'reference_name': 'welcome', 'comment_type': 'Comment', 'route': 'blog/general/welcome', 'cmd': 'frappe.templates.includes.comments.comments.add_comment'}
+2021-12-10 01:35:07,958 ERROR frappe New Exception collected with id: 2021-12-10 01:35:07.946739-127.0.0.1-e92
+Site: drabiz.net
+Form Dict: {'comment_by': 'Kiên Mai', 'comment_email': 'kienmt@draco.biz', 'comment': 'Kiên đã đến đây', 'reference_doctype': 'Blog Post', 'reference_name': 'welcome', 'comment_type': 'Comment', 'route': 'blog/general/welcome', 'cmd': 'frappe.templates.includes.comments.comments.add_comment'}
+2021-12-10 01:36:13,269 ERROR frappe New Exception collected with id: 2021-12-10 01:36:13.264249-127.0.0.1-93e
+Site: drabiz.net
+Form Dict: {'email': 'maitrungkienat@gmail.com', 'cmd': 'frappe.email.doctype.newsletter.newsletter.subscribe'}
+2021-12-10 01:38:13,239 ERROR frappe New Exception collected with id: 2021-12-10 01:38:13.232572-127.0.0.1-761
+Site: drabiz.net
+Form Dict: {'comment_by': 'Kiên Mai', 'comment_email': 'kienmt@draco.biz', 'comment': 'ấdsaddad', 'reference_doctype': 'Blog Post', 'reference_name': 'welcome', 'comment_type': 'Comment', 'route': 'blog/general/welcome', 'cmd': 'frappe.templates.includes.comments.comments.add_comment'}
+2021-12-10 01:38:58,178 ERROR frappe New Exception collected with id: 2021-12-10 01:38:58.172567-127.0.0.1-c46
+Site: drabiz.net
+Form Dict: {'comment_by': 'Kiên Mai', 'comment_email': 'kienmt@draco.biz', 'comment': 'kien', 'reference_doctype': 'Blog Post', 'reference_name': 'welcome', 'comment_type': 'Comment', 'route': 'blog/general/welcome', 'cmd': 'frappe.templates.includes.comments.comments.add_comment'}
+2021-12-10 01:44:51,317 ERROR frappe New Exception collected with id: 2021-12-10 01:44:51.310274-127.0.0.1-6f6
+Site: drabiz.net
+Form Dict: {'comment_by': 'Ai', 'comment_email': 'ailt@draco.biz', 'comment': 'njnjnk', 'reference_doctype': 'Blog Post', 'reference_name': 'welcome', 'comment_type': 'Comment', 'route': 'blog/general/welcome', 'cmd': 'frappe.templates.includes.comments.comments.add_comment'}
+2021-12-10 10:23:06,237 ERROR frappe New Exception collected with id: 2021-12-10 10:23:06.205941-127.0.0.1-c36
+Site: drabiz.net
+Form Dict: {'docname': 'Sal', 'fields': '[]', 'cmd': 'frappe.client.validate_link'}
+2021-12-10 14:18:11,563 ERROR frappe New Exception collected with id: 2021-12-10 14:18:11.526916-127.0.0.1-be5
+Site: drabiz.net
+Form Dict: {'doctype': 'User', 'select_columns': '{"User":["enabled","email","last_name","language","first_name","full_name","time_zone","middle_name","username","send_welcome_email","role_profile_name","gender","birth_date","interest","banner_image","desk_theme","phone","location","bio","mute_sounds","mobile_no","new_password","logout_all_sessions","document_follow_notify","document_follow_frequency","email_signature","thread_notify","send_me_a_copy","allowed_in_mentions","module_profile","simultaneous_sessions","restrict_ip","last_ip","login_after","user_type","last_active","login_before","bypass_restrict_ip_check_if_2fa_enabled","last_login","api_key","api_secret"],"Has Role":["role"],"User Email":["email_account","email_id","awaiting_password","enable_outgoing"],"Block Module":["module"],"DefaultValue":["defkey","defvalue"],"User Social Login":["provider","username","userid"]}', 'filters': '[]', 'file_type': 'Excel', 'template': 'true', 'with_data': '1', 'cmd': 'frappe.core.doctype.data_export.exporter.export_data'}
+2021-12-10 14:20:14,796 ERROR frappe New Exception collected with id: 2021-12-10 14:20:14.790969-127.0.0.1-59e
+Site: drabiz.net
+Form Dict: {'doctype': 'User', 'select_columns': '{"User":["enabled","email","last_name","language","first_name","full_name","time_zone","middle_name","username","send_welcome_email","role_profile_name","gender","birth_date","interest","banner_image","desk_theme","phone","location","bio","mute_sounds","mobile_no","new_password","logout_all_sessions","document_follow_notify","document_follow_frequency","email_signature","thread_notify","send_me_a_copy","allowed_in_mentions","module_profile","simultaneous_sessions","restrict_ip","last_ip","login_after","user_type","last_active","login_before","bypass_restrict_ip_check_if_2fa_enabled","last_login","api_key","api_secret"],"Has Role":["role"],"User Email":["email_account","email_id","awaiting_password","enable_outgoing"],"Block Module":["module"],"DefaultValue":["defkey","defvalue"],"User Social Login":["provider","username","userid"]}', 'filters': '[]', 'file_type': 'Excel', 'template': 'true', 'with_data': '1', 'cmd': 'frappe.core.doctype.data_export.exporter.export_data'}
+2021-12-10 14:23:05,475 ERROR frappe New Exception collected with id: 2021-12-10 14:23:05.470417-127.0.0.1-87f
+Site: drabiz.net
+Form Dict: {'doctype': 'User', 'select_columns': '{"User":["enabled","email","last_name","language","first_name","full_name","time_zone","middle_name","username","send_welcome_email","role_profile_name","gender","birth_date","interest","banner_image","desk_theme","phone","location","bio","mute_sounds","mobile_no","new_password","logout_all_sessions","document_follow_notify","document_follow_frequency","email_signature","thread_notify","send_me_a_copy","allowed_in_mentions","module_profile","simultaneous_sessions","restrict_ip","last_ip","login_after","user_type","last_active","login_before","bypass_restrict_ip_check_if_2fa_enabled","last_login","api_key","api_secret"],"Has Role":["role"],"User Email":["email_account","email_id","awaiting_password","enable_outgoing"],"Block Module":["module"],"DefaultValue":["defkey","defvalue"],"User Social Login":["provider","username","userid"]}', 'filters': '[]', 'file_type': 'Excel', 'template': 'true', 'with_data': '1', 'cmd': 'frappe.core.doctype.data_export.exporter.export_data'}
+2021-12-10 14:24:49,275 ERROR frappe New Exception collected with id: 2021-12-10 14:24:49.270863-127.0.0.1-ec0
+Site: drabiz.net
+Form Dict: {'doctype': 'User', 'select_columns': '{"User":["enabled","email","last_name","language","first_name","full_name","time_zone","middle_name","username","send_welcome_email","role_profile_name","gender","birth_date","interest","banner_image","desk_theme","phone","location","bio","mute_sounds","mobile_no","new_password","logout_all_sessions","document_follow_notify","document_follow_frequency","email_signature","thread_notify","send_me_a_copy","allowed_in_mentions","module_profile","simultaneous_sessions","restrict_ip","last_ip","login_after","user_type","last_active","login_before","bypass_restrict_ip_check_if_2fa_enabled","last_login","api_key","api_secret"],"Has Role":["role"],"User Email":["email_account","email_id","awaiting_password","enable_outgoing"],"Block Module":["module"],"DefaultValue":["defkey","defvalue"],"User Social Login":["provider","username","userid"]}', 'filters': '[]', 'file_type': 'Excel', 'template': 'true', 'with_data': '1', 'cmd': 'frappe.core.doctype.data_export.exporter.export_data'}
+2021-12-10 14:26:51,791 ERROR frappe New Exception collected with id: 2021-12-10 14:26:51.786834-127.0.0.1-5e4
+Site: drabiz.net
+Form Dict: {'doctype': 'User', 'select_columns': '{"User":["enabled","email","last_name","language","first_name","full_name","time_zone","middle_name","username","send_welcome_email","role_profile_name","gender","birth_date","interest","banner_image","desk_theme","phone","location","bio","mute_sounds","mobile_no","new_password","logout_all_sessions","document_follow_notify","document_follow_frequency","email_signature","thread_notify","send_me_a_copy","allowed_in_mentions","module_profile","simultaneous_sessions","restrict_ip","last_ip","login_after","user_type","last_active","login_before","bypass_restrict_ip_check_if_2fa_enabled","last_login","api_key","api_secret"],"Has Role":["role"],"User Email":["email_account","email_id","awaiting_password","enable_outgoing"],"Block Module":["module"],"DefaultValue":["defkey","defvalue"],"User Social Login":["provider","username","userid"]}', 'filters': '[]', 'file_type': 'Excel', 'template': 'true', 'with_data': '1', 'cmd': 'frappe.core.doctype.data_export.exporter.export_data'}
+2021-12-10 14:27:51,230 ERROR frappe New Exception collected with id: 2021-12-10 14:27:51.226527-127.0.0.1-368
+Site: drabiz.net
+Form Dict: {'doctype': 'User Type', 'select_columns': '{"User Type":["is_standard","role","apply_user_permission_on","user_id_field"],"User Document Type":["document_type","is_custom","read","write","create","submit","cancel","amend","delete"],"User Select Document Type":["document_type"],"User Type Module":["module"]}', 'filters': '[]', 'file_type': 'Excel', 'template': 'true', 'with_data': '1', 'cmd': 'frappe.core.doctype.data_export.exporter.export_data'}
+2021-12-10 14:28:23,704 ERROR frappe New Exception collected with id: 2021-12-10 14:28:23.701707-127.0.0.1-a97
+Site: drabiz.net
+Form Dict: {'doctype': 'User', 'select_columns': '{"User":["email","first_name"],"Has Role":[],"User Email":["email_account"],"Block Module":["module"],"DefaultValue":["defkey"],"User Social Login":[]}', 'filters': '[]', 'file_type': 'Excel', 'template': 'true', 'with_data': '1', 'cmd': 'frappe.core.doctype.data_export.exporter.export_data'}
+2021-12-10 14:37:45,019 ERROR frappe New Exception collected with id: 2021-12-10 14:37:45.009175-127.0.0.1-889
+Site: drabiz.net
+Form Dict: {'doctype': 'User', 'select_columns': '{"User":["username","role_profile_name","email","first_name"],"Has Role":["role"],"User Email":["email_account"],"Block Module":["module"],"DefaultValue":["defkey"],"User Social Login":[]}', 'filters': '[]', 'file_type': 'Excel', 'template': 'true', 'with_data': '1', 'cmd': 'frappe.core.doctype.data_export.exporter.export_data'}
+2021-12-13 22:51:12,218 ERROR frappe New Exception collected with id: 2021-12-13 22:51:12.209848-127.0.0.1-453
+Site: drabiz.net
+Form Dict: {'txt': '', 'doctype': 'Item', 'ignore_user_permissions': '0', 'reference_doctype': 'Purchase Order Item', 'query': 'erpnext.controllers.queries.item_query', 'filters': '{"supplier":"","is_purchase_item":1}', 'cmd': 'frappe.desk.search.search_link'}
+2021-12-17 10:20:18,029 ERROR frappe New Exception collected with id: 2021-12-17 10:20:18.015236-127.0.0.1-d0f
+Site: drabiz.net
+Form Dict: {'docname': 'permission-manager', 'fields': '[]', 'cmd': 'frappe.client.validate_link'}
+2021-12-17 10:24:49,795 ERROR frappe New Exception collected with id: 2021-12-17 10:24:49.792537-127.0.0.1-e71
+Site: drabiz.net
+Form Dict: {'docname': 'user-profile', 'fields': '[]', 'cmd': 'frappe.client.validate_link'}
+2021-12-17 10:25:44,967 ERROR frappe New Exception collected with id: 2021-12-17 10:25:44.965275-127.0.0.1-114
+Site: drabiz.net
+Form Dict: {'docname': 'User Group', 'fields': '[]', 'cmd': 'frappe.client.validate_link'}
+2021-12-20 10:03:23,339 INFO frappe Checking incoming IMAP email server imap.yandex.com:995 ssl=1...
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Email Domain","name":"new-email-domain-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","use_imap":1,"use_ssl":1,"attachment_limit":10,"use_tls":0,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":0,"email_id":"no-replay@dracorp.com.vn","domain_name":"dracorp.com.vn","email_server":"imap.yandex.com","incoming_port":"995","smtp_server":"smtp.yandex.com","smtp_port":"465"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2021-12-20 10:05:33,989 WARNING frappe Incoming email account "imap.yandex.com" not correct
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Email Domain","name":"new-email-domain-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","use_imap":1,"use_ssl":1,"attachment_limit":10,"use_tls":0,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":0,"email_id":"no-replay@dracorp.com.vn","domain_name":"dracorp.com.vn","email_server":"imap.yandex.com","incoming_port":"995","smtp_server":"smtp.yandex.com","smtp_port":"465"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_domain/email_domain.py", line 33, in validate
+    test = imaplib.IMAP4_SSL(self.email_server, port=get_port(self))
+  File "/usr/lib/python3.8/imaplib.py", line 1297, in __init__
+    IMAP4.__init__(self, host, port)
+  File "/usr/lib/python3.8/imaplib.py", line 198, in __init__
+    self.open(host, port)
+  File "/usr/lib/python3.8/imaplib.py", line 1310, in open
+    IMAP4.open(self, host, port)
+  File "/usr/lib/python3.8/imaplib.py", line 303, in open
+    self.sock = self._create_socket()
+  File "/usr/lib/python3.8/imaplib.py", line 1300, in _create_socket
+    sock = IMAP4._create_socket(self)
+  File "/usr/lib/python3.8/imaplib.py", line 293, in _create_socket
+    return socket.create_connection((host, self.port))
+  File "/usr/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+2021-12-20 10:08:17,436 INFO frappe Checking incoming IMAP email server imap.yandex.com:993 ssl=1...
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Email Domain","name":"new-email-domain-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","use_imap":1,"use_ssl":1,"attachment_limit":10,"use_tls":0,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":1,"email_id":"no-replay@dracorp.com.vn","domain_name":"dracorp.com.vn","incoming_port":"993","smtp_server":"smtp.yandex.com","email_server":"imap.yandex.com","smtp_port":"465"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2021-12-20 10:08:18,771 INFO frappe Checking outgoing SMTPS email server smtp.yandex.com:465...
+Site: drabiz.net
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Email Domain","name":"new-email-domain-1","__islocal":1,"__unsaved":1,"owner":"tinlt@draco.biz","use_imap":1,"use_ssl":1,"attachment_limit":10,"use_tls":0,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":1,"email_id":"no-replay@dracorp.com.vn","domain_name":"dracorp.com.vn","incoming_port":"993","smtp_server":"smtp.yandex.com","email_server":"imap.yandex.com","smtp_port":"465"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2021-12-20 10:09:41,720 ERROR frappe New Exception collected with id: 2021-12-20 10:09:41.710992-127.0.0.1-f9a
+Site: drabiz.net
+Form Dict: {'recipients': 'trucpt@draco.biz, ', 'subject': 'NCC0013 (#PUR-ORD-2021-00009)', 'content': '<div class="ql-editor read-mode"><p>fsfsfsgs</p></div>', 'doctype': 'Purchase Order', 'name': 'PUR-ORD-2021-00009', 'send_email': '1', 'print_html': '', 'send_me_a_copy': '0', 'print_format': '', 'attachments': '[]', '_lang': 'en', 'read_receipt': '0', 'print_letterhead': '1', 'cmd': 'frappe.core.doctype.communication.email.make'}
+2021-12-20 10:10:09,916 ERROR frappe New Exception collected with id: 2021-12-20 10:10:09.911535-127.0.0.1-84e
+Site: drabiz.net
+Form Dict: {'recipients': 'thanhbinh301000@gmail.com', 'subject': 'NCC0013 (#PUR-ORD-2021-00009)', 'content': '<div class="ql-editor read-mode"><p>fsfsfsgs</p></div>', 'doctype': 'Purchase Order', 'name': 'PUR-ORD-2021-00009', 'send_email': '1', 'print_html': '', 'send_me_a_copy': '0', 'print_format': '', 'attachments': '[]', '_lang': 'en', 'read_receipt': '0', 'print_letterhead': '1', 'cmd': 'frappe.core.doctype.communication.email.make'}
+2021-12-20 14:21:51,302 INFO frappe Checking incoming IMAP email server imap.yandex.com:993 ssl=1...
+Site: drabiz.net
+Form Dict: {'doc': '{"name":"dracorp.com.vn","owner":"tinlt@draco.biz","creation":"2021-12-20 09:08:17.429215","modified":"2021-12-20 09:08:17.429215","modified_by":"tinlt@draco.biz","idx":0,"docstatus":0,"domain_name":"dracorp.com.vn","email_id":"no-replay@dracorp.com.vn","email_server":"imap.yandex.com","use_imap":1,"use_ssl":1,"incoming_port":"993","attachment_limit":10,"smtp_server":"smtp.yandex.com","use_tls":1,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":1,"smtp_port":"465","doctype":"Email Domain","__last_sync_on":"2021-12-20T06:20:33.735Z","__unsaved":1}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2021-12-20 14:21:53,022 INFO frappe Checking outgoing SMTPS email server smtp.yandex.com:465...
+Site: drabiz.net
+Form Dict: {'doc': '{"name":"dracorp.com.vn","owner":"tinlt@draco.biz","creation":"2021-12-20 09:08:17.429215","modified":"2021-12-20 09:08:17.429215","modified_by":"tinlt@draco.biz","idx":0,"docstatus":0,"domain_name":"dracorp.com.vn","email_id":"no-replay@dracorp.com.vn","email_server":"imap.yandex.com","use_imap":1,"use_ssl":1,"incoming_port":"993","attachment_limit":10,"smtp_server":"smtp.yandex.com","use_tls":1,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":1,"smtp_port":"465","doctype":"Email Domain","__last_sync_on":"2021-12-20T06:20:33.735Z","__unsaved":1}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2021-12-20 14:23:54,378 INFO frappe Checking incoming IMAP email server imap.yandex.com:993 ssl=1...
+Site: drabiz.net
+Form Dict: {'doc': '{"name":"dracorp.com.vn","owner":"tinlt@draco.biz","creation":"2021-12-20 09:08:17.429215","modified":"2021-12-20 09:08:17.429215","modified_by":"tinlt@draco.biz","idx":0,"docstatus":0,"domain_name":"dracorp.com.vn","email_id":"no-replay@dracorp.com.vn","email_server":"imap.yandex.com","use_imap":1,"use_ssl":1,"incoming_port":"993","attachment_limit":10,"smtp_server":"smtp.yandex.com","use_tls":1,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":1,"smtp_port":"465","doctype":"Email Domain","__last_sync_on":"2021-12-20T06:23:38.983Z","__unsaved":1}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2021-12-20 14:23:55,709 INFO frappe Checking outgoing SMTPS email server smtp.yandex.com:465...
+Site: drabiz.net
+Form Dict: {'doc': '{"name":"dracorp.com.vn","owner":"tinlt@draco.biz","creation":"2021-12-20 09:08:17.429215","modified":"2021-12-20 09:08:17.429215","modified_by":"tinlt@draco.biz","idx":0,"docstatus":0,"domain_name":"dracorp.com.vn","email_id":"no-replay@dracorp.com.vn","email_server":"imap.yandex.com","use_imap":1,"use_ssl":1,"incoming_port":"993","attachment_limit":10,"smtp_server":"smtp.yandex.com","use_tls":1,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":1,"smtp_port":"465","doctype":"Email Domain","__last_sync_on":"2021-12-20T06:23:38.983Z","__unsaved":1}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2021-12-20 14:42:18,734 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'name': 'f65cd4de30', 'cmd': 'frappe.email.doctype.email_queue.email_queue.send_now'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 320, in send_now
+    record.send()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 125, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.8/smtplib.py", line 880, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1639982536-2pffupmi8A-gGPG9dra', 'Tín Lê <tinlt@draco.biz>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-12-20 14:51:15,768 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'name': 'TEST MAIL', 'cmd': 'frappe.email.doctype.email_queue.email_queue.send_now', 'doctype': 'Email Account', 'format': 'Standard', 'style': None, 'doc': None, 'no_letterhead': False}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 320, in send_now
+    record.send()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 125, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.8/smtplib.py", line 880, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1639983073-McRdOHzjYP-pDP4ZYZs', 'Tín Lê <tinlt@draco.biz>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-12-20 14:52:29,429 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {'name': '667adf6978', 'cmd': 'frappe.email.doctype.email_queue.email_queue.send_now', 'doctype': 'Email Queue', 'format': 'Standard', 'style': None, 'doc': None, 'no_letterhead': False}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 320, in send_now
+    record.send()
+  File "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py", line 125, in send
+    ctx.smtp_session.sendmail(from_addr=self.sender, to_addrs=recipient.recipient, msg=message)
+  File "/usr/lib/python3.8/smtplib.py", line 880, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'5.7.1 Sender address rejected: not owned by auth user. 1639983146-01gYpVvwwc-qQPWmOeb', 'Tín Lê <tinlt@draco.biz>')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2021-12-26 01:10:11,762 ERROR frappe New Exception collected with id: 2021-12-26 01:10:11.753482-127.0.0.1-144
+Site: drabiz.net
+Form Dict: {'recipients': 'khoi345@gmail.com', 'subject': 'Video Settings: Video Settings', 'content': '<div class="ql-editor read-mode"><p>kiem tra gui di</p><p><a href="mailto:no-replay@dracorp.com.vn" rel="noopener noreferrer">no-replay@dracorp.com.vn</a></p></div>', 'doctype': 'Video Settings', 'name': 'Video Settings', 'send_email': '1', 'print_html': '', 'send_me_a_copy': '1', 'print_format': 'Standard', 'attachments': '[]', '_lang': 'en', 'read_receipt': '0', 'print_letterhead': '1', 'cmd': 'frappe.core.doctype.communication.email.make'}
+2021-12-26 01:14:45,019 INFO frappe Checking incoming IMAP email server imap.yandex.com:993 ssl=1...
+Site: drabiz.net
+Form Dict: {'doc': '{"name":"dracorp.com.vn","owner":"tinlt@draco.biz","creation":"2021-12-20 09:08:17.429215","modified":"2021-12-20 09:08:17.429215","modified_by":"tinlt@draco.biz","idx":0,"docstatus":0,"domain_name":"dracorp.com.vn","email_id":"no-replay@dracorp.com.vn","email_server":"imap.yandex.com","use_imap":1,"use_ssl":1,"incoming_port":"993","attachment_limit":25,"smtp_server":"smtp.yandex.com","use_tls":0,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":1,"smtp_port":"465","doctype":"Email Domain","__last_sync_on":"2021-12-25T17:14:24.577Z","__unsaved":1}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2021-12-26 01:14:46,513 INFO frappe Checking outgoing SMTPS email server smtp.yandex.com:465...
+Site: drabiz.net
+Form Dict: {'doc': '{"name":"dracorp.com.vn","owner":"tinlt@draco.biz","creation":"2021-12-20 09:08:17.429215","modified":"2021-12-20 09:08:17.429215","modified_by":"tinlt@draco.biz","idx":0,"docstatus":0,"domain_name":"dracorp.com.vn","email_id":"no-replay@dracorp.com.vn","email_server":"imap.yandex.com","use_imap":1,"use_ssl":1,"incoming_port":"993","attachment_limit":25,"smtp_server":"smtp.yandex.com","use_tls":0,"use_ssl_for_outgoing":1,"append_emails_to_sent_folder":1,"smtp_port":"465","doctype":"Email Domain","__last_sync_on":"2021-12-25T17:14:24.577Z","__unsaved":1}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2021-12-29 10:44:49,534 ERROR frappe Could not take error snapshot: characters_written
+Site: drabiz.net
+Form Dict: {}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/werkzeug/local.py", line 72, in __getattr__
+    return self.__storage__[self.__ident_func__()][name]
+KeyError: 'path'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 17, in get_response
+    response = renderer_instance.render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/not_found_page.py", line 24, in render
+    return super().render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 76, in get_html
+    self.post_process_context()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 86, in post_process_context
+    super(TemplatePage, self).post_process_context()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/base_template_page.py", line 35, in post_process_context
+    self.set_missing_values()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 275, in set_missing_values
+    super().set_missing_values()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/base_template_page.py", line 63, in set_missing_values
+    self.context.pathname = frappe.local.path if hasattr(frappe, 'local') else self.path
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/werkzeug/local.py", line 74, in __getattr__
+    raise AttributeError(name)
+AttributeError: path
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 194, in run_pymodule_method
+    return method(self.context)
+  File "/opt/bench/erpnext/apps/frappe/frappe/www/error.py", line 11, in get_context
+    print(frappe.get_traceback().encode("utf-8"))
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 75, in application
+    response = get_response()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/serve.py", line 23, in get_response
+    response = ErrorPage(exception=e).render()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 61, in render
+    html = self.get_html()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/utils.py", line 445, in cache_html_decorator
+    html = func(*args, **kwargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 72, in get_html
+    self.update_context()
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 135, in update_context
+    data = self.run_pymodule_method('get_context')
+  File "/opt/bench/erpnext/apps/frappe/frappe/website/page_renderers/template_page.py", line 201, in run_pymodule_method
+    frappe.errprint(frappe.utils.get_traceback())
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 333, in errprint
+    print(msg)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 127, in get_snapshot
+    value = pydoc.text.repr(getattr(evalue, name))
+AttributeError: characters_written
+2022-01-28 10:49:24,507 ERROR frappe Could not take error snapshot: 'NoneType' object has no attribute 'get_sql'
+Site: drabiz.net
+Form Dict: {'report_name': 'General Ledger', 'filters': '{"company":"Fintech Draco Corporation","from_date":"2021-12-28","to_date":"2022-01-28","account":[],"party":["Công ty VinaLy"],"group_by":"Group by Voucher (Consolidated)","cost_center":[],"project":[]}', 'cmd': 'frappe.desk.query_report.run'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 632, in wrapper_fn
+    retval = fn(*args, **get_newargs(fn, kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py", line 241, in run
+    result = generate_report_result(report, filters, user, custom_columns)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 632, in wrapper_fn
+    retval = fn(*args, **get_newargs(fn, kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py", line 83, in generate_report_result
+    res = get_report_result(report, filters) or []
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py", line 67, in get_report_result
+    res = report.execute_script_report(filters)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/report/report.py", line 130, in execute_script_report
+    res = self.execute_module(filters)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/report/report.py", line 147, in execute_module
+    return frappe.get_attr(method_name)(frappe._dict(filters))
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/accounts/report/general_ledger/general_ledger.py", line 43, in execute
+    filters = set_account_currency(filters)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/accounts/report/general_ledger/general_ledger.py", line 134, in set_account_currency
+    frappe.db.get_value(filters.party_type, filters.party[0], "default_currency"))
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 365, in get_value
+    ret = self.get_values(doctype, filters, fieldname, ignore, as_dict, debug,
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 414, in get_values
+    out = self._get_values_from_table(
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 606, in _get_values_from_table
+    r = self.sql(
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 115, in sql
+    query = str(query)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1189, in __str__
+    return self.get_sql(dialect=self.dialect)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/dialects.py", line 123, in get_sql
+    querystring = super(MySQLQueryBuilder, self).get_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1300, in get_sql
+    querystring += self._from_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in _from_sql
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in <genexpr>
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+AttributeError: 'NoneType' object has no attribute 'get_sql'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 117, in get_snapshot
+    f['dump'][name] = pydoc.text.repr(value)
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1192, in __repr__
+    return self.__str__()
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1189, in __str__
+    return self.get_sql(dialect=self.dialect)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/dialects.py", line 123, in get_sql
+    querystring = super(MySQLQueryBuilder, self).get_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1300, in get_sql
+    querystring += self._from_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in _from_sql
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in <genexpr>
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+AttributeError: 'NoneType' object has no attribute 'get_sql'
+2022-01-28 10:49:24,554 ERROR frappe Could not take error snapshot: 'NoneType' object has no attribute 'get_sql'
+Site: drabiz.net
+Form Dict: {'report_name': 'General Ledger', 'filters': '{"company":"Fintech Draco Corporation","from_date":"2021-12-28","to_date":"2022-01-28","account":[],"party":["Công ty VinaLy"],"group_by":"Group by Voucher (Consolidated)","cost_center":[],"project":[]}', 'cmd': 'frappe.desk.query_report.run'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 632, in wrapper_fn
+    retval = fn(*args, **get_newargs(fn, kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py", line 241, in run
+    result = generate_report_result(report, filters, user, custom_columns)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 632, in wrapper_fn
+    retval = fn(*args, **get_newargs(fn, kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py", line 83, in generate_report_result
+    res = get_report_result(report, filters) or []
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py", line 67, in get_report_result
+    res = report.execute_script_report(filters)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/report/report.py", line 130, in execute_script_report
+    res = self.execute_module(filters)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/report/report.py", line 147, in execute_module
+    return frappe.get_attr(method_name)(frappe._dict(filters))
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/accounts/report/general_ledger/general_ledger.py", line 43, in execute
+    filters = set_account_currency(filters)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/accounts/report/general_ledger/general_ledger.py", line 134, in set_account_currency
+    frappe.db.get_value(filters.party_type, filters.party[0], "default_currency"))
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 365, in get_value
+    ret = self.get_values(doctype, filters, fieldname, ignore, as_dict, debug,
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 414, in get_values
+    out = self._get_values_from_table(
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 606, in _get_values_from_table
+    r = self.sql(
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 115, in sql
+    query = str(query)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1189, in __str__
+    return self.get_sql(dialect=self.dialect)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/dialects.py", line 123, in get_sql
+    querystring = super(MySQLQueryBuilder, self).get_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1300, in get_sql
+    querystring += self._from_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in _from_sql
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in <genexpr>
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+AttributeError: 'NoneType' object has no attribute 'get_sql'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 117, in get_snapshot
+    f['dump'][name] = pydoc.text.repr(value)
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1192, in __repr__
+    return self.__str__()
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1189, in __str__
+    return self.get_sql(dialect=self.dialect)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/dialects.py", line 123, in get_sql
+    querystring = super(MySQLQueryBuilder, self).get_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1300, in get_sql
+    querystring += self._from_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in _from_sql
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in <genexpr>
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+AttributeError: 'NoneType' object has no attribute 'get_sql'
+2022-01-28 10:57:43,578 ERROR frappe Could not take error snapshot: 'NoneType' object has no attribute 'get_sql'
+Site: drabiz.net
+Form Dict: {'report_name': 'General Ledger', 'filters': '{"company":"Fintech Draco Corporation","from_date":"2021-12-28","to_date":"2022-01-28","account":[],"party":["Công ty VinaLy"],"group_by":"Group by Voucher (Consolidated)","cost_center":[],"project":[]}', 'cmd': 'frappe.desk.query_report.run'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 632, in wrapper_fn
+    retval = fn(*args, **get_newargs(fn, kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py", line 241, in run
+    result = generate_report_result(report, filters, user, custom_columns)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 632, in wrapper_fn
+    retval = fn(*args, **get_newargs(fn, kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py", line 83, in generate_report_result
+    res = get_report_result(report, filters) or []
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py", line 67, in get_report_result
+    res = report.execute_script_report(filters)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/report/report.py", line 130, in execute_script_report
+    res = self.execute_module(filters)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/report/report.py", line 147, in execute_module
+    return frappe.get_attr(method_name)(frappe._dict(filters))
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/accounts/report/general_ledger/general_ledger.py", line 43, in execute
+    filters = set_account_currency(filters)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/accounts/report/general_ledger/general_ledger.py", line 134, in set_account_currency
+    frappe.db.get_value(filters.party_type, filters.party[0], "default_currency"))
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 365, in get_value
+    ret = self.get_values(doctype, filters, fieldname, ignore, as_dict, debug,
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 414, in get_values
+    out = self._get_values_from_table(
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 606, in _get_values_from_table
+    r = self.sql(
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 115, in sql
+    query = str(query)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1189, in __str__
+    return self.get_sql(dialect=self.dialect)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/dialects.py", line 123, in get_sql
+    querystring = super(MySQLQueryBuilder, self).get_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1300, in get_sql
+    querystring += self._from_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in _from_sql
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in <genexpr>
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+AttributeError: 'NoneType' object has no attribute 'get_sql'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 117, in get_snapshot
+    f['dump'][name] = pydoc.text.repr(value)
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1192, in __repr__
+    return self.__str__()
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1189, in __str__
+    return self.get_sql(dialect=self.dialect)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/dialects.py", line 123, in get_sql
+    querystring = super(MySQLQueryBuilder, self).get_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1300, in get_sql
+    querystring += self._from_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in _from_sql
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in <genexpr>
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+AttributeError: 'NoneType' object has no attribute 'get_sql'
+2022-01-28 10:57:43,812 ERROR frappe Could not take error snapshot: 'NoneType' object has no attribute 'get_sql'
+Site: drabiz.net
+Form Dict: {'report_name': 'General Ledger', 'filters': '{"company":"Fintech Draco Corporation","from_date":"2021-12-28","to_date":"2022-01-28","account":[],"party":["Công ty VinaLy"],"group_by":"Group by Voucher (Consolidated)","cost_center":[],"project":[]}', 'cmd': 'frappe.desk.query_report.run'}
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/app.py", line 66, in application
+    response = frappe.api.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/api.py", line 54, in handle
+    return frappe.handler.handle()
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 31, in handle
+    data = execute_cmd(cmd)
+  File "/opt/bench/erpnext/apps/frappe/frappe/handler.py", line 67, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 1220, in call
+    return fn(*args, **newargs)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 632, in wrapper_fn
+    retval = fn(*args, **get_newargs(fn, kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py", line 241, in run
+    result = generate_report_result(report, filters, user, custom_columns)
+  File "/opt/bench/erpnext/apps/frappe/frappe/__init__.py", line 632, in wrapper_fn
+    retval = fn(*args, **get_newargs(fn, kwargs))
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py", line 83, in generate_report_result
+    res = get_report_result(report, filters) or []
+  File "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py", line 67, in get_report_result
+    res = report.execute_script_report(filters)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/report/report.py", line 130, in execute_script_report
+    res = self.execute_module(filters)
+  File "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/report/report.py", line 147, in execute_module
+    return frappe.get_attr(method_name)(frappe._dict(filters))
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/accounts/report/general_ledger/general_ledger.py", line 43, in execute
+    filters = set_account_currency(filters)
+  File "/opt/bench/erpnext/apps/erpnext/erpnext/accounts/report/general_ledger/general_ledger.py", line 134, in set_account_currency
+    frappe.db.get_value(filters.party_type, filters.party[0], "default_currency"))
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 365, in get_value
+    ret = self.get_values(doctype, filters, fieldname, ignore, as_dict, debug,
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 414, in get_values
+    out = self._get_values_from_table(
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 606, in _get_values_from_table
+    r = self.sql(
+  File "/opt/bench/erpnext/apps/frappe/frappe/database/database.py", line 115, in sql
+    query = str(query)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1189, in __str__
+    return self.get_sql(dialect=self.dialect)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/dialects.py", line 123, in get_sql
+    querystring = super(MySQLQueryBuilder, self).get_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1300, in get_sql
+    querystring += self._from_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in _from_sql
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in <genexpr>
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+AttributeError: 'NoneType' object has no attribute 'get_sql'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py", line 117, in get_snapshot
+    f['dump'][name] = pydoc.text.repr(value)
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1192, in __repr__
+    return self.__str__()
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1189, in __str__
+    return self.get_sql(dialect=self.dialect)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/dialects.py", line 123, in get_sql
+    querystring = super(MySQLQueryBuilder, self).get_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1300, in get_sql
+    querystring += self._from_sql(**kwargs)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in _from_sql
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+  File "/opt/bench/erpnext/env/lib/python3.8/site-packages/pypika/queries.py", line 1426, in <genexpr>
+    selectable=",".join(clause.get_sql(subquery=True, with_alias=True, **kwargs) for clause in self._from)
+AttributeError: 'NoneType' object has no attribute 'get_sql'
+2022-01-28 14:35:35,908 ERROR frappe New Exception collected with id: 2022-01-28 14:35:35.904040-127.0.0.1-3d1
+Site: drabiz.net
+Form Dict: {'with_parent': '1', 'cached_timestamp': '', 'cmd': 'frappe.desk.form.load.getdoctype'}
+2022-01-28 15:27:24,125 ERROR frappe New Exception collected with id: 2022-01-28 15:27:24.121756-127.0.0.1-c65
+Site: drabiz.net
+Form Dict: {'doctype': 'Journal Entry', 'select_columns': '{"Journal Entry":["voucher_type","naming_series","finance_book","tax_withholding_category","from_template","company","posting_date","apply_tds","cheque_no","cheque_date","user_remark","total_debit","total_credit","difference","multi_currency","clearance_date","remark","inter_company_journal_entry_reference","bill_no","bill_date","due_date","write_off_based_on","write_off_amount","pay_to_recd_from","letter_head","select_print_heading","mode_of_payment","payment_order","is_opening","stock_entry","auto_repeat","amended_from"],"Journal Entry Account":["account","balance","bank_account","party_type","party","party_balance","cost_center","project","account_currency","exchange_rate","debit_in_account_currency","debit","credit_in_account_currency","credit","reference_type","reference_name","reference_due_date","is_advance","user_remark"]}', 'filters': '[]', 'file_type': 'Excel', 'template': 'true', 'with_data': '1', 'cmd': 'frappe.core.doctype.data_export.exporter.export_data'}
+2022-01-28 17:43:41,570 ERROR frappe New Exception collected with id: 2022-01-28 17:43:41.563625-127.0.0.1-2b8
+Site: drabiz.net
+Form Dict: {'report_name': '123', 'filters': '{}', 'cmd': 'frappe.desk.query_report.run'}
+2022-01-28 17:44:18,931 ERROR frappe New Exception collected with id: 2022-01-28 17:44:18.924535-127.0.0.1-e24
+Site: drabiz.net
+Form Dict: {'report_name': '123', 'filters': '{}', 'cmd': 'frappe.desk.query_report.run'}
+2022-02-08 15:05:10,032 ERROR frappe New Exception collected with id: 2022-02-08 15:05:10.020723-127.0.0.1-aa8
+Site: drabiz.net
+Form Dict: {'docname': 'permission-manager', 'fields': '[]', 'cmd': 'frappe.client.validate_link'}
+2022-02-09 16:08:49,612 ERROR frappe New Exception collected with id: 2022-02-09 16:08:49.598899-127.0.0.1-f53
+Site: drabiz.net
+Form Dict: {'doctype': 'Salary Component', 'docname': '7 Lương cứng', 'new_name': 'Lương cứng', 'title_field': '', 'merge': '0', 'cmd': 'frappe.model.rename_doc.update_document_title'}
+2022-02-09 17:16:44,312 ERROR frappe New Exception collected with id: 2022-02-09 17:16:44.305100-127.0.0.1-982
+Site: drabiz.net
+Form Dict: {'docname': 'Employee', 'fields': '[]', 'cmd': 'frappe.client.validate_link'}
+2022-02-09 17:32:05,293 ERROR frappe New Exception collected with id: 2022-02-09 17:32:05.290750-127.0.0.1-678
+Site: drabiz.net
+Form Dict: {'docname': 'Employee', 'fields': '[]', 'cmd': 'frappe.client.validate_link'}
+2022-02-09 17:32:28,988 ERROR frappe New Exception collected with id: 2022-02-09 17:32:28.984887-127.0.0.1-fad
+Site: drabiz.net
+Form Dict: {'docname': 'Employee', 'fields': '[]', 'cmd': 'frappe.client.validate_link'}
+2022-02-10 09:44:01,188 ERROR frappe New Exception collected with id: 2022-02-10 09:44:01.166369-127.0.0.1-be3
+Site: drabiz.net
+Form Dict: {'docname': 'Employee', 'fields': '[]', 'cmd': 'frappe.client.validate_link'}
+2022-02-10 10:18:34,414 ERROR frappe New Exception collected with id: 2022-02-10 10:18:34.411956-127.0.0.1-477
+Site: drabiz.net
+Form Dict: {'docname': 'Employee Grievance', 'fields': '[]', 'cmd': 'frappe.client.validate_link'}
+2022-02-10 15:38:01,133 ERROR frappe New Exception collected with id: 2022-02-10 15:38:01.081388-127.0.0.1-0fb
+Site: drabiz.net
+Form Dict: {'doctype': 'Salary Structure', 'name': 'Lương 2022 qn', 'cmd': 'frappe.desk.form.save.cancel'}
+2022-02-10 15:38:30,644 ERROR frappe New Exception collected with id: 2022-02-10 15:38:30.613083-127.0.0.1-709
+Site: drabiz.net
+Form Dict: {'doctype': 'Salary Structure', 'name': 'Lương 2022 qn', 'cmd': 'frappe.desk.form.save.cancel'}
+2022-02-10 15:39:23,605 ERROR frappe New Exception collected with id: 2022-02-10 15:39:23.600859-127.0.0.1-ca9
+Site: drabiz.net
+Form Dict: {'doctype': 'Salary Structure', 'name': 'Lương 2022 qn', 'cmd': 'frappe.desk.form.save.cancel'}
+2022-02-10 15:48:33,151 ERROR frappe New Exception collected with id: 2022-02-10 15:48:33.132270-127.0.0.1-6a7
+Site: drabiz.net
+Form Dict: {'doctype': 'Salary Structure', 'name': 'Lương 2022 qn', 'cmd': 'frappe.desk.form.save.cancel'}

@@ -1,0 +1,533 @@
+{
+ "etype": "IndexError",
+ "evalue": "IndexError('tuple index out of range')",
+ "exception": {
+  "args": [
+   40,
+   39,
+   116,
+   117,
+   112,
+   108,
+   101,
+   32,
+   105,
+   110,
+   100,
+   101,
+   120,
+   32,
+   111,
+   117,
+   116,
+   32,
+   111,
+   102,
+   32,
+   114,
+   97,
+   110,
+   103,
+   101,
+   39,
+   44,
+   41
+  ],
+  "with_traceback": [
+   60,
+   98,
+   117,
+   105,
+   108,
+   116,
+   45,
+   105,
+   110,
+   32,
+   109,
+   101,
+   116,
+   104,
+   111,
+   100,
+   32,
+   119,
+   105,
+   116,
+   104,
+   95,
+   116,
+   114,
+   97,
+   99,
+   101,
+   98,
+   97,
+   99,
+   107,
+   32,
+   111,
+   102,
+   32,
+   73,
+   110,
+   100,
+   101,
+   120,
+   69,
+   114,
+   114,
+   111,
+   114,
+   32,
+   111,
+   98,
+   106,
+   101,
+   99,
+   116,
+   62
+  ]
+ },
+ "frames": [
+  {
+   "call": "(request=<Request 'http://drabiz.net:8000/api/method/frappe.desk.form.save.savedocs' [POST]>)",
+   "dump": {
+    "frappe. api": "<module 'frappe.api' from '/opt/bench/erpnext/apps/frappe/frappe/api.py'>",
+    "frappe.api. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "response": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/app.py",
+   "func": "application",
+   "lines": {
+    "64": "",
+    "65": "\t\telif request.path.startswith(\"/api/\"):",
+    "66": "\t\t\tresponse = frappe.api.handle()",
+    "67": "",
+    "68": "\t\telif request.path.startswith('/backups'):"
+   },
+   "lnum": 66
+  },
+  {
+   "call": "()",
+   "dump": {
+    "frappe. handler": "<module 'frappe.handler' from '/opt/bench/erpnext/apps/frappe/frappe/handler.py'>",
+    "frappe.handler. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/api.py",
+   "func": "handle",
+   "lines": {
+    "52": "\tif call==\"method\":",
+    "53": "\t\tfrappe.local.form_dict.cmd = doctype",
+    "54": "\t\treturn frappe.handler.handle()",
+    "55": "",
+    "56": "\telif call==\"resource\":"
+   },
+   "lnum": 54
+  },
+  {
+   "call": "()",
+   "dump": {
+    "cmd": "'frappe.desk.form.save.savedocs'",
+    "data": "None",
+    "global execute_cmd": "<function execute_cmd>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "handle",
+   "lines": {
+    "29": "",
+    "30": "\tif cmd != 'login':",
+    "31": "\t\tdata = execute_cmd(cmd)",
+    "32": "",
+    "33": "\t# data can be an empty string or list which are valid responses"
+   },
+   "lnum": 31
+  },
+  {
+   "call": "(cmd='frappe.desk.form.save.savedocs', from_async=False)",
+   "dump": {
+    "frappe. call": "<function call>",
+    "frappe. form_dict": "{'doc': '{\"name\":\"vanptc@draco.biz\",\"owner\":\"ail... 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "method": "<function savedocs>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "execute_cmd",
+   "lines": {
+    "65": "\t\tis_valid_http_method(method)",
+    "66": "",
+    "67": "\treturn frappe.call(method, **frappe.form_dict)",
+    "68": "",
+    "69": "def is_valid_http_method(method):"
+   },
+   "lnum": 67
+  },
+  {
+   "call": "(fn=<function savedocs>, *args=(), **kwargs={'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs', 'doc': '{\"name\":\"vanptc@draco.biz\",\"owner\":\"ailt@draco.b...ync_on\":\"2022-02-11T09:53:25.501Z\",\"__unsaved\":1}'})",
+   "dump": {
+    "args": "()",
+    "fn": "<function savedocs>",
+    "newargs": "{'action': 'Save', 'doc': '{\"name\":\"vanptc@draco.biz\",\"owner\":\"ailt@draco.b...ync_on\":\"2022-02-11T09:53:25.501Z\",\"__unsaved\":1}'}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "call",
+   "lines": {
+    "1218": "\tnewargs = get_newargs(fn, kwargs)",
+    "1219": "",
+    "1220": "\treturn fn(*args, **newargs)",
+    "1221": "",
+    "1222": "def get_newargs(fn, kwargs):"
+   },
+   "lnum": 1220
+  },
+  {
+   "call": "(doc=<User: vanptc@draco.biz>, action='Save')",
+   "dump": {
+    "doc": "<User: vanptc@draco.biz>",
+    "doc. save": "<bound method Document.save of <User: vanptc@draco.biz>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py",
+   "func": "savedocs",
+   "lines": {
+    "18": "\t\t\tdoc.submit()",
+    "19": "\t\telse:",
+    "20": "\t\t\tdoc.save()",
+    "21": "",
+    "22": "\t\t# update recent documents"
+   },
+   "lnum": 20
+  },
+  {
+   "call": "(self=<User: vanptc@draco.biz>, *args=(), **kwargs={})",
+   "dump": {
+    "args": "()",
+    "kwargs": "{}",
+    "self": "<User: vanptc@draco.biz>",
+    "self. _save": "<bound method Document._save of <User: vanptc@draco.biz>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "save",
+   "lines": {
+    "280": "\tdef save(self, *args, **kwargs):",
+    "281": "\t\t\"\"\"Wrapper for _save\"\"\"",
+    "282": "\t\treturn self._save(*args, **kwargs)",
+    "283": "",
+    "284": "\tdef _save(self, ignore_permissions=None, ignore_version=None):"
+   },
+   "lnum": 282
+  },
+  {
+   "call": "(self=<User: vanptc@draco.biz>, ignore_permissions=None, ignore_version=None)",
+   "dump": {
+    "self": "<User: vanptc@draco.biz>",
+    "self. run_before_save_methods": "<bound method Document.run_before_save_methods of <User: vanptc@draco.biz>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "_save",
+   "lines": {
+    "318": "\t\tself.validate_higher_perm_levels()",
+    "319": "\t\tself._validate_links()",
+    "320": "\t\tself.run_before_save_methods()",
+    "321": "",
+    "322": "\t\tif self._action != \"cancel\":"
+   },
+   "lnum": 320
+  },
+  {
+   "call": "(self=<User: vanptc@draco.biz>)",
+   "dump": {
+    "self": "<User: vanptc@draco.biz>",
+    "self. run_method": "<bound method Document.run_method of <User: vanptc@draco.biz>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "run_before_save_methods",
+   "lines": {
+    "963": "",
+    "964": "\t\tif self._action==\"save\":",
+    "965": "\t\t\tself.run_method(\"validate\")",
+    "966": "\t\t\tself.run_method(\"before_save\")",
+    "967": "\t\telif self._action==\"submit\":"
+   },
+   "lnum": 965
+  },
+  {
+   "call": "(self=<User: vanptc@draco.biz>, method='validate', *args=(), **kwargs={})",
+   "dump": {
+    "Document. hook": "<function Document.hook>",
+    "args": "()",
+    "fn": "<function Document.run_method.<locals>.<lambda>>",
+    "global Document": "<class 'frappe.model.document.Document'>",
+    "kwargs": "{}",
+    "out": "undefined",
+    "self": "<User: vanptc@draco.biz>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "run_method",
+   "lines": {
+    "860": "",
+    "861": "\t\tfn.__name__ = str(method)",
+    "862": "\t\tout = Document.hook(fn)(self, *args, **kwargs)",
+    "863": "",
+    "864": "\t\tself.run_notifications(method)"
+   },
+   "lnum": 862
+  },
+  {
+   "call": "(self=<User: vanptc@draco.biz>, *args=(), **kwargs={})",
+   "dump": {
+    "args": "()",
+    "composed": "<function Document.hook.<locals>.compose.<locals>.runner>",
+    "kwargs": "{}",
+    "method": "'validate'",
+    "self": "<User: vanptc@draco.biz>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "composer",
+   "lines": {
+    "1153": "",
+    "1154": "\t\t\tcomposed = compose(f, *hooks)",
+    "1155": "\t\t\treturn composed(self, method, *args, **kwargs)",
+    "1156": "",
+    "1157": "\t\treturn composer"
+   },
+   "lnum": 1155
+  },
+  {
+   "call": "(self=<User: vanptc@draco.biz>, method='validate', *args=(), **kwargs={})",
+   "dump": {
+    "add_to_return_value": "<function Document.hook.<locals>.add_to_return_value>",
+    "args": "()",
+    "fn": "<function Document.run_method.<locals>.<lambda>>",
+    "kwargs": "{}",
+    "self": "<User: vanptc@draco.biz>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "runner",
+   "lines": {
+    "1136": "\t\tdef compose(fn, *hooks):",
+    "1137": "\t\t\tdef runner(self, method, *args, **kwargs):",
+    "1138": "\t\t\t\tadd_to_return_value(self, fn(self, *args, **kwargs))",
+    "1139": "\t\t\t\tfor f in hooks:",
+    "1140": "\t\t\t\t\tadd_to_return_value(self, f(self, method, *args, **kwargs))"
+   },
+   "lnum": 1138
+  },
+  {
+   "call": "(self=<User: vanptc@draco.biz>, *args=(), **kwargs={})",
+   "dump": {
+    "args": "()",
+    "builtin getattr": "<built-in function getattr>",
+    "fn": "undefined",
+    "kwargs": "{}",
+    "method": "'validate'",
+    "self": "<User: vanptc@draco.biz>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "<lambda>",
+   "lines": {
+    "854": "",
+    "855": "\t\tif hasattr(self, method) and hasattr(getattr(self, method), \"__call__\"):",
+    "856": "\t\t\tfn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)",
+    "857": "\t\telse:",
+    "858": "\t\t\t# hack! to run hooks even if method does not exist"
+   },
+   "lnum": 856
+  },
+  {
+   "call": "(self=<User: vanptc@draco.biz>)",
+   "dump": {
+    "global ask_pass_update": "<function ask_pass_update>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py",
+   "func": "validate",
+   "lines": {
+    "71": "\t\tself.remove_disabled_roles()",
+    "72": "\t\tself.validate_user_email_inbox()",
+    "73": "\t\task_pass_update()",
+    "74": "\t\tself.validate_roles()",
+    "75": "\t\tself.validate_allowed_modules()"
+   },
+   "lnum": 73
+  },
+  {
+   "call": "()",
+   "dump": {
+    "password_list": "[]",
+    "set_default": "<function set_default>",
+    "u','.join": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py",
+   "func": "ask_pass_update",
+   "lines": {
+    "718": "",
+    "719": "\tpassword_list = frappe.get_all(\"User Email\", filters={\"awaiting_password\": True}, pluck=\"parent\", distinct=True)",
+    "720": "\tset_default(\"email_user_password\", u','.join(password_list))",
+    "721": "",
+    "722": "def _get_user_for_update_password(key, old_password):"
+   },
+   "lnum": 720
+  },
+  {
+   "call": "(key='email_user_password', val='')",
+   "dump": {
+    "frappe. db": "<frappe.database.mariadb.database.MariaDBDatabase object>",
+    "frappe.db. set_default": "<function Database.set_default>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "key": "'email_user_password'",
+    "val": "''"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/utils/__init__.py",
+   "func": "set_default",
+   "lines": {
+    "275": "\tSet / add a default value to defaults`",
+    "276": "\t\"\"\"",
+    "277": "\treturn frappe.db.set_default(key, val)",
+    "278": "",
+    "279": "def remove_blanks(d):"
+   },
+   "lnum": 277
+  },
+  {
+   "call": "(key='email_user_password', val='', parent='__default', parenttype=None)",
+   "dump": {
+    "frappe. defaults": "<module 'frappe.defaults' from '/opt/bench/erpnext/apps/frappe/frappe/defaults.py'>",
+    "frappe.defaults. set_default": "<function set_default>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "key": "'email_user_password'",
+    "parent": "'__default'",
+    "parenttype": "None",
+    "val": "''"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/database/database.py",
+   "func": "set_default",
+   "lines": {
+    "730": "\tdef set_default(key, val, parent=\"__default\", parenttype=None):",
+    "731": "\t\t\"\"\"Sets a global / user default value.\"\"\"",
+    "732": "\t\tfrappe.defaults.set_default(key, val, parent, parenttype)",
+    "733": "",
+    "734": "\t@staticmethod"
+   },
+   "lnum": 732
+  },
+  {
+   "call": "(key='email_user_password', value='', parent='__default', parenttype=None)",
+   "dump": {
+    "global add_default": "<function add_default>",
+    "key": "'email_user_password'",
+    "parent": "'__default'",
+    "value": "''"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/defaults.py",
+   "func": "set_default",
+   "lines": {
+    "128": "\t\t})",
+    "129": "\tif value != None:",
+    "130": "\t\tadd_default(key, value, parent)",
+    "131": "\telse:",
+    "132": "\t\t_clear_cache(parent)"
+   },
+   "lnum": 130
+  },
+  {
+   "call": "(key='email_user_password', value='', parent='__default', parenttype=None)",
+   "dump": {
+    "d": "<DefaultValue: 416fa95cff parent=__default>",
+    "d. insert": "<bound method Document.insert of <DefaultValue: 416fa95cff parent=__default>>",
+    "ignore_permissions": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/defaults.py",
+   "func": "add_default",
+   "lines": {
+    "141": "\t\t\"defvalue\": value",
+    "142": "\t})",
+    "143": "\td.insert(ignore_permissions=True)",
+    "144": "\t_clear_cache(parent)",
+    "145": ""
+   },
+   "lnum": 143
+  },
+  {
+   "call": "(self=<DefaultValue: 416fa95cff parent=__default>, ignore_permissions=True, ignore_links=None, ignore_if_duplicate=False, ignore_mandatory=None, set_name=None, set_child_names=True)",
+   "dump": {
+    "self": "<DefaultValue: 416fa95cff parent=__default>",
+    "self. db_insert": "<bound method BaseDocument.db_insert of <DefaultValue: 416fa95cff parent=__default>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "insert",
+   "lines": {
+    "245": "\t\telse:",
+    "246": "\t\t\ttry:",
+    "247": "\t\t\t\tself.db_insert()",
+    "248": "\t\t\texcept frappe.DuplicateEntryError as e:",
+    "249": "\t\t\t\tif not ignore_if_duplicate:"
+   },
+   "lnum": 247
+  },
+  {
+   "call": "(self=<DefaultValue: 416fa95cff parent=__default>)",
+   "dump": {
+    "e": "undefined",
+    "frappe. db": "<frappe.database.mariadb.database.MariaDBDatabase object>",
+    "frappe.db. is_primary_key_violation": "<bound method MariaDBDatabase.is_primary_key_vio...atabase.mariadb.database.MariaDBDatabase object>>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/base_document.py",
+   "func": "db_insert",
+   "lines": {
+    "368": "\t\t\t\t), list(d.values()))",
+    "369": "\t\texcept Exception as e:",
+    "370": "\t\t\tif frappe.db.is_primary_key_violation(e):",
+    "371": "\t\t\t\tif self.meta.autoname==\"hash\":",
+    "372": "\t\t\t\t\t# hash collision? try again"
+   },
+   "lnum": 370
+  },
+  {
+   "call": "(self=<frappe.database.mariadb.database.MariaDBDatabase object>, e=QueryDeadlockError())",
+   "dump": {
+    "e": "QueryDeadlockError()",
+    "e. args": "()",
+    "global cstr": "<function cstr>",
+    "self": "<frappe.database.mariadb.database.MariaDBDatabase object>",
+    "self. is_duplicate_entry": "<function MariaDBDatabase.is_duplicate_entry>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/database/mariadb/database.py",
+   "func": "is_primary_key_violation",
+   "lines": {
+    "182": "",
+    "183": "\tdef is_primary_key_violation(self, e):",
+    "184": "\t\treturn self.is_duplicate_entry(e) and 'PRIMARY' in cstr(e.args[1])",
+    "185": "",
+    "186": "\tdef is_unique_key_violation(self, e):"
+   },
+   "lnum": 184
+  },
+  {
+   "call": "(e=QueryDeadlockError())",
+   "dump": {
+    "ER. DUP_ENTRY": "1062",
+    "e": "QueryDeadlockError()",
+    "e. args": "()",
+    "global ER": "<module 'pymysql.constants.ER' from '/opt/bench/...python3.8/site-packages/pymysql/constants/ER.py'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/database/mariadb/database.py",
+   "func": "is_duplicate_entry",
+   "lines": {
+    "163": "\t@staticmethod",
+    "164": "\tdef is_duplicate_entry(e):",
+    "165": "\t\treturn e.args[0] == ER.DUP_ENTRY",
+    "166": "",
+    "167": "\t@staticmethod"
+   },
+   "lnum": 165
+  }
+ ],
+ "locals": {
+  "e": "QueryDeadlockError()"
+ },
+ "pyver": "Python 3.8.10: /opt/bench/erpnext/env/bin/python (prefix: /opt/bench/erpnext/env)",
+ "timestamp": "2022-02-11 17:54:29.715349",
+ "traceback": "Traceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/database/database.py\", line 149, in sql\n    self._cursor.execute(query, values)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/cursors.py\", line 148, in execute\n    result = self._query(query)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/cursors.py\", line 310, in _query\n    conn.query(q)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py\", line 548, in query\n    self._affected_rows = self._read_query_result(unbuffered=unbuffered)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py\", line 775, in _read_query_result\n    result.read()\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py\", line 1156, in read\n    first_packet = self.connection._read_packet()\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py\", line 725, in _read_packet\n    packet.raise_for_error()\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/protocol.py\", line 221, in raise_for_error\n    err.raise_mysql_exception(self._data)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/err.py\", line 143, in raise_mysql_exception\n    raise errorclass(errno, errval)\npymysql.err.OperationalError: (1213, 'Deadlock found when trying to get lock; try restarting transaction')\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/base_document.py\", line 363, in db_insert\n    frappe.db.sql(\"\"\"INSERT INTO `tab{doctype}` ({columns})\n  File \"/opt/bench/erpnext/apps/frappe/frappe/database/database.py\", line 174, in sql\n    raise frappe.QueryDeadlockError\nfrappe.exceptions.QueryDeadlockError\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/app.py\", line 66, in application\n    response = frappe.api.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/api.py\", line 54, in handle\n    return frappe.handler.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 31, in handle\n    data = execute_cmd(cmd)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 67, in execute_cmd\n    return frappe.call(method, **frappe.form_dict)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 1220, in call\n    return fn(*args, **newargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py\", line 20, in savedocs\n    doc.save()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 282, in save\n    return self._save(*args, **kwargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 320, in _save\n    self.run_before_save_methods()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 965, in run_before_save_methods\n    self.run_method(\"validate\")\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 862, in run_method\n    out = Document.hook(fn)(self, *args, **kwargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 1155, in composer\n    return composed(self, method, *args, **kwargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 1138, in runner\n    add_to_return_value(self, fn(self, *args, **kwargs))\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 856, in <lambda>\n    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py\", line 73, in validate\n    ask_pass_update()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/core/doctype/user/user.py\", line 720, in ask_pass_update\n    set_default(\"email_user_password\", u','.join(password_list))\n  File \"/opt/bench/erpnext/apps/frappe/frappe/utils/__init__.py\", line 277, in set_default\n    return frappe.db.set_default(key, val)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/database/database.py\", line 732, in set_default\n    frappe.defaults.set_default(key, val, parent, parenttype)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/defaults.py\", line 130, in set_default\n    add_default(key, value, parent)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/defaults.py\", line 143, in add_default\n    d.insert(ignore_permissions=True)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 247, in insert\n    self.db_insert()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/base_document.py\", line 370, in db_insert\n    if frappe.db.is_primary_key_violation(e):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/database/mariadb/database.py\", line 184, in is_primary_key_violation\n    return self.is_duplicate_entry(e) and 'PRIMARY' in cstr(e.args[1])\n  File \"/opt/bench/erpnext/apps/frappe/frappe/database/mariadb/database.py\", line 165, in is_duplicate_entry\n    return e.args[0] == ER.DUP_ENTRY\nIndexError: tuple index out of range\n"
+}

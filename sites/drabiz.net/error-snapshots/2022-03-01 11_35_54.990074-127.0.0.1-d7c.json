@@ -1,0 +1,348 @@
+{
+ "etype": "JSONDecodeError",
+ "evalue": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+ "exception": {
+  "args": [
+   40,
+   39,
+   69,
+   120,
+   112,
+   101,
+   99,
+   116,
+   105,
+   110,
+   103,
+   32,
+   118,
+   97,
+   108,
+   117,
+   101,
+   58,
+   32,
+   108,
+   105,
+   110,
+   101,
+   32,
+   49,
+   32,
+   99,
+   111,
+   108,
+   117,
+   109,
+   110,
+   32,
+   49,
+   32,
+   40,
+   99,
+   104,
+   97,
+   114,
+   32,
+   48,
+   41,
+   39,
+   44,
+   41
+  ],
+  "colno": [
+   49
+  ],
+  "doc": [
+   39,
+   72,
+   82,
+   39
+  ],
+  "lineno": [
+   49
+  ],
+  "msg": [
+   39,
+   69,
+   120,
+   112,
+   101,
+   99,
+   116,
+   105,
+   110,
+   103,
+   32,
+   118,
+   97,
+   108,
+   117,
+   101,
+   39
+  ],
+  "pos": [
+   48
+  ],
+  "with_traceback": [
+   60,
+   98,
+   117,
+   105,
+   108,
+   116,
+   45,
+   105,
+   110,
+   32,
+   109,
+   101,
+   116,
+   104,
+   111,
+   100,
+   32,
+   119,
+   105,
+   116,
+   104,
+   95,
+   116,
+   114,
+   97,
+   99,
+   101,
+   98,
+   97,
+   99,
+   107,
+   32,
+   111,
+   102,
+   32,
+   74,
+   83,
+   79,
+   78,
+   68,
+   101,
+   99,
+   111,
+   100,
+   101,
+   69,
+   114,
+   114,
+   111,
+   114,
+   32,
+   111,
+   98,
+   106,
+   101,
+   99,
+   116,
+   62
+  ]
+ },
+ "frames": [
+  {
+   "call": "(request=<Request 'http://drabiz.net:8000/api/method/frappe.desk.desktop.get_desktop_page' [POST]>)",
+   "dump": {
+    "frappe. api": "<module 'frappe.api' from '/opt/bench/erpnext/apps/frappe/frappe/api.py'>",
+    "frappe.api. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "response": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/app.py",
+   "func": "application",
+   "lines": {
+    "64": "",
+    "65": "\t\telif request.path.startswith(\"/api/\"):",
+    "66": "\t\t\tresponse = frappe.api.handle()",
+    "67": "",
+    "68": "\t\telif request.path.startswith('/backups'):"
+   },
+   "lnum": 66
+  },
+  {
+   "call": "()",
+   "dump": {
+    "frappe. handler": "<module 'frappe.handler' from '/opt/bench/erpnext/apps/frappe/frappe/handler.py'>",
+    "frappe.handler. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/api.py",
+   "func": "handle",
+   "lines": {
+    "52": "\tif call==\"method\":",
+    "53": "\t\tfrappe.local.form_dict.cmd = doctype",
+    "54": "\t\treturn frappe.handler.handle()",
+    "55": "",
+    "56": "\telif call==\"resource\":"
+   },
+   "lnum": 54
+  },
+  {
+   "call": "()",
+   "dump": {
+    "cmd": "'frappe.desk.desktop.get_desktop_page'",
+    "data": "None",
+    "global execute_cmd": "<function execute_cmd>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "handle",
+   "lines": {
+    "29": "",
+    "30": "\tif cmd != 'login':",
+    "31": "\t\tdata = execute_cmd(cmd)",
+    "32": "",
+    "33": "\t# data can be an empty string or list which are valid responses"
+   },
+   "lnum": 31
+  },
+  {
+   "call": "(cmd='frappe.desk.desktop.get_desktop_page', from_async=False)",
+   "dump": {
+    "frappe. call": "<function call>",
+    "frappe. form_dict": "{'page': 'HR', 'cmd': 'frappe.desk.desktop.get_desktop_page'}",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "method": "<function read_only.<locals>.innfn.<locals>.wrapper_fn>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "execute_cmd",
+   "lines": {
+    "65": "\t\tis_valid_http_method(method)",
+    "66": "",
+    "67": "\treturn frappe.call(method, **frappe.form_dict)",
+    "68": "",
+    "69": "def is_valid_http_method(method):"
+   },
+   "lnum": 67
+  },
+  {
+   "call": "(fn=<function read_only.<locals>.innfn.<locals>.wrapper_fn>, *args=(), **kwargs={'cmd': 'frappe.desk.desktop.get_desktop_page', 'page': 'HR'})",
+   "dump": {
+    "args": "()",
+    "fn": "<function read_only.<locals>.innfn.<locals>.wrapper_fn>",
+    "newargs": "{'cmd': 'frappe.desk.desktop.get_desktop_page', 'page': 'HR'}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "call",
+   "lines": {
+    "1218": "\tnewargs = get_newargs(fn, kwargs)",
+    "1219": "",
+    "1220": "\treturn fn(*args, **newargs)",
+    "1221": "",
+    "1222": "def get_newargs(fn, kwargs):"
+   },
+   "lnum": 1220
+  },
+  {
+   "call": "(*args=(), **kwargs={'cmd': 'frappe.desk.desktop.get_desktop_page', 'page': 'HR'})",
+   "dump": {
+    "args": "()",
+    "fn": "<function get_desktop_page>",
+    "global get_newargs": "<function get_newargs>",
+    "kwargs": "{'cmd': 'frappe.desk.desktop.get_desktop_page', 'page': 'HR'}",
+    "retval": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "wrapper_fn",
+   "lines": {
+    "630": "",
+    "631": "\t\t\ttry:",
+    "632": "\t\t\t\tretval = fn(*args, **get_newargs(fn, kwargs))",
+    "633": "\t\t\tfinally:",
+    "634": "\t\t\t\tif local and hasattr(local, 'primary_db'):"
+   },
+   "lnum": 632
+  },
+  {
+   "call": "(page='HR')",
+   "dump": {
+    "global Workspace": "<class 'frappe.desk.desktop.Workspace'>",
+    "global loads": "<function loads>",
+    "page": "'HR'",
+    "wspace": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/desktop.py",
+   "func": "get_desktop_page",
+   "lines": {
+    "347": "\t\"\"\"",
+    "348": "\ttry:",
+    "349": "\t\twspace = Workspace(loads(page))",
+    "350": "\t\twspace.build_workspace()",
+    "351": "\t\treturn {"
+   },
+   "lnum": 349
+  },
+  {
+   "call": "(s='HR', cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw={})",
+   "dump": {
+    "_default_decoder. decode": "<bound method JSONDecoder.decode of <json.decoder.JSONDecoder object>>",
+    "global _default_decoder": "<json.decoder.JSONDecoder object>",
+    "s": "'HR'"
+   },
+   "file": "/usr/lib/python3.8/json/__init__.py",
+   "func": "loads",
+   "lines": {
+    "355": "            parse_int is None and parse_float is None and",
+    "356": "            parse_constant is None and object_pairs_hook is None and not kw):",
+    "357": "        return _default_decoder.decode(s)",
+    "358": "    if cls is None:",
+    "359": "        cls = JSONDecoder"
+   },
+   "lnum": 357
+  },
+  {
+   "call": "(self=<json.decoder.JSONDecoder object>, s='HR', _w=<built-in method match of re.Pattern object>)",
+   "dump": {
+    ").end": "undefined",
+    "_w": "<built-in method match of re.Pattern object>",
+    "end": "undefined",
+    "idx": "undefined",
+    "obj": "undefined",
+    "s": "'HR'",
+    "self": "<json.decoder.JSONDecoder object>",
+    "self. raw_decode": "<bound method JSONDecoder.raw_decode of <json.decoder.JSONDecoder object>>"
+   },
+   "file": "/usr/lib/python3.8/json/decoder.py",
+   "func": "decode",
+   "lines": {
+    "335": "",
+    "336": "        \"\"\"",
+    "337": "        obj, end = self.raw_decode(s, idx=_w(s, 0).end())",
+    "338": "        end = _w(s, end).end()",
+    "339": "        if end != len(s):"
+   },
+   "lnum": 337
+  },
+  {
+   "call": "(self=<json.decoder.JSONDecoder object>, s='HR', idx=0)",
+   "dump": {
+    "err": "undefined",
+    "global JSONDecodeError": "<class 'json.decoder.JSONDecodeError'>",
+    "s": "'HR'"
+   },
+   "file": "/usr/lib/python3.8/json/decoder.py",
+   "func": "raw_decode",
+   "lines": {
+    "352": "        try:",
+    "353": "            obj, end = self.scan_once(s, idx)",
+    "354": "        except StopIteration as err:",
+    "355": "            raise JSONDecodeError(\"Expecting value\", s, err.value) from None",
+    "356": "        return obj, end"
+   },
+   "lnum": 355
+  }
+ ],
+ "locals": {
+  "idx": "0",
+  "s": "HR",
+  "self": "<json.decoder.JSONDecoder object>"
+ },
+ "pyver": "Python 3.8.10: /opt/bench/erpnext/env/bin/python (prefix: /opt/bench/erpnext/env)",
+ "timestamp": "2022-03-01 11:35:54.990345",
+ "traceback": "Traceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/app.py\", line 66, in application\n    response = frappe.api.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/api.py\", line 54, in handle\n    return frappe.handler.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 31, in handle\n    data = execute_cmd(cmd)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 67, in execute_cmd\n    return frappe.call(method, **frappe.form_dict)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 1220, in call\n    return fn(*args, **newargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 632, in wrapper_fn\n    retval = fn(*args, **get_newargs(fn, kwargs))\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/desktop.py\", line 349, in get_desktop_page\n    wspace = Workspace(loads(page))\n  File \"/usr/lib/python3.8/json/__init__.py\", line 357, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/lib/python3.8/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n  File \"/usr/lib/python3.8/json/decoder.py\", line 355, in raw_decode\n    raise JSONDecodeError(\"Expecting value\", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n"
+}

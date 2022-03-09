@@ -1,0 +1,375 @@
+{
+ "etype": "AttributeError",
+ "evalue": "AttributeError(\"'MariaDBDatabase' object has no attribute 'build_conditions'\")",
+ "exception": {
+  "args": [
+   40,
+   34,
+   39,
+   77,
+   97,
+   114,
+   105,
+   97,
+   68,
+   66,
+   68,
+   97,
+   116,
+   97,
+   98,
+   97,
+   115,
+   101,
+   39,
+   32,
+   111,
+   98,
+   106,
+   101,
+   99,
+   116,
+   32,
+   104,
+   97,
+   115,
+   32,
+   110,
+   111,
+   32,
+   97,
+   116,
+   116,
+   114,
+   105,
+   98,
+   117,
+   116,
+   101,
+   32,
+   39,
+   98,
+   117,
+   105,
+   108,
+   100,
+   95,
+   99,
+   111,
+   110,
+   100,
+   105,
+   116,
+   105,
+   111,
+   110,
+   115,
+   39,
+   34,
+   44,
+   41
+  ],
+  "with_traceback": [
+   60,
+   98,
+   117,
+   105,
+   108,
+   116,
+   45,
+   105,
+   110,
+   32,
+   109,
+   101,
+   116,
+   104,
+   111,
+   100,
+   32,
+   119,
+   105,
+   116,
+   104,
+   95,
+   116,
+   114,
+   97,
+   99,
+   101,
+   98,
+   97,
+   99,
+   107,
+   32,
+   111,
+   102,
+   32,
+   65,
+   116,
+   116,
+   114,
+   105,
+   98,
+   117,
+   116,
+   101,
+   69,
+   114,
+   114,
+   111,
+   114,
+   32,
+   111,
+   98,
+   106,
+   101,
+   99,
+   116,
+   62
+  ]
+ },
+ "frames": [
+  {
+   "call": "(request=<Request 'http://drabiz.net:8000/api/method/frappe.desk.search.search_link' [POST]>)",
+   "dump": {
+    "frappe. api": "<module 'frappe.api' from '/opt/bench/erpnext/apps/frappe/frappe/api.py'>",
+    "frappe.api. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "response": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/app.py",
+   "func": "application",
+   "lines": {
+    "64": "",
+    "65": "\t\telif request.path.startswith(\"/api/\"):",
+    "66": "\t\t\tresponse = frappe.api.handle()",
+    "67": "",
+    "68": "\t\telif request.path.startswith('/backups'):"
+   },
+   "lnum": 66
+  },
+  {
+   "call": "()",
+   "dump": {
+    "frappe. handler": "<module 'frappe.handler' from '/opt/bench/erpnext/apps/frappe/frappe/handler.py'>",
+    "frappe.handler. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/api.py",
+   "func": "handle",
+   "lines": {
+    "52": "\tif call==\"method\":",
+    "53": "\t\tfrappe.local.form_dict.cmd = doctype",
+    "54": "\t\treturn frappe.handler.handle()",
+    "55": "",
+    "56": "\telif call==\"resource\":"
+   },
+   "lnum": 54
+  },
+  {
+   "call": "()",
+   "dump": {
+    "cmd": "'frappe.desk.search.search_link'",
+    "data": "None",
+    "global execute_cmd": "<function execute_cmd>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "handle",
+   "lines": {
+    "29": "",
+    "30": "\tif cmd != 'login':",
+    "31": "\t\tdata = execute_cmd(cmd)",
+    "32": "",
+    "33": "\t# data can be an empty string or list which are valid responses"
+   },
+   "lnum": 31
+  },
+  {
+   "call": "(cmd='frappe.desk.search.search_link', from_async=False)",
+   "dump": {
+    "frappe. call": "<function call>",
+    "frappe. form_dict": "{'txt': '', 'doctype': 'Number Card', 'reference...ntry\"}', 'cmd': 'frappe.desk.search.search_link'}",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "method": "<function search_link>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "execute_cmd",
+   "lines": {
+    "65": "\t\tis_valid_http_method(method)",
+    "66": "",
+    "67": "\treturn frappe.call(method, **frappe.form_dict)",
+    "68": "",
+    "69": "def is_valid_http_method(method):"
+   },
+   "lnum": 67
+  },
+  {
+   "call": "(fn=<function search_link>, *args=(), **kwargs={'cmd': 'frappe.desk.search.search_link', 'doctype': 'Number Card', 'filters': '{\"document_type\":\"Stock Ledger Entry\"}', 'query': 'frappe.desk.doctype.number_card.number_card.get_cards_for_user', 'reference_doctype': 'Stock Ledger Entry', 'txt': ''})",
+   "dump": {
+    "args": "()",
+    "fn": "<function search_link>",
+    "newargs": "{'doctype': 'Number Card', 'filters': '{\"document_type\":\"Stock Ledger Entry\"}', 'query': 'frappe.desk.doctype.number_card.number_card.get_cards_for_user', 'reference_doctype': 'Stock Ledger Entry', 'txt': ''}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "call",
+   "lines": {
+    "1218": "\tnewargs = get_newargs(fn, kwargs)",
+    "1219": "",
+    "1220": "\treturn fn(*args, **newargs)",
+    "1221": "",
+    "1222": "def get_newargs(fn, kwargs):"
+   },
+   "lnum": 1220
+  },
+  {
+   "call": "(doctype='Number Card', txt='', query='frappe.desk.doctype.number_card.number_card.get_cards_for_user', filters='{\"document_type\":\"Stock Ledger Entry\"}', page_length=20, searchfield=None, reference_doctype='Stock Ledger Entry', ignore_user_permissions=False)",
+   "dump": {
+    "doctype": "'Number Card'",
+    "filters": "'{\"document_type\":\"Stock Ledger Entry\"}'",
+    "global search_widget": "<function search_widget>",
+    "ignore_user_permissions": "False",
+    "page_length": "20",
+    "query": "'frappe.desk.doctype.number_card.number_card.get_cards_for_user'",
+    "reference_doctype": "'Stock Ledger Entry'",
+    "searchfield": "None",
+    "txt": "''",
+    "txt. strip": "<built-in method strip of str object>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/search.py",
+   "func": "search_link",
+   "lines": {
+    "50": "@frappe.whitelist()",
+    "51": "def search_link(doctype, txt, query=None, filters=None, page_length=20, searchfield=None, reference_doctype=None, ignore_user_permissions=False):",
+    "52": "\tsearch_widget(doctype, txt.strip(), query, searchfield=searchfield, page_length=page_length, filters=filters, reference_doctype=reference_doctype, ignore_user_permissions=ignore_user_permissions)",
+    "53": "\tfrappe.response['results'] = build_for_autosuggest(frappe.response[\"values\"])",
+    "54": "\tdel frappe.response[\"values\"]"
+   },
+   "lnum": 52
+  },
+  {
+   "call": "(doctype='Number Card', txt='', query='frappe.desk.doctype.number_card.number_card.get_cards_for_user', searchfield='name', start=0, page_length=20, filters={'document_type': 'Stock Ledger Entry'}, filter_fields=None, as_dict=False, reference_doctype='Stock Ledger Entry', ignore_user_permissions=False)",
+   "dump": {
+    "e": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/search.py",
+   "func": "search_widget",
+   "lines": {
+    "86": "\t\t\treturn",
+    "87": "\t\texcept Exception as e:",
+    "88": "\t\t\traise e",
+    "89": "\telif not query and doctype in standard_queries:",
+    "90": "\t\t# from standard queries"
+   },
+   "lnum": 88
+  },
+  {
+   "call": "(doctype='Number Card', txt='', query='frappe.desk.doctype.number_card.number_card.get_cards_for_user', searchfield='name', start=0, page_length=20, filters={'document_type': 'Stock Ledger Entry'}, filter_fields=None, as_dict=False, reference_doctype='Stock Ledger Entry', ignore_user_permissions=False)",
+   "dump": {
+    "as_dict": "False",
+    "doctype": "'Number Card'",
+    "filters": "{'document_type': 'Stock Ledger Entry'}",
+    "frappe. call": "<function call>",
+    "frappe. response": "{'exception': \"AttributeError: 'MariaDBDatabase'...ject has no attribute \\'build_conditions\\'\\\\n\"]'}",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "page_length": "20",
+    "query": "'frappe.desk.doctype.number_card.number_card.get_cards_for_user'",
+    "searchfield": "'name'",
+    "start": "0",
+    "txt": "''"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/search.py",
+   "func": "search_widget",
+   "lines": {
+    "76": "\t\ttry:",
+    "77": "\t\t\tis_whitelisted(frappe.get_attr(query))",
+    "78": "\t\t\tfrappe.response[\"values\"] = frappe.call(query, doctype, txt,",
+    "79": "\t\t\t\tsearchfield, start, page_length, filters, as_dict=as_dict)",
+    "80": "\t\texcept frappe.exceptions.PermissionError as e:"
+   },
+   "lnum": 78
+  },
+  {
+   "call": "(fn=<FunctionWrapper at 0x7f3ed9095fa0 for function>, *args=('Number Card', '', 'name', 0, 20, {'document_type': 'Stock Ledger Entry'}), **kwargs={'as_dict': False})",
+   "dump": {
+    "args": "('Number Card', '', 'name', 0, 20, {'document_type': 'Stock Ledger Entry'})",
+    "fn": "<FunctionWrapper at 0x7f3ed9095fa0 for function>",
+    "newargs": "{'doctype': 'Number Card', 'filters': {'document_type': 'Stock Ledger Entry'}, 'page_len': 20, 'searchfield': 'name', 'start': 0, 'txt': ''}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "call",
+   "lines": {
+    "1218": "\tnewargs = get_newargs(fn, kwargs)",
+    "1219": "",
+    "1220": "\treturn fn(*args, **newargs)",
+    "1221": "",
+    "1222": "def get_newargs(fn, kwargs):"
+   },
+   "lnum": 1220
+  },
+  {
+   "call": "(fn=<function get_cards_for_user>, instance=None, args=('Number Card', '', 'name', 0, 20, {'document_type': 'Stock Ledger Entry'}), kwargs={'doctype': 'Number Card', 'filters': {'document_type': 'Stock Ledger Entry'}, 'page_len': 20, 'searchfield': 'name', 'start': 0, 'txt': ''})",
+   "dump": {
+    "fn": "<function get_cards_for_user>",
+    "kwargs": "{'doctype': 'Number Card', 'filters': {'document_type': 'Stock Ledger Entry'}, 'page_len': 20, 'searchfield': 'name', 'start': 0, 'txt': ''}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/search.py",
+   "func": "validate_and_sanitize_search_inputs",
+   "lines": {
+    "237": "\t\treturn []",
+    "238": "",
+    "239": "\treturn fn(**kwargs)",
+    "240": "",
+    "241": ""
+   },
+   "lnum": 239
+  },
+  {
+   "call": "(doctype='Number Card', txt='', searchfield='name', start=0, page_len=20, filters={'document_type': 'Stock Ledger Entry'})",
+   "dump": {
+    "conditions": "undefined",
+    "filters": "{'document_type': 'Stock Ledger Entry'}",
+    "frappe. db": "<frappe.database.mariadb.database.MariaDBDatabase object>",
+    "frappe.db.build_conditions": "undefined",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "values": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/doctype/number_card/number_card.py",
+   "func": "get_cards_for_user",
+   "lines": {
+    "158": "",
+    "159": "\tsearch_conditions = 'and (' + search_conditions +')' if search_conditions else ''",
+    "160": "\tconditions, values = frappe.db.build_conditions(filters)",
+    "161": "\tvalues['txt'] = '%' + txt + '%'",
+    "162": ""
+   },
+   "lnum": 160
+  },
+  {
+   "call": "(self=<frappe.database.mariadb.database.MariaDBDatabase object>, name='build_conditions')",
+   "dump": {
+    "builtin getattr": "<built-in function getattr>",
+    "name": "'build_conditions'",
+    "self": "<frappe.database.mariadb.database.MariaDBDatabase object>",
+    "self. _get_current_object": "<bound method LocalProxy._get_current_object of ...atabase.mariadb.database.MariaDBDatabase object>>"
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/werkzeug/local.py",
+   "func": "__getattr__",
+   "lines": {
+    "346": "        if name == \"__members__\":",
+    "347": "            return dir(self._get_current_object())",
+    "348": "        return getattr(self._get_current_object(), name)",
+    "349": "",
+    "350": "    def __setitem__(self, key, value):"
+   },
+   "lnum": 348
+  }
+ ],
+ "locals": {
+  "name": "build_conditions",
+  "self": "<frappe.database.mariadb.database.MariaDBDatabase object>"
+ },
+ "pyver": "Python 3.8.10: /opt/bench/erpnext/env/bin/python (prefix: /opt/bench/erpnext/env)",
+ "timestamp": "2022-02-19 09:37:34.933693",
+ "traceback": "Traceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/app.py\", line 66, in application\n    response = frappe.api.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/api.py\", line 54, in handle\n    return frappe.handler.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 31, in handle\n    data = execute_cmd(cmd)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 67, in execute_cmd\n    return frappe.call(method, **frappe.form_dict)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 1220, in call\n    return fn(*args, **newargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/search.py\", line 52, in search_link\n    search_widget(doctype, txt.strip(), query, searchfield=searchfield, page_length=page_length, filters=filters, reference_doctype=reference_doctype, ignore_user_permissions=ignore_user_permissions)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/search.py\", line 88, in search_widget\n    raise e\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/search.py\", line 78, in search_widget\n    frappe.response[\"values\"] = frappe.call(query, doctype, txt,\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 1220, in call\n    return fn(*args, **newargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/search.py\", line 239, in validate_and_sanitize_search_inputs\n    return fn(**kwargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/doctype/number_card/number_card.py\", line 160, in get_cards_for_user\n    conditions, values = frappe.db.build_conditions(filters)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/werkzeug/local.py\", line 348, in __getattr__\n    return getattr(self._get_current_object(), name)\nAttributeError: 'MariaDBDatabase' object has no attribute 'build_conditions'\n"
+}

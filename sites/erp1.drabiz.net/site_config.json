@@ -1,0 +1,8 @@
+{
+ "db_name": "_d8b86abce7db08a8",
+ "db_password": "WiMaxDbIvPjRgbPO",
+ "db_type": "mariadb",
+ "user_type_doctype_limit": {
+  "employee_self_service": 10
+ }
+}

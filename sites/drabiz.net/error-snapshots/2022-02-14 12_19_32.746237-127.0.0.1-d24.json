@@ -1,0 +1,288 @@
+{
+ "etype": "AttributeError",
+ "evalue": "AttributeError(\"'tuple' object has no attribute 'copy'\")",
+ "exception": {
+  "args": [
+   40,
+   34,
+   39,
+   116,
+   117,
+   112,
+   108,
+   101,
+   39,
+   32,
+   111,
+   98,
+   106,
+   101,
+   99,
+   116,
+   32,
+   104,
+   97,
+   115,
+   32,
+   110,
+   111,
+   32,
+   97,
+   116,
+   116,
+   114,
+   105,
+   98,
+   117,
+   116,
+   101,
+   32,
+   39,
+   99,
+   111,
+   112,
+   121,
+   39,
+   34,
+   44,
+   41
+  ],
+  "with_traceback": [
+   60,
+   98,
+   117,
+   105,
+   108,
+   116,
+   45,
+   105,
+   110,
+   32,
+   109,
+   101,
+   116,
+   104,
+   111,
+   100,
+   32,
+   119,
+   105,
+   116,
+   104,
+   95,
+   116,
+   114,
+   97,
+   99,
+   101,
+   98,
+   97,
+   99,
+   107,
+   32,
+   111,
+   102,
+   32,
+   65,
+   116,
+   116,
+   114,
+   105,
+   98,
+   117,
+   116,
+   101,
+   69,
+   114,
+   114,
+   111,
+   114,
+   32,
+   111,
+   98,
+   106,
+   101,
+   99,
+   116,
+   62
+  ]
+ },
+ "frames": [
+  {
+   "call": "(request=<Request 'http://drabiz.net:8000/api/method/frap...doctype.data_export.exporter.export_data' [POST]>)",
+   "dump": {
+    "frappe. api": "<module 'frappe.api' from '/opt/bench/erpnext/apps/frappe/frappe/api.py'>",
+    "frappe.api. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "response": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/app.py",
+   "func": "application",
+   "lines": {
+    "64": "",
+    "65": "\t\telif request.path.startswith(\"/api/\"):",
+    "66": "\t\t\tresponse = frappe.api.handle()",
+    "67": "",
+    "68": "\t\telif request.path.startswith('/backups'):"
+   },
+   "lnum": 66
+  },
+  {
+   "call": "()",
+   "dump": {
+    "frappe. handler": "<module 'frappe.handler' from '/opt/bench/erpnext/apps/frappe/frappe/handler.py'>",
+    "frappe.handler. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/api.py",
+   "func": "handle",
+   "lines": {
+    "52": "\tif call==\"method\":",
+    "53": "\t\tfrappe.local.form_dict.cmd = doctype",
+    "54": "\t\treturn frappe.handler.handle()",
+    "55": "",
+    "56": "\telif call==\"resource\":"
+   },
+   "lnum": 54
+  },
+  {
+   "call": "()",
+   "dump": {
+    "cmd": "'frappe.core.doctype.data_export.exporter.export_data'",
+    "data": "None",
+    "global execute_cmd": "<function execute_cmd>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "handle",
+   "lines": {
+    "29": "",
+    "30": "\tif cmd != 'login':",
+    "31": "\t\tdata = execute_cmd(cmd)",
+    "32": "",
+    "33": "\t# data can be an empty string or list which are valid responses"
+   },
+   "lnum": 31
+  },
+  {
+   "call": "(cmd='frappe.core.doctype.data_export.exporter.export_data', from_async=False)",
+   "dump": {
+    "frappe. call": "<function call>",
+    "frappe. form_dict": "{'doctype': 'Journal Entry', 'select_columns': '...e.core.doctype.data_export.exporter.export_data'}",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "method": "<function export_data>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "execute_cmd",
+   "lines": {
+    "65": "\t\tis_valid_http_method(method)",
+    "66": "",
+    "67": "\treturn frappe.call(method, **frappe.form_dict)",
+    "68": "",
+    "69": "def is_valid_http_method(method):"
+   },
+   "lnum": 67
+  },
+  {
+   "call": "(fn=<function export_data>, *args=(), **kwargs={'cmd': 'frappe.core.doctype.data_export.exporter.export_data', 'doctype': 'Journal Entry', 'file_type': 'Excel', 'filters': '[]', 'select_columns': '{\"Journal Entry\":[\"voucher_type\",\"naming_series\"...\"reference_due_date\",\"is_advance\",\"user_remark\"]}', 'template': 'true', 'with_data': '1'})",
+   "dump": {
+    "args": "()",
+    "fn": "<function export_data>",
+    "newargs": "{'doctype': 'Journal Entry', 'file_type': 'Excel', 'filters': '[]', 'select_columns': '{\"Journal Entry\":[\"voucher_type\",\"naming_series\"...\"reference_due_date\",\"is_advance\",\"user_remark\"]}', 'template': 'true', 'with_data': '1'}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "call",
+   "lines": {
+    "1218": "\tnewargs = get_newargs(fn, kwargs)",
+    "1219": "",
+    "1220": "\treturn fn(*args, **newargs)",
+    "1221": "",
+    "1222": "def get_newargs(fn, kwargs):"
+   },
+   "lnum": 1220
+  },
+  {
+   "call": "(doctype='Journal Entry', parent_doctype=None, all_doctypes=True, with_data='1', select_columns='{\"Journal Entry\":[\"voucher_type\",\"naming_series\"...\"reference_due_date\",\"is_advance\",\"user_remark\"]}', file_type='Excel', template='true', filters='[]')",
+   "dump": {
+    "exporter": "<frappe.core.doctype.data_export.exporter.DataExporter object>",
+    "exporter. build_response": "<bound method DataExporter.build_response of <fr...octype.data_export.exporter.DataExporter object>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/data_export/exporter.py",
+   "func": "export_data",
+   "lines": {
+    "38": "\texporter = DataExporter(doctype=doctype, parent_doctype=parent_doctype, all_doctypes=all_doctypes, with_data=with_data,",
+    "39": "\t\tselect_columns=select_columns, file_type=file_type, template=template, filters=filters)",
+    "40": "\texporter.build_response()",
+    "41": "",
+    "42": "class DataExporter:"
+   },
+   "lnum": 40
+  },
+  {
+   "call": "(self=<frappe.core.doctype.data_export.exporter.DataExporter object>)",
+   "dump": {
+    "self": "<frappe.core.doctype.data_export.exporter.DataExporter object>",
+    "self. add_data": "<bound method DataExporter.add_data of <frappe.c...octype.data_export.exporter.DataExporter object>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/data_export/exporter.py",
+   "func": "build_response",
+   "lines": {
+    "106": "",
+    "107": "\t\tself.add_field_headings()",
+    "108": "\t\tself.add_data()",
+    "109": "\t\tif self.with_data and not self.data:",
+    "110": "\t\t\tfrappe.respond_as_web_page(_('No Data'), _('There is no data to be exported'), indicator_color='orange')"
+   },
+   "lnum": 108
+  },
+  {
+   "call": "(self=<frappe.core.doctype.data_export.exporter.DataExporter object>)",
+   "dump": {
+    "c": "{'doctype': 'Journal Entry Account', 'parentfield': 'accounts'}",
+    "child": "('382f74517f', datetime.datetime(2021, 12, 1, 21, 22, 47, 50950), datetime.datetime(2021, 12, 1, 22, 59, 52, 972317), 'trucpt@draco.biz', 'trucpt@draco.biz', 1, 'ACC-JV-2021-00001', 'accounts', 'Journal Entry', 1, '1111 - Ti\u1ec1n Vi\u1ec7t Nam - Draco', 'Cash', 0.0, None, '', '', 0.0, 'Main - Draco', None, 'VND', ...)",
+    "ci": "0",
+    "rows": "[['', '\"ACC-JV-2021-00001\"', 'Journal Entry', 'ACC-JV-.YYYY.-', 'Fintech Draco Corporation', '06-08-2018', 'Draco', None, None, 0, 'PT20180806-09', '06-08-2018', 'M\u01b0\u1ee3n ti\u1ec1n Ms.Luy\u1ebfn\\n', 580000000.0, 580000000.0, 0.0, 0, None, 'L\u01b0u \u00fd: M\u01b0\u1ee3n ti\u1ec1n Ms.Luy\u1ebfn\\n\\nTHam chi\u1ebfu # PT20180806-09 \u0111\u01b0\u1ee3c \u0111\u1eb7t k\u1ef3 h\u1ea1n 06-08-2018', None, ...]]",
+    "self": "<frappe.core.doctype.data_export.exporter.DataExporter object>",
+    "self. add_data_row": "<bound method DataExporter.add_data_row of <frap...octype.data_export.exporter.DataExporter object>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/data_export/exporter.py",
+   "func": "add_data",
+   "lines": {
+    "316": "\t\t\t\t\t)",
+    "317": "\t\t\t\t\tfor ci, child in enumerate(data_row.run()):",
+    "318": "\t\t\t\t\t\tself.add_data_row(rows, c['doctype'], c['parentfield'], child, ci)",
+    "319": "",
+    "320": "\t\t\tfor row in rows:"
+   },
+   "lnum": 318
+  },
+  {
+   "call": "(self=<frappe.core.doctype.data_export.exporter.DataExporter object>, rows=[['', '\"ACC-JV-2021-00001\"', 'Journal Entry', 'ACC-JV-.YYYY.-', 'Fintech Draco Corporation', '06-08-2018', 'Draco', None, None, 0, 'PT20180806-09', '06-08-2018', 'M\u01b0\u1ee3n ti\u1ec1n Ms.Luy\u1ebfn\\n', 580000000.0, 580000000.0, 0.0, 0, None, 'L\u01b0u \u00fd: M\u01b0\u1ee3n ti\u1ec1n Ms.Luy\u1ebfn\\n\\nTHam chi\u1ebfu # PT20180806-09 \u0111\u01b0\u1ee3c \u0111\u1eb7t k\u1ef3 h\u1ea1n 06-08-2018', None, ...]], dt='Journal Entry Account', parentfield='accounts', doc=('382f74517f', datetime.datetime(2021, 12, 1, 21, 22, 47, 50950), datetime.datetime(2021, 12, 1, 22, 59, 52, 972317), 'trucpt@draco.biz', 'trucpt@draco.biz', 1, 'ACC-JV-2021-00001', 'accounts', 'Journal Entry', 1, '1111 - Ti\u1ec1n Vi\u1ec7t Nam - Draco', 'Cash', 0.0, None, '', '', 0.0, 'Main - Draco', None, 'VND', ...), rowidx=0)",
+   "dump": {
+    "d": "undefined",
+    "doc": "('382f74517f', datetime.datetime(2021, 12, 1, 21, 22, 47, 50950), datetime.datetime(2021, 12, 1, 22, 59, 52, 972317), 'trucpt@draco.biz', 'trucpt@draco.biz', 1, 'ACC-JV-2021-00001', 'accounts', 'Journal Entry', 1, '1111 - Ti\u1ec1n Vi\u1ec7t Nam - Draco', 'Cash', 0.0, None, '', '', 0.0, 'Main - Draco', None, 'VND', ...)",
+    "doc.copy": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/data_export/exporter.py",
+   "func": "add_data_row",
+   "lines": {
+    "322": "",
+    "323": "\tdef add_data_row(self, rows, dt, parentfield, doc, rowidx):",
+    "324": "\t\td = doc.copy()",
+    "325": "\t\tmeta = frappe.get_meta(dt)",
+    "326": "\t\tif self.all_doctypes:"
+   },
+   "lnum": 324
+  }
+ ],
+ "locals": {
+  "doc": "('382f74517f', datetime.datetime(2021, 12, 1, 21, 22, 47, 50950), datetime.datetime(2021, 12, 1, 22, 59, 52, 972317), 'trucpt@draco.biz', 'trucpt@draco.biz', 1, 'ACC-JV-2021-00001', 'accounts', 'Journal Entry', 1, '1111 - Ti\u1ec1n Vi\u1ec7t Nam - Draco', 'Cash', 0.0, None, '', '', 0.0, 'Main - Draco', None, 'VND', ...)",
+  "dt": "Journal Entry Account",
+  "parentfield": "accounts",
+  "rowidx": "0",
+  "rows": "[['', '\"ACC-JV-2021-00001\"', 'Journal Entry', 'ACC-JV-.YYYY.-', 'Fintech Draco Corporation', '06-08-2018', 'Draco', None, None, 0, 'PT20180806-09', '06-08-2018', 'M\u01b0\u1ee3n ti\u1ec1n Ms.Luy\u1ebfn\\n', 580000000.0, 580000000.0, 0.0, 0, None, 'L\u01b0u \u00fd: M\u01b0\u1ee3n ti\u1ec1n Ms.Luy\u1ebfn\\n\\nTHam chi\u1ebfu # PT20180806-09 \u0111\u01b0\u1ee3c \u0111\u1eb7t k\u1ef3 h\u1ea1n 06-08-2018', None, ...]]",
+  "self": "<frappe.core.doctype.data_export.exporter.DataExporter object>"
+ },
+ "pyver": "Python 3.8.10: /opt/bench/erpnext/env/bin/python (prefix: /opt/bench/erpnext/env)",
+ "timestamp": "2022-02-14 12:19:32.746425",
+ "traceback": "Traceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/app.py\", line 66, in application\n    response = frappe.api.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/api.py\", line 54, in handle\n    return frappe.handler.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 31, in handle\n    data = execute_cmd(cmd)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 67, in execute_cmd\n    return frappe.call(method, **frappe.form_dict)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 1220, in call\n    return fn(*args, **newargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/core/doctype/data_export/exporter.py\", line 40, in export_data\n    exporter.build_response()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/core/doctype/data_export/exporter.py\", line 108, in build_response\n    self.add_data()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/core/doctype/data_export/exporter.py\", line 318, in add_data\n    self.add_data_row(rows, c['doctype'], c['parentfield'], child, ci)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/core/doctype/data_export/exporter.py\", line 324, in add_data_row\n    d = doc.copy()\nAttributeError: 'tuple' object has no attribute 'copy'\n"
+}

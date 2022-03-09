@@ -1,0 +1,413 @@
+{
+ "etype": "OutgoingEmailError",
+ "evalue": "OutgoingEmailError('Please setup default Email Account from Setup > Email > Email Account')",
+ "exception": {
+  "args": [
+   40,
+   39,
+   80,
+   108,
+   101,
+   97,
+   115,
+   101,
+   32,
+   115,
+   101,
+   116,
+   117,
+   112,
+   32,
+   100,
+   101,
+   102,
+   97,
+   117,
+   108,
+   116,
+   32,
+   69,
+   109,
+   97,
+   105,
+   108,
+   32,
+   65,
+   99,
+   99,
+   111,
+   117,
+   110,
+   116,
+   32,
+   102,
+   114,
+   111,
+   109,
+   32,
+   83,
+   101,
+   116,
+   117,
+   112,
+   32,
+   62,
+   32,
+   69,
+   109,
+   97,
+   105,
+   108,
+   32,
+   62,
+   32,
+   69,
+   109,
+   97,
+   105,
+   108,
+   32,
+   65,
+   99,
+   99,
+   111,
+   117,
+   110,
+   116,
+   39,
+   44,
+   41
+  ],
+  "http_status_code": [
+   53,
+   48,
+   49
+  ],
+  "with_traceback": [
+   60,
+   98,
+   117,
+   105,
+   108,
+   116,
+   45,
+   105,
+   110,
+   32,
+   109,
+   101,
+   116,
+   104,
+   111,
+   100,
+   32,
+   119,
+   105,
+   116,
+   104,
+   95,
+   116,
+   114,
+   97,
+   99,
+   101,
+   98,
+   97,
+   99,
+   107,
+   32,
+   111,
+   102,
+   32,
+   79,
+   117,
+   116,
+   103,
+   111,
+   105,
+   110,
+   103,
+   69,
+   109,
+   97,
+   105,
+   108,
+   69,
+   114,
+   114,
+   111,
+   114,
+   32,
+   111,
+   98,
+   106,
+   101,
+   99,
+   116,
+   62
+  ]
+ },
+ "frames": [
+  {
+   "call": "(request=<Request 'http://drabiz.net:8000/' [POST]>)",
+   "dump": {
+    "frappe. handler": "<module 'frappe.handler' from '/opt/bench/erpnext/apps/frappe/frappe/handler.py'>",
+    "frappe.handler. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "response": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/app.py",
+   "func": "application",
+   "lines": {
+    "61": "",
+    "62": "\t\telif frappe.form_dict.cmd:",
+    "63": "\t\t\tresponse = frappe.handler.handle()",
+    "64": "",
+    "65": "\t\telif request.path.startswith(\"/api/\"):"
+   },
+   "lnum": 63
+  },
+  {
+   "call": "()",
+   "dump": {
+    "cmd": "'frappe.email.doctype.newsletter.newsletter.subscribe'",
+    "data": "None",
+    "global execute_cmd": "<function execute_cmd>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "handle",
+   "lines": {
+    "29": "",
+    "30": "\tif cmd != 'login':",
+    "31": "\t\tdata = execute_cmd(cmd)",
+    "32": "",
+    "33": "\t# data can be an empty string or list which are valid responses"
+   },
+   "lnum": 31
+  },
+  {
+   "call": "(cmd='frappe.email.doctype.newsletter.newsletter.subscribe', from_async=False)",
+   "dump": {
+    "frappe. call": "<function call>",
+    "frappe. form_dict": "{'email': 'kiien@gmail.com', 'cmd': 'frappe.email.doctype.newsletter.newsletter.subscribe'}",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "method": "<function subscribe>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "execute_cmd",
+   "lines": {
+    "65": "\t\tis_valid_http_method(method)",
+    "66": "",
+    "67": "\treturn frappe.call(method, **frappe.form_dict)",
+    "68": "",
+    "69": "def is_valid_http_method(method):"
+   },
+   "lnum": 67
+  },
+  {
+   "call": "(fn=<function subscribe>, *args=(), **kwargs={'cmd': 'frappe.email.doctype.newsletter.newsletter.subscribe', 'email': 'kiien@gmail.com'})",
+   "dump": {
+    "args": "()",
+    "fn": "<function subscribe>",
+    "newargs": "{'email': 'kiien@gmail.com'}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "call",
+   "lines": {
+    "1218": "\tnewargs = get_newargs(fn, kwargs)",
+    "1219": "",
+    "1220": "\treturn fn(*args, **newargs)",
+    "1221": "",
+    "1222": "def get_newargs(fn, kwargs):"
+   },
+   "lnum": 1220
+  },
+  {
+   "call": "(email='kiien@gmail.com', email_group='Website')",
+   "dump": {
+    "content": "'\\n\\t\\t\\t<p>Thank you for your interest in subscribin...2e8290f7194e69bd\">Click here to verify</a></p>\\n\\t\\t'",
+    "email": "'kiien@gmail.com'",
+    "email_subject": "'Confirm Your Email'",
+    "frappe. sendmail": "<function sendmail>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "now": "undefined",
+    "subject": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/newsletter/newsletter.py",
+   "func": "subscribe",
+   "lines": {
+    "286": "\t\t\"\"\".format(*translatable_content)",
+    "287": "",
+    "288": "\tfrappe.sendmail(",
+    "289": "\t\temail,",
+    "290": "\t\tsubject=email_subject,"
+   },
+   "lnum": 288
+  },
+  {
+   "call": "(recipients='kiien@gmail.com', sender='', subject='Confirm Your Email', message='\\n\\t\\t\\t<p>Thank you for your interest in subscribin...2e8290f7194e69bd\">Click here to verify</a></p>\\n\\t\\t', as_markdown=False, delayed=True, reference_doctype=None, reference_name=None, unsubscribe_method=None, unsubscribe_params=None, unsubscribe_message=None, add_unsubscribe_link=1, attachments=None, content='\\n\\t\\t\\t<p>Thank you for your interest in subscribin...2e8290f7194e69bd\">Click here to verify</a></p>\\n\\t\\t', doctype=None, name=None, reply_to=None, queue_separately=False, cc=[], bcc=[], message_id=None, in_reply_to=None, send_after=None, expose_recipients=None, send_priority=1, communication=None, retry=1, now=True, read_receipt=None, is_notification=False, inline_images=None, template=None, args=None, header=None, print_letterhead=False, with_container=False)",
+   "dump": {
+    "builder": "<frappe.email.doctype.email_queue.email_queue.QueueBuilder object>",
+    "builder. process": "<bound method QueueBuilder.process of <frappe.em...ype.email_queue.email_queue.QueueBuilder object>>",
+    "now": "True",
+    "send_now": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "sendmail",
+   "lines": {
+    "560": "",
+    "561": "\t# build email queue and send the email if send_now is True.",
+    "562": "\tbuilder.process(send_now=now)",
+    "563": "",
+    "564": ""
+   },
+   "lnum": 562
+  },
+  {
+   "call": "(self=<frappe.email.doctype.email_queue.email_queue.QueueBuilder object>, send_now=True)",
+   "dump": {
+    "include_recipients": "undefined",
+    "queue_data": "undefined",
+    "self": "<frappe.email.doctype.email_queue.email_queue.QueueBuilder object>",
+    "self. as_dict": "<bound method QueueBuilder.as_dict of <frappe.em...ype.email_queue.email_queue.QueueBuilder object>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py",
+   "func": "process",
+   "lines": {
+    "546": "",
+    "547": "\t\temail_queues = []",
+    "548": "\t\tqueue_data = self.as_dict(include_recipients=False)",
+    "549": "\t\tif not queue_data:",
+    "550": "\t\t\treturn []"
+   },
+   "lnum": 548
+  },
+  {
+   "call": "(self=<frappe.email.doctype.email_queue.email_queue.QueueBuilder object>, include_recipients=False)",
+   "dump": {
+    "email_account": "undefined",
+    "self": "<frappe.email.doctype.email_queue.email_queue.QueueBuilder object>",
+    "self. get_outgoing_email_account": "<bound method QueueBuilder.get_outgoing_email_ac...ype.email_queue.email_queue.QueueBuilder object>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py",
+   "func": "as_dict",
+   "lines": {
+    "566": "",
+    "567": "\tdef as_dict(self, include_recipients=True):",
+    "568": "\t\temail_account = self.get_outgoing_email_account()",
+    "569": "\t\temail_account_name = email_account and email_account.is_exists_in_db() and email_account.name",
+    "570": ""
+   },
+   "lnum": 568
+  },
+  {
+   "call": "(self=<frappe.email.doctype.email_queue.email_queue.QueueBuilder object>)",
+   "dump": {
+    "EmailAccount. find_outgoing": "<bound method EmailAccount.find_outgoing of <cla...ctype.email_account.email_account.EmailAccount'>>",
+    "_raise_error": "undefined",
+    "global EmailAccount": "<class 'frappe.email.doctype.email_account.email_account.EmailAccount'>",
+    "match_by_doctype": "undefined",
+    "match_by_email": "undefined",
+    "self": "<frappe.email.doctype.email_queue.email_queue.QueueBuilder object>",
+    "self. _email_account": "None",
+    "self. _sender": "''",
+    "self. reference_doctype": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py",
+   "func": "get_outgoing_email_account",
+   "lines": {
+    "458": "\t\t\treturn self._email_account",
+    "459": "",
+    "460": "\t\tself._email_account = EmailAccount.find_outgoing(",
+    "461": "\t\t\tmatch_by_doctype=self.reference_doctype, match_by_email=self._sender, _raise_error=True)",
+    "462": "\t\treturn self._email_account"
+   },
+   "lnum": 460
+  },
+  {
+   "call": "(*args=(<class 'frappe.email.doctype.email_account.email_account.EmailAccount'>,), **kwargs={'_raise_error': True, 'match_by_doctype': None, 'match_by_email': ''})",
+   "dump": {
+    "builtin Exception": "<class 'Exception'>",
+    "error_message": "'Please setup default Email Account from Setup > Email > Email Account'",
+    "error_type": "<class 'frappe.exceptions.OutgoingEmailError'>",
+    "frappe. throw": "<function throw>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/utils/error.py",
+   "func": "wrapper_raise_error_on_no_output",
+   "lines": {
+    "230": "",
+    "231": "\t\t\tif (not response) and raise_error:",
+    "232": "\t\t\t\tfrappe.throw(error_message, error_type or Exception)",
+    "233": "\t\t\treturn response",
+    "234": "\t\treturn wrapper_raise_error_on_no_output"
+   },
+   "lnum": 232
+  },
+  {
+   "call": "(msg='Please setup default Email Account from Setup > Email > Email Account', exc=<class 'frappe.exceptions.OutgoingEmailError'>, title=None, is_minimizable=None, wide=None, as_list=False)",
+   "dump": {
+    "as_list": "False",
+    "exc": "<class 'frappe.exceptions.OutgoingEmailError'>",
+    "global msgprint": "<function msgprint>",
+    "indicator": "undefined",
+    "is_minimizable": "None",
+    "msg": "'Please setup default Email Account from Setup > Email > Email Account'",
+    "raise_exception": "undefined",
+    "title": "None",
+    "wide": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "throw",
+   "lines": {
+    "441": "\t:param msg: Message.",
+    "442": "\t:param exc: Exception class. Default `frappe.ValidationError`\"\"\"",
+    "443": "\tmsgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)",
+    "444": "",
+    "445": "def emit_js(js, user=False, **kwargs):"
+   },
+   "lnum": 443
+  },
+  {
+   "call": "(msg='Please setup default Email Account from Setup > Email > Email Account', title=None, raise_exception=<class 'frappe.exceptions.OutgoingEmailError'>, as_table=False, as_list=False, indicator='red', alert=False, primary_action=None, is_minimizable=None, wide=None)",
+   "dump": {
+    "_raise_exception": "<function msgprint.<locals>._raise_exception>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "msgprint",
+   "lines": {
+    "420": "\t\tlocal.response['exc_type'] = raise_exception.__name__",
+    "421": "",
+    "422": "\t_raise_exception()",
+    "423": "",
+    "424": "def clear_messages():"
+   },
+   "lnum": 422
+  },
+  {
+   "call": "()",
+   "dump": {
+    "msg": "'Please setup default Email Account from Setup > Email > Email Account'",
+    "raise_exception": "<class 'frappe.exceptions.OutgoingEmailError'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "_raise_exception",
+   "lines": {
+    "374": "",
+    "375": "\t\t\tif inspect.isclass(raise_exception) and issubclass(raise_exception, Exception):",
+    "376": "\t\t\t\traise raise_exception(msg)",
+    "377": "\t\t\telse:",
+    "378": "\t\t\t\traise ValidationError(msg)"
+   },
+   "lnum": 376
+  }
+ ],
+ "locals": {
+  "inspect": "<module 'inspect' from '/usr/lib/python3.8/inspect.py'>",
+  "msg": "Please setup default Email Account from Setup > Email > Email Account",
+  "raise_exception": "<class 'frappe.exceptions.OutgoingEmailError'>"
+ },
+ "pyver": "Python 3.8.10: /opt/bench/erpnext/env/bin/python (prefix: /opt/bench/erpnext/env)",
+ "timestamp": "2021-12-10 01:22:03.348952",
+ "traceback": "Traceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/app.py\", line 63, in application\n    response = frappe.handler.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 31, in handle\n    data = execute_cmd(cmd)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 67, in execute_cmd\n    return frappe.call(method, **frappe.form_dict)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 1220, in call\n    return fn(*args, **newargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/email/doctype/newsletter/newsletter.py\", line 288, in subscribe\n    frappe.sendmail(\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 562, in sendmail\n    builder.process(send_now=now)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py\", line 548, in process\n    queue_data = self.as_dict(include_recipients=False)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py\", line 568, in as_dict\n    email_account = self.get_outgoing_email_account()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/email/doctype/email_queue/email_queue.py\", line 460, in get_outgoing_email_account\n    self._email_account = EmailAccount.find_outgoing(\n  File \"/opt/bench/erpnext/apps/frappe/frappe/utils/error.py\", line 232, in wrapper_raise_error_on_no_output\n    frappe.throw(error_message, error_type or Exception)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 443, in throw\n    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 422, in msgprint\n    _raise_exception()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 376, in _raise_exception\n    raise raise_exception(msg)\nfrappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account\n"
+}

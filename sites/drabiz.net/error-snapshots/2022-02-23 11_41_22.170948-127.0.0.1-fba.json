@@ -1,0 +1,583 @@
+{
+ "etype": "OperationalError",
+ "evalue": "OperationalError(1054, \"Unknown column 'pan_number' in 'field list'\")",
+ "exception": {
+  "args": [
+   40,
+   49,
+   48,
+   53,
+   52,
+   44,
+   32,
+   34,
+   85,
+   110,
+   107,
+   110,
+   111,
+   119,
+   110,
+   32,
+   99,
+   111,
+   108,
+   117,
+   109,
+   110,
+   32,
+   39,
+   112,
+   97,
+   110,
+   95,
+   110,
+   117,
+   109,
+   98,
+   101,
+   114,
+   39,
+   32,
+   105,
+   110,
+   32,
+   39,
+   102,
+   105,
+   101,
+   108,
+   100,
+   32,
+   108,
+   105,
+   115,
+   116,
+   39,
+   34,
+   41
+  ],
+  "with_traceback": [
+   60,
+   98,
+   117,
+   105,
+   108,
+   116,
+   45,
+   105,
+   110,
+   32,
+   109,
+   101,
+   116,
+   104,
+   111,
+   100,
+   32,
+   119,
+   105,
+   116,
+   104,
+   95,
+   116,
+   114,
+   97,
+   99,
+   101,
+   98,
+   97,
+   99,
+   107,
+   32,
+   111,
+   102,
+   32,
+   79,
+   112,
+   101,
+   114,
+   97,
+   116,
+   105,
+   111,
+   110,
+   97,
+   108,
+   69,
+   114,
+   114,
+   111,
+   114,
+   32,
+   111,
+   98,
+   106,
+   101,
+   99,
+   116,
+   62
+  ]
+ },
+ "frames": [
+  {
+   "call": "(request=<Request 'http://drabiz.net:8000/api/method/frappe.desk.form.save.savedocs' [POST]>)",
+   "dump": {
+    "frappe. api": "<module 'frappe.api' from '/opt/bench/erpnext/apps/frappe/frappe/api.py'>",
+    "frappe.api. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "response": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/app.py",
+   "func": "application",
+   "lines": {
+    "64": "",
+    "65": "\t\telif request.path.startswith(\"/api/\"):",
+    "66": "\t\t\tresponse = frappe.api.handle()",
+    "67": "",
+    "68": "\t\telif request.path.startswith('/backups'):"
+   },
+   "lnum": 66
+  },
+  {
+   "call": "()",
+   "dump": {
+    "frappe. handler": "<module 'frappe.handler' from '/opt/bench/erpnext/apps/frappe/frappe/handler.py'>",
+    "frappe.handler. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/api.py",
+   "func": "handle",
+   "lines": {
+    "52": "\tif call==\"method\":",
+    "53": "\t\tfrappe.local.form_dict.cmd = doctype",
+    "54": "\t\treturn frappe.handler.handle()",
+    "55": "",
+    "56": "\telif call==\"resource\":"
+   },
+   "lnum": 54
+  },
+  {
+   "call": "()",
+   "dump": {
+    "cmd": "'frappe.desk.form.save.savedocs'",
+    "data": "None",
+    "global execute_cmd": "<function execute_cmd>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "handle",
+   "lines": {
+    "29": "",
+    "30": "\tif cmd != 'login':",
+    "31": "\t\tdata = execute_cmd(cmd)",
+    "32": "",
+    "33": "\t# data can be an empty string or list which are valid responses"
+   },
+   "lnum": 31
+  },
+  {
+   "call": "(cmd='frappe.desk.form.save.savedocs', from_async=False)",
+   "dump": {
+    "frappe. call": "<function call>",
+    "frappe. form_dict": "{'doc': '{\"doctype\":\"Tax Exemption 80G Certifica... 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "method": "<function savedocs>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "execute_cmd",
+   "lines": {
+    "65": "\t\tis_valid_http_method(method)",
+    "66": "",
+    "67": "\treturn frappe.call(method, **frappe.form_dict)",
+    "68": "",
+    "69": "def is_valid_http_method(method):"
+   },
+   "lnum": 67
+  },
+  {
+   "call": "(fn=<function savedocs>, *args=(), **kwargs={'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs', 'doc': '{\"doctype\":\"Tax Exemption 80G Certificate\",\"nami...mode_of_payment\":null,\"razorpay_payment_id\":null}'})",
+   "dump": {
+    "args": "()",
+    "fn": "<function savedocs>",
+    "newargs": "{'action': 'Save', 'doc': '{\"doctype\":\"Tax Exemption 80G Certificate\",\"nami...mode_of_payment\":null,\"razorpay_payment_id\":null}'}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "call",
+   "lines": {
+    "1218": "\tnewargs = get_newargs(fn, kwargs)",
+    "1219": "",
+    "1220": "\treturn fn(*args, **newargs)",
+    "1221": "",
+    "1222": "def get_newargs(fn, kwargs):"
+   },
+   "lnum": 1220
+  },
+  {
+   "call": "(doc=<TaxExemption80GCertificate: unsaved>, action='Save')",
+   "dump": {
+    "doc": "<TaxExemption80GCertificate: unsaved>",
+    "doc. save": "<bound method Document.save of <TaxExemption80GCertificate: unsaved>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py",
+   "func": "savedocs",
+   "lines": {
+    "18": "\t\t\tdoc.submit()",
+    "19": "\t\telse:",
+    "20": "\t\t\tdoc.save()",
+    "21": "",
+    "22": "\t\t# update recent documents"
+   },
+   "lnum": 20
+  },
+  {
+   "call": "(self=<TaxExemption80GCertificate: unsaved>, *args=(), **kwargs={})",
+   "dump": {
+    "args": "()",
+    "kwargs": "{}",
+    "self": "<TaxExemption80GCertificate: unsaved>",
+    "self. _save": "<bound method Document._save of <TaxExemption80GCertificate: unsaved>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "save",
+   "lines": {
+    "280": "\tdef save(self, *args, **kwargs):",
+    "281": "\t\t\"\"\"Wrapper for _save\"\"\"",
+    "282": "\t\treturn self._save(*args, **kwargs)",
+    "283": "",
+    "284": "\tdef _save(self, ignore_permissions=None, ignore_version=None):"
+   },
+   "lnum": 282
+  },
+  {
+   "call": "(self=<TaxExemption80GCertificate: unsaved>, ignore_permissions=None, ignore_version=None)",
+   "dump": {
+    "self": "<TaxExemption80GCertificate: unsaved>",
+    "self. insert": "<bound method Document.insert of <TaxExemption80GCertificate: unsaved>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "_save",
+   "lines": {
+    "302": "",
+    "303": "\t\tif self.get(\"__islocal\") or not self.get(\"name\"):",
+    "304": "\t\t\tself.insert()",
+    "305": "\t\t\treturn",
+    "306": ""
+   },
+   "lnum": 304
+  },
+  {
+   "call": "(self=<TaxExemption80GCertificate: unsaved>, ignore_permissions=None, ignore_links=None, ignore_if_duplicate=False, ignore_mandatory=None, set_name=None, set_child_names=True)",
+   "dump": {
+    "self": "<TaxExemption80GCertificate: unsaved>",
+    "self. _validate_links": "<bound method Document._validate_links of <TaxExemption80GCertificate: unsaved>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "insert",
+   "lines": {
+    "227": "\t\tself.check_if_latest()",
+    "228": "\t\tself.run_method(\"before_insert\")",
+    "229": "\t\tself._validate_links()",
+    "230": "\t\tself.set_new_name(set_name=set_name, set_child_names=set_child_names)",
+    "231": "\t\tself.set_parent_in_children()"
+   },
+   "lnum": 229
+  },
+  {
+   "call": "(self=<TaxExemption80GCertificate: unsaved>)",
+   "dump": {
+    "cancelled_links": "undefined",
+    "invalid_links": "undefined",
+    "self": "<TaxExemption80GCertificate: unsaved>",
+    "self. get_invalid_links": "<bound method BaseDocument.get_invalid_links of <TaxExemption80GCertificate: unsaved>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "_validate_links",
+   "lines": {
+    "819": "\t\t\treturn",
+    "820": "",
+    "821": "\t\tinvalid_links, cancelled_links = self.get_invalid_links()",
+    "822": "",
+    "823": "\t\tfor d in self.get_all_children():"
+   },
+   "lnum": 821
+  },
+  {
+   "call": "(self=<TaxExemption80GCertificate: unsaved>, is_submittable=False)",
+   "dump": {
+    "as_dict": "undefined",
+    "docname": "'a'",
+    "doctype": "'Member'",
+    "frappe. db": "<frappe.database.mariadb.database.MariaDBDatabase object>",
+    "frappe.db. get_value": "<bound method Database.get_value of <frappe.database.mariadb.database.MariaDBDatabase object>>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "values": "undefined",
+    "values_to_fetch": "['name', 'member_name', 'email_id', 'pan_number']"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/base_document.py",
+   "func": "get_invalid_links",
+   "lines": {
+    "572": "",
+    "573": "\t\t\t\t\t\t# don't cache if fetching other values too",
+    "574": "\t\t\t\t\t\tvalues = frappe.db.get_value(doctype, docname,",
+    "575": "\t\t\t\t\t\t\tvalues_to_fetch, as_dict=True)",
+    "576": ""
+   },
+   "lnum": 574
+  },
+  {
+   "call": "(self=<frappe.database.mariadb.database.MariaDBDatabase object>, doctype='Member', filters='a', fieldname=['name', 'member_name', 'email_id', 'pan_number'], ignore=None, as_dict=True, debug=False, order_by='KEEP_DEFAULT_ORDERING', cache=False, for_update=False, run=True, pluck=False)",
+   "dump": {
+    "as_dict": "True",
+    "cache": "False",
+    "debug": "False",
+    "doctype": "'Member'",
+    "fieldname": "['name', 'member_name', 'email_id', 'pan_number']",
+    "filters": "'a'",
+    "for_update": "False",
+    "ignore": "None",
+    "order_by": "'KEEP_DEFAULT_ORDERING'",
+    "pluck": "False",
+    "ret": "undefined",
+    "run": "True",
+    "self": "<frappe.database.mariadb.database.MariaDBDatabase object>",
+    "self. get_values": "<bound method Database.get_values of <frappe.database.mariadb.database.MariaDBDatabase object>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/database/database.py",
+   "func": "get_value",
+   "lines": {
+    "363": "\t\t\"\"\"",
+    "364": "",
+    "365": "\t\tret = self.get_values(doctype, filters, fieldname, ignore, as_dict, debug,",
+    "366": "\t\t\torder_by, cache=cache, for_update=for_update, run=run, pluck=pluck)",
+    "367": ""
+   },
+   "lnum": 365
+  },
+  {
+   "call": "(self=<frappe.database.mariadb.database.MariaDBDatabase object>, doctype='Member', filters='a', fieldname=['name', 'member_name', 'email_id', 'pan_number'], ignore=None, as_dict=True, debug=False, order_by='modified', update=None, cache=False, for_update=False, run=True, pluck=False)",
+   "dump": {
+    "as_dict": "True",
+    "debug": "False",
+    "doctype": "'Member'",
+    "fields": "['name', 'member_name', 'email_id', 'pan_number']",
+    "filters": "'a'",
+    "for_update": "False",
+    "order_by": "'modified'",
+    "out": "None",
+    "pluck": "False",
+    "run": "True",
+    "self": "<frappe.database.mariadb.database.MariaDBDatabase object>",
+    "self. _get_values_from_table": "<bound method Database._get_values_from_table of...atabase.mariadb.database.MariaDBDatabase object>>",
+    "update": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/database/database.py",
+   "func": "get_values",
+   "lines": {
+    "412": "\t\t\t\t\tif order_by:",
+    "413": "\t\t\t\t\t\torder_by = \"modified\" if order_by == \"KEEP_DEFAULT_ORDERING\" else order_by",
+    "414": "\t\t\t\t\tout = self._get_values_from_table(",
+    "415": "\t\t\t\t\t\tfields,",
+    "416": "\t\t\t\t\t\tfilters,"
+   },
+   "lnum": 414
+  },
+  {
+   "call": "(self=<frappe.database.mariadb.database.MariaDBDatabase object>, fields=['name', 'member_name', 'email_id', 'pan_number'], filters='a', doctype='Member', as_dict=True, debug=False, order_by='modified', update=None, for_update=False, run=True, pluck=False)",
+   "dump": {
+    "as_dict": "True",
+    "debug": "False",
+    "pluck": "False",
+    "query": "SELECT `name`,`member_name`,`email_id`,`pan_numb...Member` WHERE `name`='a' ORDER BY `modified` DESC",
+    "r": "undefined",
+    "run": "True",
+    "self": "<frappe.database.mariadb.database.MariaDBDatabase object>",
+    "self. sql": "<bound method Database.sql of <frappe.database.mariadb.database.MariaDBDatabase object>>",
+    "update": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/database/database.py",
+   "func": "_get_values_from_table",
+   "lines": {
+    "604": "\t\t\tas_dict = True",
+    "605": "",
+    "606": "\t\tr = self.sql(",
+    "607": "\t\t\tquery, as_dict=as_dict, debug=debug, update=update, run=run, pluck=pluck",
+    "608": "\t\t)"
+   },
+   "lnum": 606
+  },
+  {
+   "call": "(self=<frappe.database.mariadb.database.MariaDBDatabase object>, query=\"SELECT `name`,`member_name`,`email_id`,`pan_numb...Member` WHERE `name`='a' ORDER BY `modified` DESC\", values=(), as_dict=True, as_list=0, formatted=0, debug=False, ignore_ddl=0, as_utf8=0, auto_commit=0, update=None, explain=False, run=True, pluck=False)",
+   "dump": {
+    "query": "\"SELECT `name`,`member_name`,`email_id`,`pan_numb...Member` WHERE `name`='a' ORDER BY `modified` DESC\"",
+    "self": "<frappe.database.mariadb.database.MariaDBDatabase object>",
+    "self. _cursor": "<pymysql.cursors.Cursor object>",
+    "self._cursor. execute": "<bound method Cursor.execute of <pymysql.cursors.Cursor object>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/database/database.py",
+   "func": "sql",
+   "lines": {
+    "153": "",
+    "154": "\t\t\telse:",
+    "155": "\t\t\t\tself._cursor.execute(query)",
+    "156": "",
+    "157": "\t\t\t\tif frappe.flags.in_migrate:"
+   },
+   "lnum": 155
+  },
+  {
+   "call": "(self=<pymysql.cursors.Cursor object>, query=\"SELECT `name`,`member_name`,`email_id`,`pan_numb...Member` WHERE `name`='a' ORDER BY `modified` DESC\", args=None)",
+   "dump": {
+    "query": "\"SELECT `name`,`member_name`,`email_id`,`pan_numb...Member` WHERE `name`='a' ORDER BY `modified` DESC\"",
+    "result": "undefined",
+    "self": "<pymysql.cursors.Cursor object>",
+    "self. _query": "<bound method Cursor._query of <pymysql.cursors.Cursor object>>"
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/cursors.py",
+   "func": "execute",
+   "lines": {
+    "146": "        query = self.mogrify(query, args)",
+    "147": "",
+    "148": "        result = self._query(query)",
+    "149": "        self._executed = query",
+    "150": "        return result"
+   },
+   "lnum": 148
+  },
+  {
+   "call": "(self=<pymysql.cursors.Cursor object>, q=\"SELECT `name`,`member_name`,`email_id`,`pan_numb...Member` WHERE `name`='a' ORDER BY `modified` DESC\")",
+   "dump": {
+    "conn": "<pymysql.connections.Connection object>",
+    "conn. query": "<bound method Connection.query of <pymysql.connections.Connection object>>",
+    "q": "\"SELECT `name`,`member_name`,`email_id`,`pan_numb...Member` WHERE `name`='a' ORDER BY `modified` DESC\""
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/cursors.py",
+   "func": "_query",
+   "lines": {
+    "308": "        self._last_executed = q",
+    "309": "        self._clear_result()",
+    "310": "        conn.query(q)",
+    "311": "        self._do_get_result()",
+    "312": "        return self.rowcount"
+   },
+   "lnum": 310
+  },
+  {
+   "call": "(self=<pymysql.connections.Connection object>, sql=b\"SELECT `name`,`member_name`,`email_id`,`pan_nu...ember` WHERE `name`='a' ORDER BY `modified` DESC\", unbuffered=False)",
+   "dump": {
+    "self": "<pymysql.connections.Connection object>",
+    "self. _affected_rows": "1",
+    "self. _read_query_result": "<bound method Connection._read_query_result of <pymysql.connections.Connection object>>",
+    "unbuffered": "False"
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py",
+   "func": "query",
+   "lines": {
+    "546": "            sql = sql.encode(self.encoding, \"surrogateescape\")",
+    "547": "        self._execute_command(COMMAND.COM_QUERY, sql)",
+    "548": "        self._affected_rows = self._read_query_result(unbuffered=unbuffered)",
+    "549": "        return self._affected_rows",
+    "550": ""
+   },
+   "lnum": 548
+  },
+  {
+   "call": "(self=<pymysql.connections.Connection object>, unbuffered=False)",
+   "dump": {
+    "result": "<pymysql.connections.MySQLResult object>",
+    "result. read": "<bound method MySQLResult.read of <pymysql.connections.MySQLResult object>>"
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py",
+   "func": "_read_query_result",
+   "lines": {
+    "773": "        else:",
+    "774": "            result = MySQLResult(self)",
+    "775": "            result.read()",
+    "776": "        self._result = result",
+    "777": "        if result.server_status is not None:"
+   },
+   "lnum": 775
+  },
+  {
+   "call": "(self=<pymysql.connections.MySQLResult object>)",
+   "dump": {
+    "first_packet": "undefined",
+    "self": "<pymysql.connections.MySQLResult object>",
+    "self. connection": "None",
+    "self.connection._read_packet": "undefined"
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py",
+   "func": "read",
+   "lines": {
+    "1154": "    def read(self):",
+    "1155": "        try:",
+    "1156": "            first_packet = self.connection._read_packet()",
+    "1157": "",
+    "1158": "            if first_packet.is_ok_packet():"
+   },
+   "lnum": 1156
+  },
+  {
+   "call": "(self=<pymysql.connections.Connection object>, packet_type=<class 'pymysql.protocol.MysqlPacket'>)",
+   "dump": {
+    "packet": "<pymysql.protocol.MysqlPacket object>",
+    "packet. raise_for_error": "<bound method MysqlPacket.raise_for_error of <pymysql.protocol.MysqlPacket object>>"
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py",
+   "func": "_read_packet",
+   "lines": {
+    "723": "            if self._result is not None and self._result.unbuffered_active is True:",
+    "724": "                self._result.unbuffered_active = False",
+    "725": "            packet.raise_for_error()",
+    "726": "        return packet",
+    "727": ""
+   },
+   "lnum": 725
+  },
+  {
+   "call": "(self=<pymysql.protocol.MysqlPacket object>)",
+   "dump": {
+    "err. raise_mysql_exception": "<function raise_mysql_exception>",
+    "global err": "<module 'pymysql.err' from '/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/err.py'>",
+    "self": "<pymysql.protocol.MysqlPacket object>",
+    "self. _data": "b\"\\xff\\x1e\\x04#42S22Unknown column 'pan_number' in 'field list'\""
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/protocol.py",
+   "func": "raise_for_error",
+   "lines": {
+    "219": "        if DEBUG:",
+    "220": "            print(\"errno =\", errno)",
+    "221": "        err.raise_mysql_exception(self._data)",
+    "222": "",
+    "223": "    def dump(self):"
+   },
+   "lnum": 221
+  },
+  {
+   "call": "(data=b\"\\xff\\x1e\\x04#42S22Unknown column 'pan_number' in 'field list'\")",
+   "dump": {
+    "errno": "1054",
+    "errorclass": "<class 'pymysql.err.OperationalError'>",
+    "errval": "\"Unknown column 'pan_number' in 'field list'\""
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/err.py",
+   "func": "raise_mysql_exception",
+   "lines": {
+    "139": "    errval = data[9:].decode(\"utf-8\", \"replace\")",
+    "140": "    errorclass = error_map.get(errno)",
+    "141": "    if errorclass is None:",
+    "142": "        errorclass = InternalError if errno < 1000 else OperationalError",
+    "143": "    raise errorclass(errno, errval)"
+   },
+   "lnum": 143
+  }
+ ],
+ "locals": {
+  "data": "b\"\\xff\\x1e\\x04#42S22Unknown column 'pan_number' in 'field list'\"",
+  "errno": "1054",
+  "errorclass": "<class 'pymysql.err.OperationalError'>",
+  "errval": "Unknown column 'pan_number' in 'field list'"
+ },
+ "pyver": "Python 3.8.10: /opt/bench/erpnext/env/bin/python (prefix: /opt/bench/erpnext/env)",
+ "timestamp": "2022-02-23 11:41:22.171069",
+ "traceback": "Traceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/app.py\", line 66, in application\n    response = frappe.api.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/api.py\", line 54, in handle\n    return frappe.handler.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 31, in handle\n    data = execute_cmd(cmd)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 67, in execute_cmd\n    return frappe.call(method, **frappe.form_dict)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 1220, in call\n    return fn(*args, **newargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py\", line 20, in savedocs\n    doc.save()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 282, in save\n    return self._save(*args, **kwargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 304, in _save\n    self.insert()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 229, in insert\n    self._validate_links()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 821, in _validate_links\n    invalid_links, cancelled_links = self.get_invalid_links()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/base_document.py\", line 574, in get_invalid_links\n    values = frappe.db.get_value(doctype, docname,\n  File \"/opt/bench/erpnext/apps/frappe/frappe/database/database.py\", line 365, in get_value\n    ret = self.get_values(doctype, filters, fieldname, ignore, as_dict, debug,\n  File \"/opt/bench/erpnext/apps/frappe/frappe/database/database.py\", line 414, in get_values\n    out = self._get_values_from_table(\n  File \"/opt/bench/erpnext/apps/frappe/frappe/database/database.py\", line 606, in _get_values_from_table\n    r = self.sql(\n  File \"/opt/bench/erpnext/apps/frappe/frappe/database/database.py\", line 155, in sql\n    self._cursor.execute(query)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/cursors.py\", line 148, in execute\n    result = self._query(query)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/cursors.py\", line 310, in _query\n    conn.query(q)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py\", line 548, in query\n    self._affected_rows = self._read_query_result(unbuffered=unbuffered)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py\", line 775, in _read_query_result\n    result.read()\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py\", line 1156, in read\n    first_packet = self.connection._read_packet()\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py\", line 725, in _read_packet\n    packet.raise_for_error()\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/protocol.py\", line 221, in raise_for_error\n    err.raise_mysql_exception(self._data)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/err.py\", line 143, in raise_mysql_exception\n    raise errorclass(errno, errval)\npymysql.err.OperationalError: (1054, \"Unknown column 'pan_number' in 'field list'\")\n"
+}

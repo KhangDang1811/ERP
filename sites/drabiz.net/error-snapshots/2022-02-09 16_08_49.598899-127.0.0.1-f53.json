@@ -1,0 +1,460 @@
+{
+ "etype": "IntegrityError",
+ "evalue": "IntegrityError(1062, \"Duplicate entry 'L\u01b0\u01a1ng c\u1ee9ng' for key 'PRIMARY'\")",
+ "exception": {
+  "args": [
+   40,
+   49,
+   48,
+   54,
+   50,
+   44,
+   32,
+   34,
+   68,
+   117,
+   112,
+   108,
+   105,
+   99,
+   97,
+   116,
+   101,
+   32,
+   101,
+   110,
+   116,
+   114,
+   121,
+   32,
+   39,
+   76,
+   198,
+   176,
+   198,
+   161,
+   110,
+   103,
+   32,
+   99,
+   225,
+   187,
+   169,
+   110,
+   103,
+   39,
+   32,
+   102,
+   111,
+   114,
+   32,
+   107,
+   101,
+   121,
+   32,
+   39,
+   80,
+   82,
+   73,
+   77,
+   65,
+   82,
+   89,
+   39,
+   34,
+   41
+  ],
+  "with_traceback": [
+   60,
+   98,
+   117,
+   105,
+   108,
+   116,
+   45,
+   105,
+   110,
+   32,
+   109,
+   101,
+   116,
+   104,
+   111,
+   100,
+   32,
+   119,
+   105,
+   116,
+   104,
+   95,
+   116,
+   114,
+   97,
+   99,
+   101,
+   98,
+   97,
+   99,
+   107,
+   32,
+   111,
+   102,
+   32,
+   73,
+   110,
+   116,
+   101,
+   103,
+   114,
+   105,
+   116,
+   121,
+   69,
+   114,
+   114,
+   111,
+   114,
+   32,
+   111,
+   98,
+   106,
+   101,
+   99,
+   116,
+   62
+  ]
+ },
+ "frames": [
+  {
+   "call": "(request=<Request 'http://drabiz.net:8000/api/method/frappe.model.rename_doc.update_document_title' [POST]>)",
+   "dump": {
+    "frappe. api": "<module 'frappe.api' from '/opt/bench/erpnext/apps/frappe/frappe/api.py'>",
+    "frappe.api. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "response": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/app.py",
+   "func": "application",
+   "lines": {
+    "64": "",
+    "65": "\t\telif request.path.startswith(\"/api/\"):",
+    "66": "\t\t\tresponse = frappe.api.handle()",
+    "67": "",
+    "68": "\t\telif request.path.startswith('/backups'):"
+   },
+   "lnum": 66
+  },
+  {
+   "call": "()",
+   "dump": {
+    "frappe. handler": "<module 'frappe.handler' from '/opt/bench/erpnext/apps/frappe/frappe/handler.py'>",
+    "frappe.handler. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/api.py",
+   "func": "handle",
+   "lines": {
+    "52": "\tif call==\"method\":",
+    "53": "\t\tfrappe.local.form_dict.cmd = doctype",
+    "54": "\t\treturn frappe.handler.handle()",
+    "55": "",
+    "56": "\telif call==\"resource\":"
+   },
+   "lnum": 54
+  },
+  {
+   "call": "()",
+   "dump": {
+    "cmd": "'frappe.model.rename_doc.update_document_title'",
+    "data": "None",
+    "global execute_cmd": "<function execute_cmd>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "handle",
+   "lines": {
+    "29": "",
+    "30": "\tif cmd != 'login':",
+    "31": "\t\tdata = execute_cmd(cmd)",
+    "32": "",
+    "33": "\t# data can be an empty string or list which are valid responses"
+   },
+   "lnum": 31
+  },
+  {
+   "call": "(cmd='frappe.model.rename_doc.update_document_title', from_async=False)",
+   "dump": {
+    "frappe. call": "<function call>",
+    "frappe. form_dict": "{'doctype': 'Salary Component', 'docname': '7 L\u01b0... 'frappe.model.rename_doc.update_document_title'}",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "method": "<function update_document_title>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "execute_cmd",
+   "lines": {
+    "65": "\t\tis_valid_http_method(method)",
+    "66": "",
+    "67": "\treturn frappe.call(method, **frappe.form_dict)",
+    "68": "",
+    "69": "def is_valid_http_method(method):"
+   },
+   "lnum": 67
+  },
+  {
+   "call": "(fn=<function update_document_title>, *args=(), **kwargs={'cmd': 'frappe.model.rename_doc.update_document_title', 'docname': '7 L\u01b0\u01a1ng c\u1ee9ng', 'doctype': 'Salary Component', 'merge': '0', 'new_name': 'L\u01b0\u01a1ng c\u1ee9ng', 'title_field': ''})",
+   "dump": {
+    "args": "()",
+    "fn": "<function update_document_title>",
+    "newargs": "{'docname': '7 L\u01b0\u01a1ng c\u1ee9ng', 'doctype': 'Salary Component', 'merge': '0', 'new_name': 'L\u01b0\u01a1ng c\u1ee9ng', 'title_field': ''}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "call",
+   "lines": {
+    "1218": "\tnewargs = get_newargs(fn, kwargs)",
+    "1219": "",
+    "1220": "\treturn fn(*args, **newargs)",
+    "1221": "",
+    "1222": "def get_newargs(fn, kwargs):"
+   },
+   "lnum": 1220
+  },
+  {
+   "call": "(doctype='Salary Component', docname='7 L\u01b0\u01a1ng c\u1ee9ng', title_field='', old_title=None, new_title=None, new_name='L\u01b0\u01a1ng c\u1ee9ng', merge='0')",
+   "dump": {
+    "docname": "'7 L\u01b0\u01a1ng c\u1ee9ng'",
+    "doctype": "'Salary Component'",
+    "global rename_doc": "<function rename_doc>",
+    "merge": "'0'",
+    "new": "undefined",
+    "new_name": "'L\u01b0\u01a1ng c\u1ee9ng'",
+    "old": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/rename_doc.py",
+   "func": "update_document_title",
+   "lines": {
+    "17": "\t\"\"\"",
+    "18": "\tif docname and new_name and not docname == new_name:",
+    "19": "\t\tdocname = rename_doc(doctype=doctype, old=docname, new=new_name, merge=merge)",
+    "20": "",
+    "21": "\tif old_title and new_title and not old_title == new_title:"
+   },
+   "lnum": 19
+  },
+  {
+   "call": "(doctype='Salary Component', old='7 L\u01b0\u01a1ng c\u1ee9ng', new='L\u01b0\u01a1ng c\u1ee9ng', force=0, merge=0, ignore_permissions=False, ignore_if_exists=False, show_alert=True)",
+   "dump": {
+    "doctype": "'Salary Component'",
+    "global rename_parent_and_child": "<function rename_parent_and_child>",
+    "meta": "<Meta: Salary Component>",
+    "new": "'L\u01b0\u01a1ng c\u1ee9ng'",
+    "old": "'7 L\u01b0\u01a1ng c\u1ee9ng'"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/rename_doc.py",
+   "func": "rename_doc",
+   "lines": {
+    "59": "",
+    "60": "\tif not merge:",
+    "61": "\t\trename_parent_and_child(doctype, old, new, meta)",
+    "62": "\telse:",
+    "63": "\t\tupdate_assignments(old, new, doctype)"
+   },
+   "lnum": 61
+  },
+  {
+   "call": "(doctype='Salary Component', old='7 L\u01b0\u01a1ng c\u1ee9ng', new='L\u01b0\u01a1ng c\u1ee9ng', meta=<Meta: Salary Component>)",
+   "dump": {
+    "\"UPDATE `tab{0}` SET `name`={1} WHERE `name`={1}\".format": "undefined",
+    "doctype": "'Salary Component'",
+    "frappe. db": "<frappe.database.mariadb.database.MariaDBDatabase object>",
+    "frappe.db. sql": "<bound method Database.sql of <frappe.database.mariadb.database.MariaDBDatabase object>>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "new": "'L\u01b0\u01a1ng c\u1ee9ng'",
+    "old": "'7 L\u01b0\u01a1ng c\u1ee9ng'"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/rename_doc.py",
+   "func": "rename_parent_and_child",
+   "lines": {
+    "192": "def rename_parent_and_child(doctype, old, new, meta):",
+    "193": "\t# rename the doc",
+    "194": "\tfrappe.db.sql(\"UPDATE `tab{0}` SET `name`={1} WHERE `name`={1}\".format(doctype, '%s'), (new, old))",
+    "195": "\tupdate_autoname_field(doctype, new, meta)",
+    "196": "\tupdate_child_docs(old, new, meta)"
+   },
+   "lnum": 194
+  },
+  {
+   "call": "(self=<frappe.database.mariadb.database.MariaDBDatabase object>, query='UPDATE `tabSalary Component` SET `name`=%s WHERE `name`=%s', values=('L\u01b0\u01a1ng c\u1ee9ng', '7 L\u01b0\u01a1ng c\u1ee9ng'), as_dict=0, as_list=0, formatted=0, debug=0, ignore_ddl=0, as_utf8=0, auto_commit=0, update=None, explain=False, run=True, pluck=False)",
+   "dump": {
+    "query": "'UPDATE `tabSalary Component` SET `name`=%s WHERE `name`=%s'",
+    "self": "<frappe.database.mariadb.database.MariaDBDatabase object>",
+    "self. _cursor": "<pymysql.cursors.Cursor object>",
+    "self._cursor. execute": "<bound method Cursor.execute of <pymysql.cursors.Cursor object>>",
+    "values": "('L\u01b0\u01a1ng c\u1ee9ng', '7 L\u01b0\u01a1ng c\u1ee9ng')"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/database/database.py",
+   "func": "sql",
+   "lines": {
+    "147": "\t\t\t\t\tvalues = (values,)",
+    "148": "",
+    "149": "\t\t\t\tself._cursor.execute(query, values)",
+    "150": "",
+    "151": "\t\t\t\tif frappe.flags.in_migrate:"
+   },
+   "lnum": 149
+  },
+  {
+   "call": "(self=<pymysql.cursors.Cursor object>, query=\"UPDATE `tabSalary Component` SET `name`='L\u01b0\u01a1ng c\u1ee9ng' WHERE `name`='7 L\u01b0\u01a1ng c\u1ee9ng'\", args=('L\u01b0\u01a1ng c\u1ee9ng', '7 L\u01b0\u01a1ng c\u1ee9ng'))",
+   "dump": {
+    "query": "\"UPDATE `tabSalary Component` SET `name`='L\u01b0\u01a1ng c\u1ee9ng' WHERE `name`='7 L\u01b0\u01a1ng c\u1ee9ng'\"",
+    "result": "undefined",
+    "self": "<pymysql.cursors.Cursor object>",
+    "self. _query": "<bound method Cursor._query of <pymysql.cursors.Cursor object>>"
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/cursors.py",
+   "func": "execute",
+   "lines": {
+    "146": "        query = self.mogrify(query, args)",
+    "147": "",
+    "148": "        result = self._query(query)",
+    "149": "        self._executed = query",
+    "150": "        return result"
+   },
+   "lnum": 148
+  },
+  {
+   "call": "(self=<pymysql.cursors.Cursor object>, q=\"UPDATE `tabSalary Component` SET `name`='L\u01b0\u01a1ng c\u1ee9ng' WHERE `name`='7 L\u01b0\u01a1ng c\u1ee9ng'\")",
+   "dump": {
+    "conn": "<pymysql.connections.Connection object>",
+    "conn. query": "<bound method Connection.query of <pymysql.connections.Connection object>>",
+    "q": "\"UPDATE `tabSalary Component` SET `name`='L\u01b0\u01a1ng c\u1ee9ng' WHERE `name`='7 L\u01b0\u01a1ng c\u1ee9ng'\""
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/cursors.py",
+   "func": "_query",
+   "lines": {
+    "308": "        self._last_executed = q",
+    "309": "        self._clear_result()",
+    "310": "        conn.query(q)",
+    "311": "        self._do_get_result()",
+    "312": "        return self.rowcount"
+   },
+   "lnum": 310
+  },
+  {
+   "call": "(self=<pymysql.connections.Connection object>, sql=b\"UPDATE `tabSalary Component` SET `name`='L\\xc6...E `name`='7 L\\xc6\\xb0\\xc6\\xa1ng c\\xe1\\xbb\\xa9ng'\", unbuffered=False)",
+   "dump": {
+    "self": "<pymysql.connections.Connection object>",
+    "self. _affected_rows": "1",
+    "self. _read_query_result": "<bound method Connection._read_query_result of <pymysql.connections.Connection object>>",
+    "unbuffered": "False"
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py",
+   "func": "query",
+   "lines": {
+    "546": "            sql = sql.encode(self.encoding, \"surrogateescape\")",
+    "547": "        self._execute_command(COMMAND.COM_QUERY, sql)",
+    "548": "        self._affected_rows = self._read_query_result(unbuffered=unbuffered)",
+    "549": "        return self._affected_rows",
+    "550": ""
+   },
+   "lnum": 548
+  },
+  {
+   "call": "(self=<pymysql.connections.Connection object>, unbuffered=False)",
+   "dump": {
+    "result": "<pymysql.connections.MySQLResult object>",
+    "result. read": "<bound method MySQLResult.read of <pymysql.connections.MySQLResult object>>"
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py",
+   "func": "_read_query_result",
+   "lines": {
+    "773": "        else:",
+    "774": "            result = MySQLResult(self)",
+    "775": "            result.read()",
+    "776": "        self._result = result",
+    "777": "        if result.server_status is not None:"
+   },
+   "lnum": 775
+  },
+  {
+   "call": "(self=<pymysql.connections.MySQLResult object>)",
+   "dump": {
+    "first_packet": "undefined",
+    "self": "<pymysql.connections.MySQLResult object>",
+    "self. connection": "None",
+    "self.connection._read_packet": "undefined"
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py",
+   "func": "read",
+   "lines": {
+    "1154": "    def read(self):",
+    "1155": "        try:",
+    "1156": "            first_packet = self.connection._read_packet()",
+    "1157": "",
+    "1158": "            if first_packet.is_ok_packet():"
+   },
+   "lnum": 1156
+  },
+  {
+   "call": "(self=<pymysql.connections.Connection object>, packet_type=<class 'pymysql.protocol.MysqlPacket'>)",
+   "dump": {
+    "packet": "<pymysql.protocol.MysqlPacket object>",
+    "packet. raise_for_error": "<bound method MysqlPacket.raise_for_error of <pymysql.protocol.MysqlPacket object>>"
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py",
+   "func": "_read_packet",
+   "lines": {
+    "723": "            if self._result is not None and self._result.unbuffered_active is True:",
+    "724": "                self._result.unbuffered_active = False",
+    "725": "            packet.raise_for_error()",
+    "726": "        return packet",
+    "727": ""
+   },
+   "lnum": 725
+  },
+  {
+   "call": "(self=<pymysql.protocol.MysqlPacket object>)",
+   "dump": {
+    "err. raise_mysql_exception": "<function raise_mysql_exception>",
+    "global err": "<module 'pymysql.err' from '/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/err.py'>",
+    "self": "<pymysql.protocol.MysqlPacket object>",
+    "self. _data": "b\"\\xff&\\x04#23000Duplicate entry 'L\\xc6\\xb0\\xc6\\xa1ng c\\xe1\\xbb\\xa9ng' for key 'PRIMARY'\""
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/protocol.py",
+   "func": "raise_for_error",
+   "lines": {
+    "219": "        if DEBUG:",
+    "220": "            print(\"errno =\", errno)",
+    "221": "        err.raise_mysql_exception(self._data)",
+    "222": "",
+    "223": "    def dump(self):"
+   },
+   "lnum": 221
+  },
+  {
+   "call": "(data=b\"\\xff&\\x04#23000Duplicate entry 'L\\xc6\\xb0\\xc6\\xa1ng c\\xe1\\xbb\\xa9ng' for key 'PRIMARY'\")",
+   "dump": {
+    "errno": "1062",
+    "errorclass": "<class 'pymysql.err.IntegrityError'>",
+    "errval": "\"Duplicate entry 'L\u01b0\u01a1ng c\u1ee9ng' for key 'PRIMARY'\""
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/err.py",
+   "func": "raise_mysql_exception",
+   "lines": {
+    "139": "    errval = data[9:].decode(\"utf-8\", \"replace\")",
+    "140": "    errorclass = error_map.get(errno)",
+    "141": "    if errorclass is None:",
+    "142": "        errorclass = InternalError if errno < 1000 else OperationalError",
+    "143": "    raise errorclass(errno, errval)"
+   },
+   "lnum": 143
+  }
+ ],
+ "locals": {
+  "data": "b\"\\xff&\\x04#23000Duplicate entry 'L\\xc6\\xb0\\xc6\\xa1ng c\\xe1\\xbb\\xa9ng' for key 'PRIMARY'\"",
+  "errno": "1062",
+  "errorclass": "<class 'pymysql.err.IntegrityError'>",
+  "errval": "Duplicate entry 'L\u01b0\u01a1ng c\u1ee9ng' for key 'PRIMARY'"
+ },
+ "pyver": "Python 3.8.10: /opt/bench/erpnext/env/bin/python (prefix: /opt/bench/erpnext/env)",
+ "timestamp": "2022-02-09 16:08:49.599319",
+ "traceback": "Traceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/app.py\", line 66, in application\n    response = frappe.api.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/api.py\", line 54, in handle\n    return frappe.handler.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 31, in handle\n    data = execute_cmd(cmd)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 67, in execute_cmd\n    return frappe.call(method, **frappe.form_dict)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 1220, in call\n    return fn(*args, **newargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/rename_doc.py\", line 19, in update_document_title\n    docname = rename_doc(doctype=doctype, old=docname, new=new_name, merge=merge)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/rename_doc.py\", line 61, in rename_doc\n    rename_parent_and_child(doctype, old, new, meta)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/rename_doc.py\", line 194, in rename_parent_and_child\n    frappe.db.sql(\"UPDATE `tab{0}` SET `name`={1} WHERE `name`={1}\".format(doctype, '%s'), (new, old))\n  File \"/opt/bench/erpnext/apps/frappe/frappe/database/database.py\", line 149, in sql\n    self._cursor.execute(query, values)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/cursors.py\", line 148, in execute\n    result = self._query(query)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/cursors.py\", line 310, in _query\n    conn.query(q)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py\", line 548, in query\n    self._affected_rows = self._read_query_result(unbuffered=unbuffered)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py\", line 775, in _read_query_result\n    result.read()\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py\", line 1156, in read\n    first_packet = self.connection._read_packet()\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/connections.py\", line 725, in _read_packet\n    packet.raise_for_error()\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/protocol.py\", line 221, in raise_for_error\n    err.raise_mysql_exception(self._data)\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/pymysql/err.py\", line 143, in raise_mysql_exception\n    raise errorclass(errno, errval)\npymysql.err.IntegrityError: (1062, \"Duplicate entry 'L\u01b0\u01a1ng c\u1ee9ng' for key 'PRIMARY'\")\n"
+}

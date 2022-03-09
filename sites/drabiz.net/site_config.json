@@ -1,0 +1,14 @@
+{
+ "db_name": "_0b91b3d2fb86d229",
+ "db_password": "0kJuc0B2EwN6f1Tl",
+ "db_type": "mariadb",
+ "encryption_key": "DuIea20lmmCSCsx5aMOYx49nn_BjFKGSw02P-Ig2b-I=",
+ "nginx_port": 80,
+ "error_report_email": "kt1@dracorp.com.vn",
+ "user_type_doctype_limit": {
+  "employee_self_service": 10
+ },
+ "domains": [
+  "drabiz.net"
+ ]
+}

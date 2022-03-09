@@ -1,0 +1,487 @@
+{
+ "etype": "TypeError",
+ "evalue": "TypeError(\"can't multiply sequence by non-int of type 'float'\")",
+ "exception": {
+  "args": [
+   40,
+   34,
+   99,
+   97,
+   110,
+   39,
+   116,
+   32,
+   109,
+   117,
+   108,
+   116,
+   105,
+   112,
+   108,
+   121,
+   32,
+   115,
+   101,
+   113,
+   117,
+   101,
+   110,
+   99,
+   101,
+   32,
+   98,
+   121,
+   32,
+   110,
+   111,
+   110,
+   45,
+   105,
+   110,
+   116,
+   32,
+   111,
+   102,
+   32,
+   116,
+   121,
+   112,
+   101,
+   32,
+   39,
+   102,
+   108,
+   111,
+   97,
+   116,
+   39,
+   34,
+   44,
+   41
+  ],
+  "with_traceback": [
+   60,
+   98,
+   117,
+   105,
+   108,
+   116,
+   45,
+   105,
+   110,
+   32,
+   109,
+   101,
+   116,
+   104,
+   111,
+   100,
+   32,
+   119,
+   105,
+   116,
+   104,
+   95,
+   116,
+   114,
+   97,
+   99,
+   101,
+   98,
+   97,
+   99,
+   107,
+   32,
+   111,
+   102,
+   32,
+   84,
+   121,
+   112,
+   101,
+   69,
+   114,
+   114,
+   111,
+   114,
+   32,
+   111,
+   98,
+   106,
+   101,
+   99,
+   116,
+   62
+  ]
+ },
+ "frames": [
+  {
+   "call": "(request=<Request 'http://drabiz.net:8000/api/method/frappe.desk.form.save.savedocs' [POST]>)",
+   "dump": {
+    "frappe. api": "<module 'frappe.api' from '/opt/bench/erpnext/apps/frappe/frappe/api.py'>",
+    "frappe.api. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "response": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/app.py",
+   "func": "application",
+   "lines": {
+    "64": "",
+    "65": "\t\telif request.path.startswith(\"/api/\"):",
+    "66": "\t\t\tresponse = frappe.api.handle()",
+    "67": "",
+    "68": "\t\telif request.path.startswith('/backups'):"
+   },
+   "lnum": 66
+  },
+  {
+   "call": "()",
+   "dump": {
+    "frappe. handler": "<module 'frappe.handler' from '/opt/bench/erpnext/apps/frappe/frappe/handler.py'>",
+    "frappe.handler. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/api.py",
+   "func": "handle",
+   "lines": {
+    "52": "\tif call==\"method\":",
+    "53": "\t\tfrappe.local.form_dict.cmd = doctype",
+    "54": "\t\treturn frappe.handler.handle()",
+    "55": "",
+    "56": "\telif call==\"resource\":"
+   },
+   "lnum": 54
+  },
+  {
+   "call": "()",
+   "dump": {
+    "cmd": "'frappe.desk.form.save.savedocs'",
+    "data": "None",
+    "global execute_cmd": "<function execute_cmd>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "handle",
+   "lines": {
+    "29": "",
+    "30": "\tif cmd != 'login':",
+    "31": "\t\tdata = execute_cmd(cmd)",
+    "32": "",
+    "33": "\t# data can be an empty string or list which are valid responses"
+   },
+   "lnum": 31
+  },
+  {
+   "call": "(cmd='frappe.desk.form.save.savedocs', from_async=False)",
+   "dump": {
+    "frappe. call": "<function call>",
+    "frappe. form_dict": "{'doc': '{\"doctype\":\"Purchase Order\",\"naming_ser... 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "method": "<function savedocs>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "execute_cmd",
+   "lines": {
+    "65": "\t\tis_valid_http_method(method)",
+    "66": "",
+    "67": "\treturn frappe.call(method, **frappe.form_dict)",
+    "68": "",
+    "69": "def is_valid_http_method(method):"
+   },
+   "lnum": 67
+  },
+  {
+   "call": "(fn=<function savedocs>, *args=(), **kwargs={'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs', 'doc': '{\"doctype\":\"Purchase Order\",\"naming_series\":\"PUR...ding_adjustment\":null,\"rounding_adjustment\":null}'})",
+   "dump": {
+    "args": "()",
+    "fn": "<function savedocs>",
+    "newargs": "{'action': 'Save', 'doc': '{\"doctype\":\"Purchase Order\",\"naming_series\":\"PUR...ding_adjustment\":null,\"rounding_adjustment\":null}'}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "call",
+   "lines": {
+    "1218": "\tnewargs = get_newargs(fn, kwargs)",
+    "1219": "",
+    "1220": "\treturn fn(*args, **newargs)",
+    "1221": "",
+    "1222": "def get_newargs(fn, kwargs):"
+   },
+   "lnum": 1220
+  },
+  {
+   "call": "(doc=<PurchaseOrder: PUR-ORD-2022-00028>, action='Save')",
+   "dump": {
+    "doc": "<PurchaseOrder: PUR-ORD-2022-00028>",
+    "doc. save": "<bound method Document.save of <PurchaseOrder: PUR-ORD-2022-00028>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py",
+   "func": "savedocs",
+   "lines": {
+    "18": "\t\t\tdoc.submit()",
+    "19": "\t\telse:",
+    "20": "\t\t\tdoc.save()",
+    "21": "",
+    "22": "\t\t# update recent documents"
+   },
+   "lnum": 20
+  },
+  {
+   "call": "(self=<PurchaseOrder: PUR-ORD-2022-00028>, *args=(), **kwargs={})",
+   "dump": {
+    "args": "()",
+    "kwargs": "{}",
+    "self": "<PurchaseOrder: PUR-ORD-2022-00028>",
+    "self. _save": "<bound method Document._save of <PurchaseOrder: PUR-ORD-2022-00028>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "save",
+   "lines": {
+    "280": "\tdef save(self, *args, **kwargs):",
+    "281": "\t\t\"\"\"Wrapper for _save\"\"\"",
+    "282": "\t\treturn self._save(*args, **kwargs)",
+    "283": "",
+    "284": "\tdef _save(self, ignore_permissions=None, ignore_version=None):"
+   },
+   "lnum": 282
+  },
+  {
+   "call": "(self=<PurchaseOrder: PUR-ORD-2022-00028>, ignore_permissions=None, ignore_version=None)",
+   "dump": {
+    "self": "<PurchaseOrder: PUR-ORD-2022-00028>",
+    "self. insert": "<bound method Document.insert of <PurchaseOrder: PUR-ORD-2022-00028>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "_save",
+   "lines": {
+    "302": "",
+    "303": "\t\tif self.get(\"__islocal\") or not self.get(\"name\"):",
+    "304": "\t\t\tself.insert()",
+    "305": "\t\t\treturn",
+    "306": ""
+   },
+   "lnum": 304
+  },
+  {
+   "call": "(self=<PurchaseOrder: PUR-ORD-2022-00028>, ignore_permissions=None, ignore_links=None, ignore_if_duplicate=False, ignore_mandatory=None, set_name=None, set_child_names=True)",
+   "dump": {
+    "self": "<PurchaseOrder: PUR-ORD-2022-00028>",
+    "self. run_before_save_methods": "<bound method Document.run_before_save_methods of <PurchaseOrder: PUR-ORD-2022-00028>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "insert",
+   "lines": {
+    "233": "",
+    "234": "\t\tself.flags.in_insert = True",
+    "235": "\t\tself.run_before_save_methods()",
+    "236": "\t\tself._validate()",
+    "237": "\t\tself.set_docstatus()"
+   },
+   "lnum": 235
+  },
+  {
+   "call": "(self=<PurchaseOrder: PUR-ORD-2022-00028>)",
+   "dump": {
+    "self": "<PurchaseOrder: PUR-ORD-2022-00028>",
+    "self. run_method": "<bound method Document.run_method of <PurchaseOrder: PUR-ORD-2022-00028>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "run_before_save_methods",
+   "lines": {
+    "963": "",
+    "964": "\t\tif self._action==\"save\":",
+    "965": "\t\t\tself.run_method(\"validate\")",
+    "966": "\t\t\tself.run_method(\"before_save\")",
+    "967": "\t\telif self._action==\"submit\":"
+   },
+   "lnum": 965
+  },
+  {
+   "call": "(self=<PurchaseOrder: PUR-ORD-2022-00028>, method='validate', *args=(), **kwargs={})",
+   "dump": {
+    "Document. hook": "<function Document.hook>",
+    "args": "()",
+    "fn": "<function Document.run_method.<locals>.<lambda>>",
+    "global Document": "<class 'frappe.model.document.Document'>",
+    "kwargs": "{}",
+    "out": "undefined",
+    "self": "<PurchaseOrder: PUR-ORD-2022-00028>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "run_method",
+   "lines": {
+    "860": "",
+    "861": "\t\tfn.__name__ = str(method)",
+    "862": "\t\tout = Document.hook(fn)(self, *args, **kwargs)",
+    "863": "",
+    "864": "\t\tself.run_notifications(method)"
+   },
+   "lnum": 862
+  },
+  {
+   "call": "(self=<PurchaseOrder: PUR-ORD-2022-00028>, *args=(), **kwargs={})",
+   "dump": {
+    "args": "()",
+    "composed": "<function Document.hook.<locals>.compose.<locals>.runner>",
+    "kwargs": "{}",
+    "method": "'validate'",
+    "self": "<PurchaseOrder: PUR-ORD-2022-00028>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "composer",
+   "lines": {
+    "1153": "",
+    "1154": "\t\t\tcomposed = compose(f, *hooks)",
+    "1155": "\t\t\treturn composed(self, method, *args, **kwargs)",
+    "1156": "",
+    "1157": "\t\treturn composer"
+   },
+   "lnum": 1155
+  },
+  {
+   "call": "(self=<PurchaseOrder: PUR-ORD-2022-00028>, method='validate', *args=(), **kwargs={})",
+   "dump": {
+    "add_to_return_value": "<function Document.hook.<locals>.add_to_return_value>",
+    "args": "()",
+    "fn": "<function Document.run_method.<locals>.<lambda>>",
+    "kwargs": "{}",
+    "self": "<PurchaseOrder: PUR-ORD-2022-00028>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "runner",
+   "lines": {
+    "1136": "\t\tdef compose(fn, *hooks):",
+    "1137": "\t\t\tdef runner(self, method, *args, **kwargs):",
+    "1138": "\t\t\t\tadd_to_return_value(self, fn(self, *args, **kwargs))",
+    "1139": "\t\t\t\tfor f in hooks:",
+    "1140": "\t\t\t\t\tadd_to_return_value(self, f(self, method, *args, **kwargs))"
+   },
+   "lnum": 1138
+  },
+  {
+   "call": "(self=<PurchaseOrder: PUR-ORD-2022-00028>, *args=(), **kwargs={})",
+   "dump": {
+    "args": "()",
+    "builtin getattr": "<built-in function getattr>",
+    "fn": "undefined",
+    "kwargs": "{}",
+    "method": "'validate'",
+    "self": "<PurchaseOrder: PUR-ORD-2022-00028>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "<lambda>",
+   "lines": {
+    "854": "",
+    "855": "\t\tif hasattr(self, method) and hasattr(getattr(self, method), \"__call__\"):",
+    "856": "\t\t\tfn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)",
+    "857": "\t\telse:",
+    "858": "\t\t\t# hack! to run hooks even if method does not exist"
+   },
+   "lnum": 856
+  },
+  {
+   "call": "(self=<PurchaseOrder: PUR-ORD-2022-00028>)",
+   "dump": {
+    "). validate": "<bound method PurchaseOrder.validate of <PurchaseOrder: PUR-ORD-2022-00028>>",
+    "builtin super": "<class 'super'>",
+    "global PurchaseOrder": "<class 'erpnext.buying.doctype.purchase_order.purchase_order.PurchaseOrder'>",
+    "self": "<PurchaseOrder: PUR-ORD-2022-00028>"
+   },
+   "file": "/opt/bench/erpnext/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py",
+   "func": "validate",
+   "lines": {
+    "51": "",
+    "52": "\tdef validate(self):",
+    "53": "\t\tsuper(PurchaseOrder, self).validate()",
+    "54": "",
+    "55": "\t\tself.set_status()"
+   },
+   "lnum": 53
+  },
+  {
+   "call": "(self=<PurchaseOrder: PUR-ORD-2022-00028>)",
+   "dump": {
+    "). validate": "<bound method PurchaseOrder.validate of <PurchaseOrder: PUR-ORD-2022-00028>>",
+    "builtin super": "<class 'super'>",
+    "global BuyingController": "<class 'erpnext.controllers.buying_controller.BuyingController'>",
+    "self": "<PurchaseOrder: PUR-ORD-2022-00028>"
+   },
+   "file": "/opt/bench/erpnext/apps/erpnext/erpnext/controllers/buying_controller.py",
+   "func": "validate",
+   "lines": {
+    "29": "",
+    "30": "\tdef validate(self):",
+    "31": "\t\tsuper(BuyingController, self).validate()",
+    "32": "\t\tif getattr(self, \"supplier\", None) and not self.supplier_name:",
+    "33": "\t\t\tself.supplier_name = frappe.db.get_value(\"Supplier\", self.supplier, \"supplier_name\")"
+   },
+   "lnum": 31
+  },
+  {
+   "call": "(self=<PurchaseOrder: PUR-ORD-2022-00028>)",
+   "dump": {
+    "). validate": "<bound method PurchaseOrder.validate of <PurchaseOrder: PUR-ORD-2022-00028>>",
+    "builtin super": "<class 'super'>",
+    "global StockController": "<class 'erpnext.controllers.stock_controller.StockController'>",
+    "self": "<PurchaseOrder: PUR-ORD-2022-00028>"
+   },
+   "file": "/opt/bench/erpnext/apps/erpnext/erpnext/controllers/stock_controller.py",
+   "func": "validate",
+   "lines": {
+    "27": "class StockController(AccountsController):",
+    "28": "\tdef validate(self):",
+    "29": "\t\tsuper(StockController, self).validate()",
+    "30": "\t\tif not self.get('is_return'):",
+    "31": "\t\t\tself.validate_inspection()"
+   },
+   "lnum": 29
+  },
+  {
+   "call": "(self=<PurchaseOrder: PUR-ORD-2022-00028>)",
+   "dump": {
+    "self": "<PurchaseOrder: PUR-ORD-2022-00028>",
+    "self. set_incoming_rate": "<bound method BuyingController.set_incoming_rate of <PurchaseOrder: PUR-ORD-2022-00028>>"
+   },
+   "file": "/opt/bench/erpnext/apps/erpnext/erpnext/controllers/accounts_controller.py",
+   "func": "validate",
+   "lines": {
+    "126": "\t\tself.validate_inter_company_reference()",
+    "127": "",
+    "128": "\t\tself.set_incoming_rate()",
+    "129": "",
+    "130": "\t\tif self.meta.get_field(\"currency\"):"
+   },
+   "lnum": 128
+  },
+  {
+   "call": "(self=<PurchaseOrder: PUR-ORD-2022-00028>)",
+   "dump": {
+    "d": "<PurchaseOrderItem: 815c0e3127 parent=PUR-ORD-2022-00028>",
+    "d. conversion_factor": "'1'",
+    "d. precision": "<bound method BaseDocument.precision of <PurchaseOrderItem: 815c0e3127 parent=PUR-ORD-2022-00028>>",
+    "global flt": "<function flt>",
+    "outgoing_rate": "10000.0",
+    "rate": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/erpnext/erpnext/controllers/buying_controller.py",
+   "func": "set_incoming_rate",
+   "lines": {
+    "247": "\t\t\t\t\t}, raise_error_if_no_rate=False)",
+    "248": "",
+    "249": "\t\t\t\t\trate = flt(outgoing_rate * d.conversion_factor, d.precision('rate'))",
+    "250": "\t\t\t\telse:",
+    "251": "\t\t\t\t\trate = frappe.db.get_value(ref_doctype, d.get(frappe.scrub(ref_doctype)), 'rate')"
+   },
+   "lnum": 249
+  }
+ ],
+ "locals": {
+  "d": "<PurchaseOrderItem: 815c0e3127 parent=PUR-ORD-2022-00028>",
+  "items": "[<PurchaseOrderItem: 815c0e3127 parent=PUR-ORD-2022-00028>]",
+  "outgoing_rate": "10000.0",
+  "ref_doctype": "Sales Order Item",
+  "ref_doctype_map": "{'Purchase Invoice': 'Sales Invoice Item', 'Purchase Order': 'Sales Order Item', 'Purchase Receipt': 'Delivery Note Item'}",
+  "self": "<PurchaseOrder: PUR-ORD-2022-00028>"
+ },
+ "pyver": "Python 3.8.10: /opt/bench/erpnext/env/bin/python (prefix: /opt/bench/erpnext/env)",
+ "timestamp": "2022-03-02 15:23:06.452718",
+ "traceback": "Traceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/app.py\", line 66, in application\n    response = frappe.api.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/api.py\", line 54, in handle\n    return frappe.handler.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 31, in handle\n    data = execute_cmd(cmd)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 67, in execute_cmd\n    return frappe.call(method, **frappe.form_dict)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 1220, in call\n    return fn(*args, **newargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py\", line 20, in savedocs\n    doc.save()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 282, in save\n    return self._save(*args, **kwargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 304, in _save\n    self.insert()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 235, in insert\n    self.run_before_save_methods()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 965, in run_before_save_methods\n    self.run_method(\"validate\")\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 862, in run_method\n    out = Document.hook(fn)(self, *args, **kwargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 1155, in composer\n    return composed(self, method, *args, **kwargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 1138, in runner\n    add_to_return_value(self, fn(self, *args, **kwargs))\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 856, in <lambda>\n    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)\n  File \"/opt/bench/erpnext/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py\", line 53, in validate\n    super(PurchaseOrder, self).validate()\n  File \"/opt/bench/erpnext/apps/erpnext/erpnext/controllers/buying_controller.py\", line 31, in validate\n    super(BuyingController, self).validate()\n  File \"/opt/bench/erpnext/apps/erpnext/erpnext/controllers/stock_controller.py\", line 29, in validate\n    super(StockController, self).validate()\n  File \"/opt/bench/erpnext/apps/erpnext/erpnext/controllers/accounts_controller.py\", line 128, in validate\n    self.set_incoming_rate()\n  File \"/opt/bench/erpnext/apps/erpnext/erpnext/controllers/buying_controller.py\", line 249, in set_incoming_rate\n    rate = flt(outgoing_rate * d.conversion_factor, d.precision('rate'))\nTypeError: can't multiply sequence by non-int of type 'float'\n"
+}

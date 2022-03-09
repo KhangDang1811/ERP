@@ -1,0 +1,11 @@
+2021-12-02 09:52:42,946 INFO scheduler Scheduled Job Complete: frappe.monitor.flush for drabiz.net
+2021-12-02 09:52:43,034 INFO scheduler Scheduled Job Start: frappe.utils.global_search.sync_global_search for drabiz.net
+2021-12-02 09:52:43,261 INFO scheduler Scheduled Job Complete: frappe.utils.global_search.sync_global_search for drabiz.net
+2021-12-02 09:52:43,362 INFO scheduler Scheduled Job Start: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for drabiz.net
+2021-12-02 09:52:43,707 INFO scheduler Scheduled Job Complete: frappe.integrations.doctype.razorpay_settings.razorpay_settings.capture_payment for drabiz.net
+2021-12-02 09:52:43,815 INFO scheduler Scheduled Job Start: frappe.email.doctype.email_account.email_account.notify_unreplied for drabiz.net
+2021-12-02 09:52:44,067 INFO scheduler Scheduled Job Complete: frappe.email.doctype.email_account.email_account.notify_unreplied for drabiz.net
+2021-12-02 09:52:44,143 INFO scheduler Scheduled Job Start: frappe.email.doctype.email_account.email_account.pull for drabiz.net
+2021-12-02 09:52:44,404 INFO scheduler Scheduled Job Complete: frappe.email.doctype.email_account.email_account.pull for drabiz.net
+2021-12-02 09:52:44,475 INFO scheduler Scheduled Job Start: frappe.email.queue.flush for drabiz.net
+2021-12-02 09:52:44,709 INFO scheduler Scheduled Job Complete: frappe.email.queue.flush for drabiz.net

@@ -1,0 +1,685 @@
+{
+ "etype": "ImportError",
+ "evalue": "ImportError(\"Module import failed for  (frappe.core.doctype.. Error: No module named 'frappe.core.doctype.')\")",
+ "exception": {
+  "args": [
+   40,
+   34,
+   77,
+   111,
+   100,
+   117,
+   108,
+   101,
+   32,
+   105,
+   109,
+   112,
+   111,
+   114,
+   116,
+   32,
+   102,
+   97,
+   105,
+   108,
+   101,
+   100,
+   32,
+   102,
+   111,
+   114,
+   32,
+   32,
+   40,
+   102,
+   114,
+   97,
+   112,
+   112,
+   101,
+   46,
+   99,
+   111,
+   114,
+   101,
+   46,
+   100,
+   111,
+   99,
+   116,
+   121,
+   112,
+   101,
+   46,
+   46,
+   32,
+   69,
+   114,
+   114,
+   111,
+   114,
+   58,
+   32,
+   78,
+   111,
+   32,
+   109,
+   111,
+   100,
+   117,
+   108,
+   101,
+   32,
+   110,
+   97,
+   109,
+   101,
+   100,
+   32,
+   39,
+   102,
+   114,
+   97,
+   112,
+   112,
+   101,
+   46,
+   99,
+   111,
+   114,
+   101,
+   46,
+   100,
+   111,
+   99,
+   116,
+   121,
+   112,
+   101,
+   46,
+   39,
+   41,
+   34,
+   44,
+   41
+  ],
+  "msg": [
+   34,
+   77,
+   111,
+   100,
+   117,
+   108,
+   101,
+   32,
+   105,
+   109,
+   112,
+   111,
+   114,
+   116,
+   32,
+   102,
+   97,
+   105,
+   108,
+   101,
+   100,
+   32,
+   102,
+   111,
+   114,
+   32,
+   32,
+   40,
+   102,
+   114,
+   97,
+   112,
+   112,
+   101,
+   46,
+   99,
+   111,
+   114,
+   101,
+   46,
+   100,
+   111,
+   99,
+   116,
+   121,
+   112,
+   101,
+   46,
+   46,
+   32,
+   69,
+   114,
+   114,
+   111,
+   114,
+   58,
+   32,
+   78,
+   111,
+   32,
+   109,
+   111,
+   100,
+   117,
+   108,
+   101,
+   32,
+   110,
+   97,
+   109,
+   101,
+   100,
+   32,
+   39,
+   102,
+   114,
+   97,
+   112,
+   112,
+   101,
+   46,
+   99,
+   111,
+   114,
+   101,
+   46,
+   100,
+   111,
+   99,
+   116,
+   121,
+   112,
+   101,
+   46,
+   39,
+   41,
+   34
+  ],
+  "name": [
+   78,
+   111,
+   110,
+   101
+  ],
+  "path": [
+   78,
+   111,
+   110,
+   101
+  ],
+  "with_traceback": [
+   60,
+   98,
+   117,
+   105,
+   108,
+   116,
+   45,
+   105,
+   110,
+   32,
+   109,
+   101,
+   116,
+   104,
+   111,
+   100,
+   32,
+   119,
+   105,
+   116,
+   104,
+   95,
+   116,
+   114,
+   97,
+   99,
+   101,
+   98,
+   97,
+   99,
+   107,
+   32,
+   111,
+   102,
+   32,
+   73,
+   109,
+   112,
+   111,
+   114,
+   116,
+   69,
+   114,
+   114,
+   111,
+   114,
+   32,
+   111,
+   98,
+   106,
+   101,
+   99,
+   116,
+   62
+  ]
+ },
+ "frames": [
+  {
+   "call": "(request=<Request 'http://drabiz.net:8000/api/method/frappe.desk.form.save.savedocs' [POST]>)",
+   "dump": {
+    "frappe. api": "<module 'frappe.api' from '/opt/bench/erpnext/apps/frappe/frappe/api.py'>",
+    "frappe.api. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "response": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/app.py",
+   "func": "application",
+   "lines": {
+    "64": "",
+    "65": "\t\telif request.path.startswith(\"/api/\"):",
+    "66": "\t\t\tresponse = frappe.api.handle()",
+    "67": "",
+    "68": "\t\telif request.path.startswith('/backups'):"
+   },
+   "lnum": 66
+  },
+  {
+   "call": "()",
+   "dump": {
+    "frappe. handler": "<module 'frappe.handler' from '/opt/bench/erpnext/apps/frappe/frappe/handler.py'>",
+    "frappe.handler. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/api.py",
+   "func": "handle",
+   "lines": {
+    "52": "\tif call==\"method\":",
+    "53": "\t\tfrappe.local.form_dict.cmd = doctype",
+    "54": "\t\treturn frappe.handler.handle()",
+    "55": "",
+    "56": "\telif call==\"resource\":"
+   },
+   "lnum": 54
+  },
+  {
+   "call": "()",
+   "dump": {
+    "cmd": "'frappe.desk.form.save.savedocs'",
+    "data": "None",
+    "global execute_cmd": "<function execute_cmd>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "handle",
+   "lines": {
+    "29": "",
+    "30": "\tif cmd != 'login':",
+    "31": "\t\tdata = execute_cmd(cmd)",
+    "32": "",
+    "33": "\t# data can be an empty string or list which are valid responses"
+   },
+   "lnum": 31
+  },
+  {
+   "call": "(cmd='frappe.desk.form.save.savedocs', from_async=False)",
+   "dump": {
+    "frappe. call": "<function call>",
+    "frappe. form_dict": "{'doc': '{\"doctype\":\"Contact\",\"first_name\":\"Anh ... 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "method": "<function savedocs>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "execute_cmd",
+   "lines": {
+    "65": "\t\tis_valid_http_method(method)",
+    "66": "",
+    "67": "\treturn frappe.call(method, **frappe.form_dict)",
+    "68": "",
+    "69": "def is_valid_http_method(method):"
+   },
+   "lnum": 67
+  },
+  {
+   "call": "(fn=<function savedocs>, *args=(), **kwargs={'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs', 'doc': '{\"doctype\":\"Contact\",\"first_name\":\"Anh A\",\"middl...ng_contact\":0,\"department\":null,\"unsubscribed\":0}'})",
+   "dump": {
+    "args": "()",
+    "fn": "<function savedocs>",
+    "newargs": "{'action': 'Save', 'doc': '{\"doctype\":\"Contact\",\"first_name\":\"Anh A\",\"middl...ng_contact\":0,\"department\":null,\"unsubscribed\":0}'}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "call",
+   "lines": {
+    "1218": "\tnewargs = get_newargs(fn, kwargs)",
+    "1219": "",
+    "1220": "\treturn fn(*args, **newargs)",
+    "1221": "",
+    "1222": "def get_newargs(fn, kwargs):"
+   },
+   "lnum": 1220
+  },
+  {
+   "call": "(doc=<Contact: Anh A Nguy\u1ec5n->, action='Save')",
+   "dump": {
+    "doc": "<Contact: Anh A Nguy\u1ec5n->",
+    "doc. save": "<bound method Document.save of <Contact: Anh A Nguy\u1ec5n->>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py",
+   "func": "savedocs",
+   "lines": {
+    "18": "\t\t\tdoc.submit()",
+    "19": "\t\telse:",
+    "20": "\t\t\tdoc.save()",
+    "21": "",
+    "22": "\t\t# update recent documents"
+   },
+   "lnum": 20
+  },
+  {
+   "call": "(self=<Contact: Anh A Nguy\u1ec5n->, *args=(), **kwargs={})",
+   "dump": {
+    "args": "()",
+    "kwargs": "{}",
+    "self": "<Contact: Anh A Nguy\u1ec5n->",
+    "self. _save": "<bound method Document._save of <Contact: Anh A Nguy\u1ec5n->>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "save",
+   "lines": {
+    "280": "\tdef save(self, *args, **kwargs):",
+    "281": "\t\t\"\"\"Wrapper for _save\"\"\"",
+    "282": "\t\treturn self._save(*args, **kwargs)",
+    "283": "",
+    "284": "\tdef _save(self, ignore_permissions=None, ignore_version=None):"
+   },
+   "lnum": 282
+  },
+  {
+   "call": "(self=<Contact: Anh A Nguy\u1ec5n->, ignore_permissions=None, ignore_version=None)",
+   "dump": {
+    "self": "<Contact: Anh A Nguy\u1ec5n->",
+    "self. insert": "<bound method Document.insert of <Contact: Anh A Nguy\u1ec5n->>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "_save",
+   "lines": {
+    "302": "",
+    "303": "\t\tif self.get(\"__islocal\") or not self.get(\"name\"):",
+    "304": "\t\t\tself.insert()",
+    "305": "\t\t\treturn",
+    "306": ""
+   },
+   "lnum": 304
+  },
+  {
+   "call": "(self=<Contact: Anh A Nguy\u1ec5n->, ignore_permissions=None, ignore_links=None, ignore_if_duplicate=False, ignore_mandatory=None, set_name=None, set_child_names=True)",
+   "dump": {
+    "self": "<Contact: Anh A Nguy\u1ec5n->",
+    "self. run_before_save_methods": "<bound method Document.run_before_save_methods of <Contact: Anh A Nguy\u1ec5n->>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "insert",
+   "lines": {
+    "233": "",
+    "234": "\t\tself.flags.in_insert = True",
+    "235": "\t\tself.run_before_save_methods()",
+    "236": "\t\tself._validate()",
+    "237": "\t\tself.set_docstatus()"
+   },
+   "lnum": 235
+  },
+  {
+   "call": "(self=<Contact: Anh A Nguy\u1ec5n->)",
+   "dump": {
+    "self": "<Contact: Anh A Nguy\u1ec5n->",
+    "self. run_method": "<bound method Document.run_method of <Contact: Anh A Nguy\u1ec5n->>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "run_before_save_methods",
+   "lines": {
+    "963": "",
+    "964": "\t\tif self._action==\"save\":",
+    "965": "\t\t\tself.run_method(\"validate\")",
+    "966": "\t\t\tself.run_method(\"before_save\")",
+    "967": "\t\telif self._action==\"submit\":"
+   },
+   "lnum": 965
+  },
+  {
+   "call": "(self=<Contact: Anh A Nguy\u1ec5n->, method='validate', *args=(), **kwargs={})",
+   "dump": {
+    "Document. hook": "<function Document.hook>",
+    "args": "()",
+    "fn": "<function Document.run_method.<locals>.<lambda>>",
+    "global Document": "<class 'frappe.model.document.Document'>",
+    "kwargs": "{}",
+    "out": "undefined",
+    "self": "<Contact: Anh A Nguy\u1ec5n->"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "run_method",
+   "lines": {
+    "860": "",
+    "861": "\t\tfn.__name__ = str(method)",
+    "862": "\t\tout = Document.hook(fn)(self, *args, **kwargs)",
+    "863": "",
+    "864": "\t\tself.run_notifications(method)"
+   },
+   "lnum": 862
+  },
+  {
+   "call": "(self=<Contact: Anh A Nguy\u1ec5n->, *args=(), **kwargs={})",
+   "dump": {
+    "args": "()",
+    "composed": "<function Document.hook.<locals>.compose.<locals>.runner>",
+    "kwargs": "{}",
+    "method": "'validate'",
+    "self": "<Contact: Anh A Nguy\u1ec5n->"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "composer",
+   "lines": {
+    "1153": "",
+    "1154": "\t\t\tcomposed = compose(f, *hooks)",
+    "1155": "\t\t\treturn composed(self, method, *args, **kwargs)",
+    "1156": "",
+    "1157": "\t\treturn composer"
+   },
+   "lnum": 1155
+  },
+  {
+   "call": "(self=<Contact: Anh A Nguy\u1ec5n->, method='validate', *args=(), **kwargs={})",
+   "dump": {
+    "add_to_return_value": "<function Document.hook.<locals>.add_to_return_value>",
+    "args": "()",
+    "fn": "<function Document.run_method.<locals>.<lambda>>",
+    "kwargs": "{}",
+    "self": "<Contact: Anh A Nguy\u1ec5n->"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "runner",
+   "lines": {
+    "1136": "\t\tdef compose(fn, *hooks):",
+    "1137": "\t\t\tdef runner(self, method, *args, **kwargs):",
+    "1138": "\t\t\t\tadd_to_return_value(self, fn(self, *args, **kwargs))",
+    "1139": "\t\t\t\tfor f in hooks:",
+    "1140": "\t\t\t\t\tadd_to_return_value(self, f(self, method, *args, **kwargs))"
+   },
+   "lnum": 1138
+  },
+  {
+   "call": "(self=<Contact: Anh A Nguy\u1ec5n->, *args=(), **kwargs={})",
+   "dump": {
+    "args": "()",
+    "builtin getattr": "<built-in function getattr>",
+    "fn": "undefined",
+    "kwargs": "{}",
+    "method": "'validate'",
+    "self": "<Contact: Anh A Nguy\u1ec5n->"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "<lambda>",
+   "lines": {
+    "854": "",
+    "855": "\t\tif hasattr(self, method) and hasattr(getattr(self, method), \"__call__\"):",
+    "856": "\t\t\tfn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)",
+    "857": "\t\telse:",
+    "858": "\t\t\t# hack! to run hooks even if method does not exist"
+   },
+   "lnum": 856
+  },
+  {
+   "call": "(self=<Contact: Anh A Nguy\u1ec5n->)",
+   "dump": {
+    "global set_link_title": "<function set_link_title>",
+    "self": "<Contact: Anh A Nguy\u1ec5n->"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/contacts/doctype/contact/contact.py",
+   "func": "validate",
+   "lines": {
+    "31": "\t\tself.set_user()",
+    "32": "",
+    "33": "\t\tset_link_title(self)",
+    "34": "",
+    "35": "\t\tif self.email_id and not self.image:"
+   },
+   "lnum": 33
+  },
+  {
+   "call": "(doc=<Contact: Anh A Nguy\u1ec5n->)",
+   "dump": {
+    "frappe. get_doc": "<function get_doc>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "link": "<DynamicLink: fcd76320f7 parent=Anh A Nguy\u1ec5n->",
+    "link. link_doctype": "''",
+    "link. link_name": "''",
+    "linked_doc": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/contacts/address_and_contact.py",
+   "func": "set_link_title",
+   "lines": {
+    "177": "\t\treturn",
+    "178": "\tfor link in doc.links:",
+    "179": "\t\tif not link.link_title:",
+    "180": "\t\t\tlinked_doc = frappe.get_doc(link.link_doctype, link.link_name)",
+    "181": "\t\t\tlink.link_title = linked_doc.get_title() or link.link_name"
+   },
+   "lnum": 180
+  },
+  {
+   "call": "(*args=('', ''), **kwargs={})",
+   "dump": {
+    "args": "('', '')",
+    "doc": "undefined",
+    "frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "frappe. model": "<module 'frappe.model' from '/opt/bench/erpnext/apps/frappe/frappe/model/__init__.py'>",
+    "frappe.model. document": "<module 'frappe.model.document' from '/opt/bench/erpnext/apps/frappe/frappe/model/document.py'>",
+    "frappe.model.document. get_doc": "<function get_doc>",
+    "kwargs": "{}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "get_doc",
+   "lines": {
+    "896": "\t\"\"\"",
+    "897": "\timport frappe.model.document",
+    "898": "\tdoc = frappe.model.document.get_doc(*args, **kwargs)",
+    "899": "",
+    "900": "\t# set in cache"
+   },
+   "lnum": 898
+  },
+  {
+   "call": "(*args=('', ''), **kwargs={})",
+   "dump": {
+    "controller": "undefined",
+    "doctype": "''",
+    "global get_controller": "<function get_controller>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/document.py",
+   "func": "get_doc",
+   "lines": {
+    "68": "\t\t\traise ValueError('\"doctype\" is a required key')",
+    "69": "",
+    "70": "\tcontroller = get_controller(doctype)",
+    "71": "\tif controller:",
+    "72": "\t\treturn controller(*args, **kwargs)"
+   },
+   "lnum": 70
+  },
+  {
+   "call": "(doctype='')",
+   "dump": {
+    "_get_controller": "<function get_controller.<locals>._get_controller>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/base_document.py",
+   "func": "get_controller",
+   "lines": {
+    "64": "",
+    "65": "\tif frappe.local.dev_server:",
+    "66": "\t\treturn _get_controller()",
+    "67": "",
+    "68": "\tsite_controllers = frappe.controllers.setdefault(frappe.local.site, {})"
+   },
+   "lnum": 66
+  },
+  {
+   "call": "()",
+   "dump": {
+    "doctype": "''",
+    "global load_doctype_module": "<function load_doctype_module>",
+    "module": "undefined",
+    "module_name": "'Core'"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/model/base_document.py",
+   "func": "_get_controller",
+   "lines": {
+    "50": "\t\t\t\t\traise ImportError('{0}: {1} does not exist in module {2}'.format(doctype, classname, module_path))",
+    "51": "\t\t\telse:",
+    "52": "\t\t\t\tmodule = load_doctype_module(doctype, module_name)",
+    "53": "\t\t\t\tclassname = doctype.replace(\" \", \"\").replace(\"-\", \"\")",
+    "54": ""
+   },
+   "lnum": 52
+  },
+  {
+   "call": "(doctype='', module='Core', prefix='', suffix='')",
+   "dump": {
+    "'Module import failed for {0} ({1})'.format": "undefined",
+    "builtin ImportError": "<class 'ImportError'>",
+    "builtin str": "<class 'str'>",
+    "doctype": "''",
+    "e": "undefined",
+    "module_name": "'frappe.core.doctype..'"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/modules/utils.py",
+   "func": "load_doctype_module",
+   "lines": {
+    "202": "\t\t\tdoctype_python_modules[key] = frappe.get_module(module_name)",
+    "203": "\texcept ImportError as e:",
+    "204": "\t\traise ImportError('Module import failed for {0} ({1})'.format(doctype, module_name + ' Error: ' + str(e)))",
+    "205": "",
+    "206": "\treturn doctype_python_modules[key]"
+   },
+   "lnum": 204
+  }
+ ],
+ "locals": {
+  "app": "frappe",
+  "doctype": "",
+  "key": "('frappe', '', '', '')",
+  "module": "Core",
+  "module_name": "frappe.core.doctype..",
+  "prefix": "",
+  "suffix": ""
+ },
+ "pyver": "Python 3.8.10: /opt/bench/erpnext/env/bin/python (prefix: /opt/bench/erpnext/env)",
+ "timestamp": "2022-03-02 14:24:38.520812",
+ "traceback": "Traceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/modules/utils.py\", line 202, in load_doctype_module\n    doctype_python_modules[key] = frappe.get_module(module_name)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 987, in get_module\n    return importlib.import_module(modulename)\n  File \"/usr/lib/python3.8/importlib/__init__.py\", line 127, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n  File \"<frozen importlib._bootstrap>\", line 1014, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 991, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 961, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 219, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1014, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 991, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 973, in _find_and_load_unlocked\nModuleNotFoundError: No module named 'frappe.core.doctype.'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/app.py\", line 66, in application\n    response = frappe.api.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/api.py\", line 54, in handle\n    return frappe.handler.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 31, in handle\n    data = execute_cmd(cmd)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 67, in execute_cmd\n    return frappe.call(method, **frappe.form_dict)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 1220, in call\n    return fn(*args, **newargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/form/save.py\", line 20, in savedocs\n    doc.save()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 282, in save\n    return self._save(*args, **kwargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 304, in _save\n    self.insert()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 235, in insert\n    self.run_before_save_methods()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 965, in run_before_save_methods\n    self.run_method(\"validate\")\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 862, in run_method\n    out = Document.hook(fn)(self, *args, **kwargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 1155, in composer\n    return composed(self, method, *args, **kwargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 1138, in runner\n    add_to_return_value(self, fn(self, *args, **kwargs))\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 856, in <lambda>\n    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/contacts/doctype/contact/contact.py\", line 33, in validate\n    set_link_title(self)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/contacts/address_and_contact.py\", line 180, in set_link_title\n    linked_doc = frappe.get_doc(link.link_doctype, link.link_name)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 898, in get_doc\n    doc = frappe.model.document.get_doc(*args, **kwargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/document.py\", line 70, in get_doc\n    controller = get_controller(doctype)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/base_document.py\", line 66, in get_controller\n    return _get_controller()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/model/base_document.py\", line 52, in _get_controller\n    module = load_doctype_module(doctype, module_name)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/modules/utils.py\", line 204, in load_doctype_module\n    raise ImportError('Module import failed for {0} ({1})'.format(doctype, module_name + ' Error: ' + str(e)))\nImportError: Module import failed for  (frappe.core.doctype.. Error: No module named 'frappe.core.doctype.')\n"
+}

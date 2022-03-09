@@ -1,0 +1,340 @@
+{
+ "etype": "IndexError",
+ "evalue": "IndexError('string index out of range')",
+ "exception": {
+  "args": [
+   40,
+   39,
+   115,
+   116,
+   114,
+   105,
+   110,
+   103,
+   32,
+   105,
+   110,
+   100,
+   101,
+   120,
+   32,
+   111,
+   117,
+   116,
+   32,
+   111,
+   102,
+   32,
+   114,
+   97,
+   110,
+   103,
+   101,
+   39,
+   44,
+   41
+  ],
+  "with_traceback": [
+   60,
+   98,
+   117,
+   105,
+   108,
+   116,
+   45,
+   105,
+   110,
+   32,
+   109,
+   101,
+   116,
+   104,
+   111,
+   100,
+   32,
+   119,
+   105,
+   116,
+   104,
+   95,
+   116,
+   114,
+   97,
+   99,
+   101,
+   98,
+   97,
+   99,
+   107,
+   32,
+   111,
+   102,
+   32,
+   73,
+   110,
+   100,
+   101,
+   120,
+   69,
+   114,
+   114,
+   111,
+   114,
+   32,
+   111,
+   98,
+   106,
+   101,
+   99,
+   116,
+   62
+  ]
+ },
+ "frames": [
+  {
+   "call": "(request=<Request 'http://drabiz.net:8000/api/method/frappe.desk.search.search_link' [POST]>)",
+   "dump": {
+    "frappe. api": "<module 'frappe.api' from '/opt/bench/erpnext/apps/frappe/frappe/api.py'>",
+    "frappe.api. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "response": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/app.py",
+   "func": "application",
+   "lines": {
+    "64": "",
+    "65": "\t\telif request.path.startswith(\"/api/\"):",
+    "66": "\t\t\tresponse = frappe.api.handle()",
+    "67": "",
+    "68": "\t\telif request.path.startswith('/backups'):"
+   },
+   "lnum": 66
+  },
+  {
+   "call": "()",
+   "dump": {
+    "frappe. handler": "<module 'frappe.handler' from '/opt/bench/erpnext/apps/frappe/frappe/handler.py'>",
+    "frappe.handler. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/api.py",
+   "func": "handle",
+   "lines": {
+    "52": "\tif call==\"method\":",
+    "53": "\t\tfrappe.local.form_dict.cmd = doctype",
+    "54": "\t\treturn frappe.handler.handle()",
+    "55": "",
+    "56": "\telif call==\"resource\":"
+   },
+   "lnum": 54
+  },
+  {
+   "call": "()",
+   "dump": {
+    "cmd": "'frappe.desk.search.search_link'",
+    "data": "None",
+    "global execute_cmd": "<function execute_cmd>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "handle",
+   "lines": {
+    "29": "",
+    "30": "\tif cmd != 'login':",
+    "31": "\t\tdata = execute_cmd(cmd)",
+    "32": "",
+    "33": "\t# data can be an empty string or list which are valid responses"
+   },
+   "lnum": 31
+  },
+  {
+   "call": "(cmd='frappe.desk.search.search_link', from_async=False)",
+   "dump": {
+    "frappe. call": "<function call>",
+    "frappe. form_dict": "{'txt': '', 'doctype': 'Item', 'ignore_user_perm...r\":\"\"}', 'cmd': 'frappe.desk.search.search_link'}",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "method": "<function search_link>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "execute_cmd",
+   "lines": {
+    "65": "\t\tis_valid_http_method(method)",
+    "66": "",
+    "67": "\treturn frappe.call(method, **frappe.form_dict)",
+    "68": "",
+    "69": "def is_valid_http_method(method):"
+   },
+   "lnum": 67
+  },
+  {
+   "call": "(fn=<function search_link>, *args=(), **kwargs={'cmd': 'frappe.desk.search.search_link', 'doctype': 'Item', 'filters': '{\"is_sales_item\":1,\"customer\":\"\"}', 'ignore_user_permissions': '0', 'query': 'erpnext.controllers.queries.item_query', 'reference_doctype': 'Sales Order Item', 'txt': ''})",
+   "dump": {
+    "args": "()",
+    "fn": "<function search_link>",
+    "newargs": "{'doctype': 'Item', 'filters': '{\"is_sales_item\":1,\"customer\":\"\"}', 'ignore_user_permissions': '0', 'query': 'erpnext.controllers.queries.item_query', 'reference_doctype': 'Sales Order Item', 'txt': ''}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "call",
+   "lines": {
+    "1218": "\tnewargs = get_newargs(fn, kwargs)",
+    "1219": "",
+    "1220": "\treturn fn(*args, **newargs)",
+    "1221": "",
+    "1222": "def get_newargs(fn, kwargs):"
+   },
+   "lnum": 1220
+  },
+  {
+   "call": "(doctype='Item', txt='', query='erpnext.controllers.queries.item_query', filters='{\"is_sales_item\":1,\"customer\":\"\"}', page_length=20, searchfield=None, reference_doctype='Sales Order Item', ignore_user_permissions='0')",
+   "dump": {
+    "doctype": "'Item'",
+    "filters": "'{\"is_sales_item\":1,\"customer\":\"\"}'",
+    "global search_widget": "<function search_widget>",
+    "ignore_user_permissions": "'0'",
+    "page_length": "20",
+    "query": "'erpnext.controllers.queries.item_query'",
+    "reference_doctype": "'Sales Order Item'",
+    "searchfield": "None",
+    "txt": "''",
+    "txt. strip": "<built-in method strip of str object>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/search.py",
+   "func": "search_link",
+   "lines": {
+    "50": "@frappe.whitelist()",
+    "51": "def search_link(doctype, txt, query=None, filters=None, page_length=20, searchfield=None, reference_doctype=None, ignore_user_permissions=False):",
+    "52": "\tsearch_widget(doctype, txt.strip(), query, searchfield=searchfield, page_length=page_length, filters=filters, reference_doctype=reference_doctype, ignore_user_permissions=ignore_user_permissions)",
+    "53": "\tfrappe.response['results'] = build_for_autosuggest(frappe.response[\"values\"])",
+    "54": "\tdel frappe.response[\"values\"]"
+   },
+   "lnum": 52
+  },
+  {
+   "call": "(doctype='Item', txt='', query='erpnext.controllers.queries.item_query', searchfield='name', start=0, page_length=20, filters={'customer': '', 'is_sales_item': 1}, filter_fields=None, as_dict=False, reference_doctype='Sales Order Item', ignore_user_permissions='0')",
+   "dump": {
+    "e": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/search.py",
+   "func": "search_widget",
+   "lines": {
+    "86": "\t\t\treturn",
+    "87": "\t\texcept Exception as e:",
+    "88": "\t\t\traise e",
+    "89": "\telif not query and doctype in standard_queries:",
+    "90": "\t\t# from standard queries"
+   },
+   "lnum": 88
+  },
+  {
+   "call": "(doctype='Item', txt='', query='erpnext.controllers.queries.item_query', searchfield='name', start=0, page_length=20, filters={'customer': '', 'is_sales_item': 1}, filter_fields=None, as_dict=False, reference_doctype='Sales Order Item', ignore_user_permissions='0')",
+   "dump": {
+    "as_dict": "False",
+    "doctype": "'Item'",
+    "filters": "{'customer': '', 'is_sales_item': 1}",
+    "frappe. call": "<function call>",
+    "frappe. response": "{'exception': 'IndexError: string index out of r...':\\\\nIndexError: string index out of range\\\\n\"]'}",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "page_length": "20",
+    "query": "'erpnext.controllers.queries.item_query'",
+    "searchfield": "'name'",
+    "start": "0",
+    "txt": "''"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/search.py",
+   "func": "search_widget",
+   "lines": {
+    "76": "\t\ttry:",
+    "77": "\t\t\tis_whitelisted(frappe.get_attr(query))",
+    "78": "\t\t\tfrappe.response[\"values\"] = frappe.call(query, doctype, txt,",
+    "79": "\t\t\t\tsearchfield, start, page_length, filters, as_dict=as_dict)",
+    "80": "\t\texcept frappe.exceptions.PermissionError as e:"
+   },
+   "lnum": 78
+  },
+  {
+   "call": "(fn=<FunctionWrapper at 0x7f3f066204c0 for function>, *args=('Item', '', 'name', 0, 20, {'customer': '', 'is_sales_item': 1}), **kwargs={'as_dict': False})",
+   "dump": {
+    "args": "('Item', '', 'name', 0, 20, {'customer': '', 'is_sales_item': 1})",
+    "fn": "<FunctionWrapper at 0x7f3f066204c0 for function>",
+    "newargs": "{'as_dict': False, 'doctype': 'Item', 'filters': {'customer': '', 'is_sales_item': 1}, 'page_len': 20, 'searchfield': 'name', 'start': 0, 'txt': ''}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "call",
+   "lines": {
+    "1218": "\tnewargs = get_newargs(fn, kwargs)",
+    "1219": "",
+    "1220": "\treturn fn(*args, **newargs)",
+    "1221": "",
+    "1222": "def get_newargs(fn, kwargs):"
+   },
+   "lnum": 1220
+  },
+  {
+   "call": "(fn=<function item_query>, instance=None, args=('Item', '', 'name', 0, 20, {'customer': '', 'is_sales_item': 1}), kwargs={'as_dict': False, 'doctype': 'Item', 'filters': {'customer': '', 'is_sales_item': 1}, 'page_len': 20, 'searchfield': 'name', 'start': 0, 'txt': ''})",
+   "dump": {
+    "fn": "<function item_query>",
+    "kwargs": "{'as_dict': False, 'doctype': 'Item', 'filters': {'customer': '', 'is_sales_item': 1}, 'page_len': 20, 'searchfield': 'name', 'start': 0, 'txt': ''}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/search.py",
+   "func": "validate_and_sanitize_search_inputs",
+   "lines": {
+    "237": "\t\treturn []",
+    "238": "",
+    "239": "\treturn fn(**kwargs)",
+    "240": "",
+    "241": ""
+   },
+   "lnum": 239
+  },
+  {
+   "call": "(doctype='Item', txt='', searchfield='name', start=0, page_len=20, filters={'customer': '', 'is_sales_item': 1}, as_dict=False)",
+   "dump": {
+    ").replace": "undefined",
+    "conditions": "[]",
+    "doctype": "'Item'",
+    "fcond": "undefined",
+    "filters": "{'customer': '', 'is_sales_item': 1}",
+    "global get_filters_cond": "<function get_filters_cond>"
+   },
+   "file": "/opt/bench/erpnext/apps/erpnext/erpnext/controllers/queries.py",
+   "func": "item_query",
+   "lines": {
+    "277": "\t\t\tcolumns=columns,",
+    "278": "\t\t\tscond=searchfields,",
+    "279": "\t\t\tfcond=get_filters_cond(doctype, filters, conditions).replace('%', '%%'),",
+    "280": "\t\t\tmcond=get_match_cond(doctype).replace('%', '%%'),",
+    "281": "\t\t\tdescription_cond = description_cond),"
+   },
+   "lnum": 279
+  },
+  {
+   "call": "(doctype='Item', filters=dict_items([('is_sales_item', 1), ('customer', '')]), conditions=[], ignore_permissions=None, with_match_conditions=False)",
+   "dump": {
+    "builtin isinstance": "<built-in function isinstance>",
+    "builtin str": "<class 'str'>",
+    "f": "('customer', '')"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/reportview.py",
+   "func": "get_filters_cond",
+   "lines": {
+    "569": "\t\t\tflt = []",
+    "570": "\t\t\tfor f in filters:",
+    "571": "\t\t\t\tif isinstance(f[1], str) and f[1][0] == '!':",
+    "572": "\t\t\t\t\tflt.append([doctype, f[0], '!=', f[1][1:]])",
+    "573": "\t\t\t\telif isinstance(f[1], (list, tuple)) and \\"
+   },
+   "lnum": 571
+  }
+ ],
+ "locals": {
+  "conditions": "[]",
+  "doctype": "Item",
+  "f": "('customer', '')",
+  "filters": "dict_items([('is_sales_item', 1), ('customer', '')])",
+  "flt": "[['Item', 'is_sales_item', '=', 1]]",
+  "ignore_permissions": "None",
+  "with_match_conditions": "False"
+ },
+ "pyver": "Python 3.8.10: /opt/bench/erpnext/env/bin/python (prefix: /opt/bench/erpnext/env)",
+ "timestamp": "2022-02-14 10:14:02.709843",
+ "traceback": "Traceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/app.py\", line 66, in application\n    response = frappe.api.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/api.py\", line 54, in handle\n    return frappe.handler.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 31, in handle\n    data = execute_cmd(cmd)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 67, in execute_cmd\n    return frappe.call(method, **frappe.form_dict)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 1220, in call\n    return fn(*args, **newargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/search.py\", line 52, in search_link\n    search_widget(doctype, txt.strip(), query, searchfield=searchfield, page_length=page_length, filters=filters, reference_doctype=reference_doctype, ignore_user_permissions=ignore_user_permissions)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/search.py\", line 88, in search_widget\n    raise e\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/search.py\", line 78, in search_widget\n    frappe.response[\"values\"] = frappe.call(query, doctype, txt,\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 1220, in call\n    return fn(*args, **newargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/search.py\", line 239, in validate_and_sanitize_search_inputs\n    return fn(**kwargs)\n  File \"/opt/bench/erpnext/apps/erpnext/erpnext/controllers/queries.py\", line 279, in item_query\n    fcond=get_filters_cond(doctype, filters, conditions).replace('%', '%%'),\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/reportview.py\", line 571, in get_filters_cond\n    if isinstance(f[1], str) and f[1][0] == '!':\nIndexError: string index out of range\n"
+}

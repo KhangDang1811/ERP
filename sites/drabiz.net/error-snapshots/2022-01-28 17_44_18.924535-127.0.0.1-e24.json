@@ -1,0 +1,412 @@
+{
+ "etype": "TypeError",
+ "evalue": "TypeError('Not allowed source type: \"NoneType\".')",
+ "exception": {
+  "args": [
+   40,
+   39,
+   78,
+   111,
+   116,
+   32,
+   97,
+   108,
+   108,
+   111,
+   119,
+   101,
+   100,
+   32,
+   115,
+   111,
+   117,
+   114,
+   99,
+   101,
+   32,
+   116,
+   121,
+   112,
+   101,
+   58,
+   32,
+   34,
+   78,
+   111,
+   110,
+   101,
+   84,
+   121,
+   112,
+   101,
+   34,
+   46,
+   39,
+   44,
+   41
+  ],
+  "with_traceback": [
+   60,
+   98,
+   117,
+   105,
+   108,
+   116,
+   45,
+   105,
+   110,
+   32,
+   109,
+   101,
+   116,
+   104,
+   111,
+   100,
+   32,
+   119,
+   105,
+   116,
+   104,
+   95,
+   116,
+   114,
+   97,
+   99,
+   101,
+   98,
+   97,
+   99,
+   107,
+   32,
+   111,
+   102,
+   32,
+   84,
+   121,
+   112,
+   101,
+   69,
+   114,
+   114,
+   111,
+   114,
+   32,
+   111,
+   98,
+   106,
+   101,
+   99,
+   116,
+   62
+  ]
+ },
+ "frames": [
+  {
+   "call": "(request=<Request 'http://drabiz.net:8000/api/method/frap...t_name=123&filters=%7B%7D&_=1643363054540' [GET]>)",
+   "dump": {
+    "frappe. api": "<module 'frappe.api' from '/opt/bench/erpnext/apps/frappe/frappe/api.py'>",
+    "frappe.api. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "response": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/app.py",
+   "func": "application",
+   "lines": {
+    "64": "",
+    "65": "\t\telif request.path.startswith(\"/api/\"):",
+    "66": "\t\t\tresponse = frappe.api.handle()",
+    "67": "",
+    "68": "\t\telif request.path.startswith('/backups'):"
+   },
+   "lnum": 66
+  },
+  {
+   "call": "()",
+   "dump": {
+    "frappe. handler": "<module 'frappe.handler' from '/opt/bench/erpnext/apps/frappe/frappe/handler.py'>",
+    "frappe.handler. handle": "<function handle>",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/api.py",
+   "func": "handle",
+   "lines": {
+    "52": "\tif call==\"method\":",
+    "53": "\t\tfrappe.local.form_dict.cmd = doctype",
+    "54": "\t\treturn frappe.handler.handle()",
+    "55": "",
+    "56": "\telif call==\"resource\":"
+   },
+   "lnum": 54
+  },
+  {
+   "call": "()",
+   "dump": {
+    "cmd": "'frappe.desk.query_report.run'",
+    "data": "None",
+    "global execute_cmd": "<function execute_cmd>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "handle",
+   "lines": {
+    "29": "",
+    "30": "\tif cmd != 'login':",
+    "31": "\t\tdata = execute_cmd(cmd)",
+    "32": "",
+    "33": "\t# data can be an empty string or list which are valid responses"
+   },
+   "lnum": 31
+  },
+  {
+   "call": "(cmd='frappe.desk.query_report.run', from_async=False)",
+   "dump": {
+    "frappe. call": "<function call>",
+    "frappe. form_dict": "{'report_name': '123', 'filters': '{}', 'cmd': 'frappe.desk.query_report.run'}",
+    "global frappe": "<module 'frappe' from '/opt/bench/erpnext/apps/frappe/frappe/__init__.py'>",
+    "method": "<function read_only.<locals>.innfn.<locals>.wrapper_fn>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/handler.py",
+   "func": "execute_cmd",
+   "lines": {
+    "65": "\t\tis_valid_http_method(method)",
+    "66": "",
+    "67": "\treturn frappe.call(method, **frappe.form_dict)",
+    "68": "",
+    "69": "def is_valid_http_method(method):"
+   },
+   "lnum": 67
+  },
+  {
+   "call": "(fn=<function read_only.<locals>.innfn.<locals>.wrapper_fn>, *args=(), **kwargs={'cmd': 'frappe.desk.query_report.run', 'filters': '{}', 'report_name': '123'})",
+   "dump": {
+    "args": "()",
+    "fn": "<function read_only.<locals>.innfn.<locals>.wrapper_fn>",
+    "newargs": "{'cmd': 'frappe.desk.query_report.run', 'filters': '{}', 'report_name': '123'}"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "call",
+   "lines": {
+    "1218": "\tnewargs = get_newargs(fn, kwargs)",
+    "1219": "",
+    "1220": "\treturn fn(*args, **newargs)",
+    "1221": "",
+    "1222": "def get_newargs(fn, kwargs):"
+   },
+   "lnum": 1220
+  },
+  {
+   "call": "(*args=(), **kwargs={'cmd': 'frappe.desk.query_report.run', 'filters': '{}', 'report_name': '123'})",
+   "dump": {
+    "args": "()",
+    "fn": "<function run>",
+    "global get_newargs": "<function get_newargs>",
+    "kwargs": "{'cmd': 'frappe.desk.query_report.run', 'filters': '{}', 'report_name': '123'}",
+    "retval": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "wrapper_fn",
+   "lines": {
+    "630": "",
+    "631": "\t\t\ttry:",
+    "632": "\t\t\t\tretval = fn(*args, **get_newargs(fn, kwargs))",
+    "633": "\t\t\tfinally:",
+    "634": "\t\t\t\tif local and hasattr(local, 'primary_db'):"
+   },
+   "lnum": 632
+  },
+  {
+   "call": "(report_name='123', filters='{}', user='lantt@draco.biz', ignore_prepared_report=False, custom_columns=None)",
+   "dump": {
+    "custom_columns": "None",
+    "filters": "'{}'",
+    "global generate_report_result": "<function read_only.<locals>.innfn.<locals>.wrapper_fn>",
+    "report": "<Report: 123>",
+    "result": "None",
+    "user": "'lantt@draco.biz'"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py",
+   "func": "run",
+   "lines": {
+    "239": "\t\tresult = get_prepared_report_result(report, filters, dn, user)",
+    "240": "\telse:",
+    "241": "\t\tresult = generate_report_result(report, filters, user, custom_columns)",
+    "242": "",
+    "243": "\tresult[\"add_total_row\"] = report.add_total_row and not result.get("
+   },
+   "lnum": 241
+  },
+  {
+   "call": "(*args=(<Report: 123>, '{}', 'lantt@draco.biz', None), **kwargs={})",
+   "dump": {
+    "args": "(<Report: 123>, '{}', 'lantt@draco.biz', None)",
+    "fn": "<function generate_report_result>",
+    "global get_newargs": "<function get_newargs>",
+    "kwargs": "{}",
+    "retval": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/__init__.py",
+   "func": "wrapper_fn",
+   "lines": {
+    "630": "",
+    "631": "\t\t\ttry:",
+    "632": "\t\t\t\tretval = fn(*args, **get_newargs(fn, kwargs))",
+    "633": "\t\t\tfinally:",
+    "634": "\t\t\t\tif local and hasattr(local, 'primary_db'):"
+   },
+   "lnum": 632
+  },
+  {
+   "call": "(report=<Report: 123>, filters={}, user='lantt@draco.biz', custom_columns=None)",
+   "dump": {
+    "filters": "{}",
+    "global get_report_result": "<function get_report_result>",
+    "report": "<Report: 123>",
+    "res": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py",
+   "func": "generate_report_result",
+   "lines": {
+    "81": "\t\tfilters = json.loads(filters)",
+    "82": "",
+    "83": "\tres = get_report_result(report, filters) or []",
+    "84": "",
+    "85": "\tcolumns, result, message, chart, report_summary, skip_total_row = ljust_list(res, 6)"
+   },
+   "lnum": 83
+  },
+  {
+   "call": "(report=<Report: 123>, filters={})",
+   "dump": {
+    "filters": "{}",
+    "report": "<Report: 123>",
+    "report. execute_script_report": "<bound method Report.execute_script_report of <Report: 123>>",
+    "res": "undefined"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py",
+   "func": "get_report_result",
+   "lines": {
+    "65": "",
+    "66": "\telif report.report_type == \"Script Report\":",
+    "67": "\t\tres = report.execute_script_report(filters)",
+    "68": "",
+    "69": "\telif report.report_type == \"Custom Report\":"
+   },
+   "lnum": 67
+  },
+  {
+   "call": "(self=<Report: 123>, filters={})",
+   "dump": {
+    "filters": "{}",
+    "res": "[]",
+    "self": "<Report: 123>",
+    "self. execute_script": "<bound method Report.execute_script of <Report: 123>>"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/report/report.py",
+   "func": "execute_script_report",
+   "lines": {
+    "130": "\t\t\tres = self.execute_module(filters)",
+    "131": "\t\telse:",
+    "132": "\t\t\tres = self.execute_script(filters)",
+    "133": "",
+    "134": "\t\t# automatically set as prepared"
+   },
+   "lnum": 132
+  },
+  {
+   "call": "(self=<Report: 123>, filters={})",
+   "dump": {
+    "global safe_exec": "<function safe_exec>",
+    "loc": "{'data': None, 'filters': {}, 'result': None}",
+    "self": "<Report: 123>",
+    "self. report_script": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/core/doctype/report/report.py",
+   "func": "execute_script",
+   "lines": {
+    "150": "\t\t# server script",
+    "151": "\t\tloc = {\"filters\": frappe._dict(filters), 'data':None, 'result':None}",
+    "152": "\t\tsafe_exec(self.report_script, None, loc)",
+    "153": "\t\tif loc['data']:",
+    "154": "\t\t\treturn loc['data']"
+   },
+   "lnum": 152
+  },
+  {
+   "call": "(script=None, _globals=None, _locals={'data': None, 'filters': {}, 'result': None}, restrict_commit_rollback=False)",
+   "dump": {
+    "_locals": "{'data': None, 'filters': {}, 'result': None}",
+    "builtin exec": "<built-in function exec>",
+    "exec_globals": "{'json': {'loads': <function loads at 0x7f3f1094...f069460d0>, 'sorted': <built-in function sorted>}",
+    "global compile_restricted": "<function compile_restricted>",
+    "script": "None"
+   },
+   "file": "/opt/bench/erpnext/apps/frappe/frappe/utils/safe_exec.py",
+   "func": "safe_exec",
+   "lines": {
+    "58": "\t# execute script compiled by RestrictedPython",
+    "59": "\tfrappe.flags.in_safe_exec = True",
+    "60": "\texec(compile_restricted(script), exec_globals, _locals) # pylint: disable=exec-used",
+    "61": "\tfrappe.flags.in_safe_exec = False",
+    "62": ""
+   },
+   "lnum": 60
+  },
+  {
+   "call": "(source=None, filename='<unknown>', mode='exec', flags=0, dont_inherit=False, policy=<class 'RestrictedPython.transformer.RestrictingNodeTransformer'>)",
+   "dump": {
+    "dont_inherit": "False",
+    "filename": "'<unknown>'",
+    "flags": "0",
+    "global _compile_restricted_mode": "<function _compile_restricted_mode>",
+    "mode": "'exec'",
+    "policy": "<class 'RestrictedPython.transformer.RestrictingNodeTransformer'>",
+    "result": "undefined",
+    "source": "None"
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/RestrictedPython/compile.py",
+   "func": "compile_restricted",
+   "lines": {
+    "197": "    \"\"\"",
+    "198": "    if mode in ['exec', 'eval', 'single', 'function']:",
+    "199": "        result = _compile_restricted_mode(",
+    "200": "            source,",
+    "201": "            filename=filename,"
+   },
+   "lnum": 199
+  },
+  {
+   "call": "(source=None, filename='<unknown>', mode='exec', flags=0, dont_inherit=False, policy=<class 'RestrictedPython.transformer.RestrictingNodeTransformer'>)",
+   "dump": {
+    "'\"{0.__class__.__name__}\".'.format": "undefined",
+    "builtin TypeError": "<class 'TypeError'>",
+    "source": "None"
+   },
+   "file": "/opt/bench/erpnext/env/lib/python3.8/site-packages/RestrictedPython/compile.py",
+   "func": "_compile_restricted_mode",
+   "lines": {
+    "45": "            allowed_source_types.append(unicode)  # NOQA: F821,E501  # PY2 only statement, in Python 2 only module",
+    "46": "        if not issubclass(type(source), tuple(allowed_source_types)):",
+    "47": "            raise TypeError('Not allowed source type: '",
+    "48": "                            '\"{0.__class__.__name__}\".'.format(source))",
+    "49": "        c_ast = None"
+   },
+   "lnum": 47
+  }
+ ],
+ "locals": {
+  "allowed_source_types": "[<class 'str'>, <class '_ast.Module'>]",
+  "byte_code": "None",
+  "c_ast": "None",
+  "collected_errors": "[]",
+  "collected_warnings": "[]",
+  "dont_inherit": "False",
+  "filename": "<unknown>",
+  "flags": "0",
+  "mode": "exec",
+  "policy": "<class 'RestrictedPython.transformer.RestrictingNodeTransformer'>",
+  "source": "None",
+  "used_names": "{}"
+ },
+ "pyver": "Python 3.8.10: /opt/bench/erpnext/env/bin/python (prefix: /opt/bench/erpnext/env)",
+ "timestamp": "2022-01-28 17:44:18.924808",
+ "traceback": "Traceback (most recent call last):\n  File \"/opt/bench/erpnext/apps/frappe/frappe/app.py\", line 66, in application\n    response = frappe.api.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/api.py\", line 54, in handle\n    return frappe.handler.handle()\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 31, in handle\n    data = execute_cmd(cmd)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/handler.py\", line 67, in execute_cmd\n    return frappe.call(method, **frappe.form_dict)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 1220, in call\n    return fn(*args, **newargs)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 632, in wrapper_fn\n    retval = fn(*args, **get_newargs(fn, kwargs))\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py\", line 241, in run\n    result = generate_report_result(report, filters, user, custom_columns)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/__init__.py\", line 632, in wrapper_fn\n    retval = fn(*args, **get_newargs(fn, kwargs))\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py\", line 83, in generate_report_result\n    res = get_report_result(report, filters) or []\n  File \"/opt/bench/erpnext/apps/frappe/frappe/desk/query_report.py\", line 67, in get_report_result\n    res = report.execute_script_report(filters)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/core/doctype/report/report.py\", line 132, in execute_script_report\n    res = self.execute_script(filters)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/core/doctype/report/report.py\", line 152, in execute_script\n    safe_exec(self.report_script, None, loc)\n  File \"/opt/bench/erpnext/apps/frappe/frappe/utils/safe_exec.py\", line 60, in safe_exec\n    exec(compile_restricted(script), exec_globals, _locals) # pylint: disable=exec-used\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/RestrictedPython/compile.py\", line 199, in compile_restricted\n    result = _compile_restricted_mode(\n  File \"/opt/bench/erpnext/env/lib/python3.8/site-packages/RestrictedPython/compile.py\", line 47, in _compile_restricted_mode\n    raise TypeError('Not allowed source type: '\nTypeError: Not allowed source type: \"NoneType\".\n"
+}
